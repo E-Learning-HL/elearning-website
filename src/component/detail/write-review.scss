@@ -1,0 +1,323 @@
+@import "../../const/settings.scss";
+.wpWriteReview{
+    .ant-modal-content {
+        border-radius: 16px !important;
+        background-color: #F9F9F9;
+    }
+    .ant-rate-star{
+        background-color: #DDDDDD ;
+        border-radius: 20px;
+    }
+    .ant-rate-star:hover{
+        scale: (1.1);
+        transition: all .3s, outline 0s;
+    }
+    .ant-rate-star-full{
+        background-color: #00C5D7;
+    }
+    .ant-form-item{
+        margin-bottom: 0;
+    }
+    // .ant-form-item-explain-error{
+    //     margin-top: 5px;
+    //     margin-left: 16px;
+    // }
+    .ant-select-dropdown {
+        .rc-virtual-list-holder{
+            // max-height: 100px !important;
+            overflow-y: auto !important;
+        }
+        .ant-select-item-option-content {
+          font-size: 16px;
+          color: var(--color-text, #6884a7);
+        }
+      }
+      
+    .ant-select-dropdown {
+      overflow: auto;
+    }
+    .ant-input-status-error.ant-input{
+        box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+    }
+    .ant-select-status-error.ant-select-multiple{
+        box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+    }
+
+    .title{
+        color: #2A3467;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 150%;
+        margin-bottom: 16px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    .modalTitle{
+            color: #2A3467;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 130%;
+    }
+    .line{
+        height: 1px;
+        width: 100%;
+        background-color: #DDD;
+        margin: 16px 0px 24px 0px;
+    }
+    .wpFormReview{
+        .nameInput{
+            margin-bottom: 16px;
+            input{
+                border: none;
+                border-radius: 8px;
+                background-color: #FFF;
+                padding: 16px;
+                color: #2A3467;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%;
+                &::placeholder{
+                color: #6884A7;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%;
+                }
+            }
+            
+        }
+        .selectedServiceInput{
+            margin-bottom: 30px;
+            .selectedService{
+                // padding: 16px;
+                background-color: #fff;
+                border-radius: 8px;
+                .ant-select-selector::after{
+                    margin: 0 !important;
+                }
+                .ant-select-selector{
+                    border: none !important;
+                    padding: 16px !important;
+                    // height: 24px;
+                    align-items: center;
+                    .ant-select-selection-placeholder{
+                        // padding: 0 !important;
+                        color: #6884A7;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 150%;
+                        margin-bottom: 0;
+                        right: 16px;
+                        left: 16px;
+                    }
+                    .ant-select-selection-item{
+                        color: #2A3467;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
+                }
+            }
+        }
+        .wpCommonRate{
+            margin-bottom: 48px;
+            .wpCriteriaRate{
+                display: flex;
+                flex-direction: column;
+                .criteriaTitle{
+                    color: #2A3467;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 150%;
+                    margin-bottom: 4px;
+                }
+                .wpRatingBar{
+                    display: flex;
+                    align-items: center;
+                    .ant-rate{
+                        align-items: center;
+                        display: flex;
+                        .ant-rate-star{
+                            margin-left: 12px;
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .wpInputReview{
+            margin-bottom: 16px;
+            .input-review{
+                margin-bottom: 8px;
+                .ant-input{
+                    border: none;
+                    border-radius: 8px;
+                    padding: 16px;
+                    color: #2A3467;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 150%;
+                    &::placeholder{
+                        color: #6884A7;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
+                }
+            }
+            .note{
+                color: #6884A7;
+                font-size: 12px;
+                font-style: italic;
+                font-weight: 400;
+                line-height: 150%;
+            }
+        }
+        .wpImageUpload{
+            .ant-upload.ant-upload-select-picture-card:hover{
+                border-color: #00C5D7;
+            }
+            .ant-upload.ant-upload-select-picture-card{
+                width: auto;
+                height: auto;
+                padding : 12px 16px;
+                border-radius: 8px;
+                border: 1px dashed #6884A7;
+                margin-right: 0px;
+                margin-bottom: 24px;
+                .upLoadButton{
+                    display: flex;
+                    align-items: center;
+                    p{
+                        text-wrap: nowrap;
+                        margin-left: 4px;
+                        color:#6884A7;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
+                }
+            }
+            
+        }
+        .wpCommit{
+            margin-bottom: 16px;
+            .ant-checkbox-inner {
+                width: 20px;
+                height: 20px;
+                border: 2px solid #6884a7;
+                border-radius: 5px;
+              }
+              .ant-checkbox-checked .ant-checkbox-inner {
+                background-color: unset;
+                border-color: #00c5d7;
+                &::after {
+                  border-color: #00c5d7;
+                }
+              }
+              .ant-checkbox-checked {
+                &::after {
+                  border-color: #00c5d7;
+                  border-radius: 5px;
+                }
+              }
+              .ant-checkbox + span{
+                padding: 0;
+              }
+            p{  
+                margin-left: 8px;
+                margin-bottom: 0;
+                color: #2A3467;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%;
+                a{
+                    color:#00C5D7;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 150%;
+                }
+            }
+        }
+        .submitButton{
+            width: 100%;
+            height: 56px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+        }
+    }
+}
+
+@include media(md){
+    .wpWriteReview{
+        .ant-modal-content{
+            .ant-modal-body{
+                padding: 14px;
+        }
+            
+        }
+        .ant-select-dropdown {
+            .ant-select-item-option-content {
+              font-size: 14px !important;
+              color: var(--color-text, #6884a7);
+            }
+          }
+        .modalTitle{
+            font-size: 20px !important;
+        }
+        .wpFormReview{
+            .nameInput{
+                input{
+                    font-size: 14px !important;
+                    &::placeholder{
+                        font-size: 14px !important;
+                    }
+                }
+            }
+            .selectedServiceInput{
+                .ant-select-selection-placeholder{
+                    font-size: 14px !important;
+                }
+                .ant-select-selection-item{
+                    font-size: 14px !important;
+                }
+            }
+            .wpCommonRate{
+                .criteriaTitle{
+                    font-size: 14px !important;
+                }
+                .ant-rate-star{
+                    margin-left: 8px !important;
+                }
+            }
+            .wpInputReview{
+                .input-review{
+                    .ant-input{
+                        font-size: 14px !important;
+                        &::placeholder{
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+            .wpImageUpload{
+                .upLoadButton{
+                    p{
+                        font-size: 14px !important;
+                    }
+                }
+            }
+            .wpCommit{
+                p, a{
+                    font-size: 14px !important;
+                }
+            }
+        }
+    }
+}

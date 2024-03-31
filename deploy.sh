@@ -1,0 +1,1 @@
+docker compose -f docker-compose.stg.yml build --progress plain --no-cache web

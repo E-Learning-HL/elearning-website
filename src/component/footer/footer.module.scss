@@ -1,0 +1,149 @@
+@import "../../const/settings.scss";
+.wrapperFooter {
+  background-color: #dbeffa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 65px 135px;
+  position: relative;
+  overflow: hidden;
+  .imgAbove {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  .imgBelow {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+  }
+
+  .wpLogo {
+    .logo {
+      height: 60px;
+      width: fit-content;
+    }
+  }
+  .contentFooter {
+    display: flex;
+    margin: 50px 0;
+    max-width: 1200px;
+    .about {
+      padding-right: 32px;
+    }
+    .socialLink {
+      display: flex;
+      margin-bottom: 24px;
+      button {
+        cursor: pointer;
+        display: flex;
+        background-color: #fff;
+        border: none;
+        border-radius: 40px;
+        padding: 12px;
+        align-items: center;
+        .iconFooter{
+          width: 16px;
+          height: 16px;
+        }
+      }
+      button + button {
+        margin-left: 12px;
+      }
+    }
+    .certificateImage{
+      height: 65px;
+      width: 172px;
+    }
+    .footerHead {
+      color: #2a3467;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .footerIntroduce {
+      color: #6884a7;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 16px;
+      p {
+        margin-bottom: 0;
+      }
+    }
+    .footerAdd {
+      color: #6884a7;
+      font-size: 16px;
+      margin-bottom: 0;
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    .wpFooterLink {
+      .footerLink {
+        margin-bottom: 8px;
+        a {
+          color: #6884a7;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+    .wpFooterSuport {
+      .footerLink {
+        margin-bottom: 12px;
+        a {
+          color: #6884a7;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .line {
+    width: 1170px;
+    height: 1px;
+    background: #fff;
+  }
+  .wpCopyr {
+    color: #6884a7;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 25px;
+  }
+}
+@include media(lg) {
+  .wrapperFooter {
+    padding: 65px 65px;
+  }
+}
+@include media(md) {
+  .wrapperFooter {
+    padding: 50px 15px;
+    .wpLogo {
+      .logo {
+        height: 55px;
+        width: fit-content;
+      }
+    }
+    .imgAbove {
+      top: -40px;
+      right: -110px;
+    }
+    .imgBelow {
+      left: -90px;
+      bottom: -40px;
+    }
+    .contentFooter {
+      margin: 28px 0;
+      a , p{
+        font-size: 14px !important;
+      }
+      .footerHead {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

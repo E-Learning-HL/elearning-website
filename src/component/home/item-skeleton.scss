@@ -1,0 +1,41 @@
+.wpSkeletonItem{
+    // width: 100%;
+    .skeletonImage{
+        width: 100%;
+        height: 320px;
+        border-radius: 16px 16px 0 0;
+    }
+    .wpSkeletonInfo{
+        padding: 24px;
+        display: flex;
+        .skeletonLogo{
+            margin-right: 16px;
+            .ant-skeleton-avatar-circle{
+                height: 80px;
+                width: 80px;
+            }
+        }
+        .wpSkeletonDetails{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .skeletonInput1{
+                margin-bottom: 4px;
+                width: 100%;
+            }
+            .skeletonInput2{
+                margin-bottom: 4px;
+                width: 100%;
+            }
+            .wpSkeletonButton{
+                .skeletonButton1{
+                    margin-right: 8px;
+                    width: 140px;
+                }
+                .skeletonButton2{
+                    width: 140px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,203 @@
+.wp-reviewDentistry {
+  max-width: 1200px;
+  display: flex;
+  margin: 32px auto 64px;
+  flex-direction: column;
+  align-items: center;
+}
+.wp-reviewDentistry h2 {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 52px */
+  text-transform: capitalize;
+  color: #2a3467;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.wp-reviewDentistry .line {
+  height: 6px;
+  width: 120px;
+  border-radius: 3px;
+  background-color: #00c5d7;
+  margin-bottom: 64px;
+}
+.wp-reviewDentistry .wp-content {
+  margin-bottom: 64px;
+  width: 100%;
+}
+.wp-reviewDentistry .wp-content .wp-mainPost {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.wp-reviewDentistry .wp-content .wp-mainPost .wp-mainPostImage {
+  width: 100%;
+  height: 390px;
+  margin-bottom: 24px;
+}
+.wp-reviewDentistry .wp-content .wp-mainPost .wp-mainPostImage .mainPostImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.wp-reviewDentistry .wp-content .wp-mainPost .wp-mainPostImage .ant-image {
+  width: 100%;
+  height: 100%;
+}
+.wp-reviewDentistry .wp-content .wp-mainPost .wp-mainContent .blog {
+  color: #00c5d7;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 8px;
+}
+.wp-reviewDentistry .wp-content .wp-mainPost .wp-mainContent .title {
+  color: #2a3467;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: 16px;
+}
+.wp-reviewDentistry .wp-content .wp-mainPost .wp-mainContent .content {
+  color: #6884a7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost {
+  display: flex;
+  flex-direction: column;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 24px;
+  border-radius: 16px;
+  background: #f9f9f9;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postImage {
+  width: 176px;
+  height: 140px;
+  margin-right: 24px;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postImage .postImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative !important;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postImage .ant-image {
+  width: 176px;
+  height: 100%;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postItemContent {
+  display: flex;
+  flex-direction: column;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postItemContent .postItemBlog {
+  color: #00c5d7;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 8px;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postItemContent .postItemTitle {
+  color: #2a3467;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: 0;
+}
+.wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem:last-child {
+  margin-bottom: 0;
+}
+.wp-reviewDentistry .moreButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 28px;
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid #00c5d7;
+  background-color: #fff;
+  cursor: pointer;
+}
+.wp-reviewDentistry .moreButton p {
+  color: #00c5d7;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 27px */
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .wp-reviewDentistry {
+    padding: 0 15px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .wp-reviewDentistry h2 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .wp-reviewDentistry .line {
+    margin-bottom: 28px;
+  }
+  .wp-reviewDentistry .wp-content {
+    margin-bottom: 28px;
+  }
+  .wp-reviewDentistry .wp-content .wp-mainPost .wp-mainPostImage {
+    width: 100%;
+    height: 230px;
+    margin-bottom: 21px;
+  }
+  .wp-reviewDentistry .wp-content .wp-mainPost .wp-mainContent .blog {
+    font-size: 12px;
+  }
+  .wp-reviewDentistry .wp-content .wp-mainPost .wp-mainContent .title {
+    font-size: 20px;
+  }
+  .wp-reviewDentistry .wp-content .wp-mainPost .wp-mainContent .content {
+    font-size: 14px;
+  }
+  .wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem {
+    padding: 14px;
+  }
+  .wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postImage {
+    width: 120px;
+    height: 96px;
+    margin-right: 14px;
+  }
+  .wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postImage .ant-image {
+    width: 120px;
+  }
+  .wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postItemContent .postItemBlog {
+    font-size: 12px;
+  }
+  .wp-reviewDentistry .wp-content .wp-otherPost .wp-postItem .wp-postItemContent .postItemTitle {
+    color: #2a3467;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 130%;
+  }
+  .wp-reviewDentistry .moreButton {
+    padding: 0 20px;
+    height: 40px;
+  }
+  .wp-reviewDentistry .moreButton p {
+    font-size: 14px;
+  }
+}

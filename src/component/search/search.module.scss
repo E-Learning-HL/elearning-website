@@ -1,0 +1,63 @@
+.searchBanner {
+  background-color: #fff;
+  .nav {
+    padding: 15px 0;
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+  }
+  .mainBanner {
+    background-image: url("../../../public/image/search.png");
+    height: 320px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-size: 40px;
+      font-weight: 600;
+      color: #2a3467;
+    }
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      color: #2a3467;
+    }
+  }
+  .mainBanner h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #2a3467;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .searchBanner {
+    .nav {
+      padding: 15px;
+    }
+    .mainBanner {
+      background-image: url("../../../public/image/searchmobile.png");
+      h2 {
+        font-size: 32px;
+        text-align: center;
+      }
+      p {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .searchBanner {
+    .nav {
+      padding: 15px;
+    }
+  }
+}

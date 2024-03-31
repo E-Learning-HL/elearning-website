@@ -1,0 +1,45 @@
+.wpIntroduce {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+@media only screen and (max-width: 1200px) {
+  .wpIntroduce {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+}
+.wpIntroduce .introduce {
+  max-width: 1200px;
+}
+@media only screen and (max-width: 1200px) {
+  .wpIntroduce .introduce {
+    padding: 0 15px;
+  }
+}
+.wpIntroduce .introduce .title {
+  color: var(--Color-Primary, #2a3467);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 31.2px */
+  margin-bottom: 0;
+}
+.wpIntroduce .introduce .content,
+.wpIntroduce .introduce p {
+  color: var(--Color-Primary, #2a3467);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  margin-bottom: 0;
+}
+.wpIntroduce .introduce .info {
+  margin-left: 40px;
+}
+.wpIntroduce .introduce .info li::marker {
+  color: #2a3467;
+  font-size: 24px;
+}

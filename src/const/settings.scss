@@ -1,0 +1,87 @@
+$ssm: 320px;
+$ssm_360: 360px;
+$ssm_375: 375px;
+$ssm_414: 414px;
+$ssm_430: 430px;
+$sm: 600px;
+$md: 767px;
+$mld_991: 991px;
+$mld: 1072px;
+$lg: 1200px;
+$xl: 1440px;
+// $xsl: 1680px;
+$xxl: 1920px;
+
+@mixin media($media) {
+    @if $media ==ssm {
+        @media only screen and (max-width: $ssm) {
+            @content;
+        }
+    }
+
+    @if $media ==ssm_360 {
+        @media only screen and (max-width: $ssm_360) {
+            @content;
+        }
+    }
+
+    @if $media ==ssm_375 {
+        @media only screen and (max-width: $ssm_375) {
+            @content;
+        }
+    }
+
+    @if $media ==ssm_414 {
+        @media only screen and (max-width: $ssm_414) {
+            @content;
+        }
+    }
+
+    @if $media ==ssm_430 {
+        @media only screen and (max-width: $ssm_430) {
+            @content;
+        }
+    }
+
+    @else if $media ==sm {
+        @media only screen and (max-width: $sm) {
+            @content;
+        }
+    }
+
+    @else if $media ==md {
+        @media only screen and (max-width: $md) {
+            @content;
+        }
+    }
+
+    @else if $media ==mld_991 {
+        @media only screen and (max-width: $mld_991) {
+            @content;
+        }
+    }
+
+    @else if $media ==mld {
+        @media only screen and (max-width: $mld) {
+            @content;
+        }
+    }
+
+    @else if $media ==lg {
+        @media only screen and (max-width: $lg) {
+            @content;
+        }
+    }
+
+    @else if $media ==xl {
+        @media only screen and (max-width: $xl) {
+            @content;
+        }
+    }
+
+    @else if $media ==xxl {
+        @media only screen and (max-width: $xxl) {
+            @content;
+        }
+    }
+}

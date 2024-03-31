@@ -1,0 +1,73 @@
+@import "../../../const/settings.scss";
+.wp-menu-section {
+  background: #fff;
+  border-bottom: 1px solid #bcf5ff;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  z-index: 2;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .item-menu {
+    color: var(--Color-Text, #6884a7);
+    text-align: center;
+    /* H3.5 */
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 31.2px */
+    padding: 12px 24px;
+  }
+  .active {
+    .item-menu {
+      color: var(--Color-Primary, #2a3467);
+      border-bottom: 4px solid #00c5d7;
+    }
+  }
+  .wp-item-menu {
+    // width: 200px !important;
+    display: inline-block;
+    &:hover {
+      color: unset;
+    }
+    &:active {
+      color: unset;
+    }
+  }
+}
+.ant-progress-circle {
+  .ant-progress-inner {
+    height: 150px !important;
+    width: 150px !important;
+  }
+}
+.element {
+  min-height: 100px;
+  background-color: #fff;
+  //   font-size: 45px;
+  //   border-top: 1px solid #000;
+  padding-top: 48px;
+  padding-left: 10px;
+}
+
+.element.no-padding {
+  padding-top: 0;
+}
+
+@include media(lg){
+    .element{
+      padding: 0 !important;
+      margin: 35px 20px 0;
+    }
+}
+@include media(md){
+    .element{
+      padding: 0 !important;
+      margin: 30px 15px 0;
+    }
+    .wp-menu-section{
+      .item-menu{
+        font-size: 20px !important;
+      }
+    }
+}

@@ -1,0 +1,62 @@
+@import "../../../const/settings.scss";
+.wpListBlog {
+  background-color: #fff;
+}
+.nav {
+  padding: 15px 0;
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+.wpBodyListBlog {
+  background-color: #fff;
+  max-width: 1200px;
+  padding: 32px 0 64px;
+  margin: auto;
+  .bodyListBlog {
+    .categoryBox {
+      display: flex;
+      flex-direction: column;
+      .line {
+        width: 100%;
+        height: 1px;
+        background-color: #dddddd;
+        margin: 48px 0 48px;
+      }
+    }
+  }
+}
+.wpBlog {
+  background-color: #fff;
+}
+.wpBodyBlog {
+  background-color: #fff;
+  max-width: 1200px;
+  padding: 32px 0 64px;
+  margin: auto;
+  .bodyBlog {
+    .categoryBox {
+      display: flex;
+      flex-direction: column;
+      .line {
+        width: 100%;
+        height: 1px;
+        background-color: #dddddd;
+        margin: 48px 0 48px;
+      }
+    }
+  }
+}
+@include media(md){
+  .nav{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .wpBodyListBlog{
+    .bodyListBlog{
+      .categoryBox{
+        padding: 0 15px;
+      }
+    }
+  }
+}

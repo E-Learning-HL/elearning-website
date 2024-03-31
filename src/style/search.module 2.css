@@ -1,0 +1,71 @@
+.searchBanner {
+  background-color: #fff;
+}
+.searchBanner .nav {
+  padding: 15px 0;
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+.searchBanner .nav .nav1:hover {
+  color: #00c5d7;
+}
+.searchBanner .nav .nav1 {
+  color: #6884A7;
+}
+.searchBanner .nav .nav2 {
+  color: #DDDDDD;
+  margin: 0 8px;
+}
+.searchBanner .nav .nav3 {
+  color: #6884A7;
+  margin-bottom: 0;
+}
+.searchBanner .mainBanner {
+  background-image: url("../../../public/image/search.png");
+  height: 320px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.searchBanner .mainBanner h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #2A3467;
+}
+.searchBanner .mainBanner p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #2A3467;
+}
+.searchBanner .mainBanner h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #2A3467;
+}
+
+@media only screen and (max-width: 767px) {
+  .searchBanner .nav {
+    padding: 15px;
+  }
+  .searchBanner .mainBanner {
+    background-image: url("../../../public/image/searchmobile.png");
+  }
+  .searchBanner .mainBanner h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+  .searchBanner .mainBanner p {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .searchBanner .nav {
+    padding: 15px;
+  }
+}

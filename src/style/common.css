@@ -1,0 +1,165 @@
+.wp-popover-select {
+  padding-top: 0;
+  z-index: 2;
+}
+@media only screen and (max-width: 600px) {
+  .wp-popover-select {
+    width: calc(100% - 30px);
+  }
+}
+.wp-popover-select .ant-popover-arrow {
+  display: none;
+}
+.wp-popover-select .ant-popover-inner-content {
+  padding: 0;
+  width: 100%;
+}
+.wp-popover-select .ant-popover-inner-content .wp-list-select {
+  max-height: 300px;
+  overflow: auto;
+  width: 100%;
+}
+.wp-popover-select .ant-popover-inner-content .wp-list-select-2 {
+  max-height: 300px;
+  overflow: auto;
+  width: 100%;
+}
+.wp-popover-select .wp-title-select {
+  display: flex;
+  justify-content: space-between;
+}
+.wp-popover-select .wp-title-select .wp-left-select {
+  display: flex;
+}
+.wp-popover-select .wp-item-choose {
+  padding: 0.75rem;
+  color: var(--Color-Text, #6884a7);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  cursor: pointer;
+}
+.wp-popover-select .ant-form-item {
+  padding: 10px;
+  margin-bottom: 0;
+}
+.wp-popover-select .ant-input-affix-wrapper {
+  border-radius: 5px;
+}
+.wp-popover-select .ant-input-affix-wrapper input {
+  font-size: 16px;
+  height: 40px;
+  border-radius: 5px;
+}
+.wp-popover-select .title-select {
+  font-size: 16px;
+  color: var(--Color-Text, #6884a7);
+  font-weight: 500;
+  padding: 7px 7px 7px 0;
+}
+.wp-popover-select .button-check-done {
+  padding: 7px;
+  cursor: pointer;
+}
+.wp-popover-select .button-back {
+  padding: 10px 7px 7px 0;
+  cursor: pointer;
+}
+
+.ant-select-dropdown .ant-select-item-option-content {
+  font-size: 16px;
+  color: var(--color-text, #6884a7);
+}
+
+.ant-pagination .ant-pagination-item {
+  border-radius: 8px;
+  border: 1px solid var(--color-bg-orange, #ddd);
+}
+.ant-pagination .ant-pagination-item a {
+  color: #6884a7;
+}
+.ant-pagination .ant-pagination-item-active {
+  border-color: #2a3467;
+  border-radius: 8px;
+}
+.ant-pagination .ant-pagination-item-active a {
+  color: #2a3467;
+}
+.ant-pagination .ant-pagination-item-link {
+  border-radius: 50%;
+  background: #f9f9f9;
+  border: unset;
+}
+
+.ant-select-dropdown {
+  overflow: auto;
+}
+
+.ant-breadcrumb .ant-breadcrumb-link {
+  color: #6884a7;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 155%;
+}
+.ant-breadcrumb li:last-child a {
+  color: #2a3467;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 155%; /* 21.7px */
+}
+
+.ant-select input {
+  color: #2a3467;
+}
+.ant-select .ant-select-selection-item {
+  color: #2a3467 !important;
+}
+
+a.ant-btn {
+  padding: 0 !important;
+}
+
+/* Hiding scrollbar for IE, Edge and Firefox */
+.button-blue {
+  background-position: center;
+}
+.button-blue:hover {
+  transition: background 0.5s;
+  background: #00aebe radial-gradient(circle, transparent 1%, #00aebe 1%) center/15000% !important;
+}
+.button-blue:active {
+  background-color: #0096a4 !important;
+  background-size: 100% !important;
+  transition: background 0s !important;
+}
+
+.button-white {
+  background-position: center;
+}
+.button-white:hover {
+  transition: background 0.5s;
+  background: #f7f7f7 radial-gradient(circle, transparent 1%, #f7f7f7 1%) center/15000% !important;
+}
+.button-white:active {
+  background-color: #e6e6e6 !important;
+  background-size: 100% !important;
+  transition: background 0s !important;
+}
+
+.block-animation {
+  transition: box-shadow 0.3s ease;
+}
+.block-animation:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.0470588235);
+}
+
+.block-animation-darker {
+  transition: box-shadow 0.3s ease;
+  border-radius: 16px;
+}
+.block-animation-darker:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.0784313725);
+}

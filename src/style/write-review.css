@@ -1,0 +1,276 @@
+.wpWriteReview {
+  display: flex;
+  flex-direction: column;
+}
+.wpWriteReview .ant-modal-content {
+  border-radius: 16px !important;
+  background-color: #F9F9F9;
+}
+.wpWriteReview .ant-rate-star {
+  background-color: #DDDDDD;
+  border-radius: 20px;
+}
+.wpWriteReview .ant-rate-star:hover {
+  scale: 1.1;
+  transition: all 0.3s, outline 0s;
+}
+.wpWriteReview .ant-rate-star-full {
+  background-color: #00C5D7;
+}
+.wpWriteReview .ant-form-item {
+  margin-bottom: 0;
+}
+.wpWriteReview .ant-select-dropdown .rc-virtual-list-holder {
+  overflow-y: auto !important;
+}
+.wpWriteReview .ant-select-dropdown .ant-select-item-option-content {
+  font-size: 16px;
+  color: var(--color-text, #6884a7);
+}
+.wpWriteReview .ant-select-dropdown {
+  overflow: auto;
+}
+.wpWriteReview .ant-input-status-error.ant-input {
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+}
+.wpWriteReview .ant-select-status-error.ant-select-multiple {
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+}
+.wpWriteReview .title {
+  color: #2A3467;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  margin-bottom: 16px;
+}
+.wpWriteReview .modalTitle {
+  color: #2A3467;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+}
+.wpWriteReview .line {
+  height: 1px;
+  width: 100%;
+  background-color: #DDD;
+  margin: 16px 0px 24px 0px;
+}
+.wpWriteReview .wpFormReview .nameInput {
+  margin-bottom: 16px;
+}
+.wpWriteReview .wpFormReview .nameInput input {
+  border: none;
+  border-radius: 8px;
+  background-color: #FFF;
+  padding: 16px;
+  color: #2A3467;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .nameInput input::placeholder {
+  color: #6884A7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .selectedServiceInput {
+  margin-bottom: 30px;
+}
+.wpWriteReview .wpFormReview .selectedServiceInput .selectedService {
+  background-color: #fff;
+  border-radius: 8px;
+}
+.wpWriteReview .wpFormReview .selectedServiceInput .selectedService .ant-select-selector::after {
+  margin: 0 !important;
+}
+.wpWriteReview .wpFormReview .selectedServiceInput .selectedService .ant-select-selector {
+  border: none !important;
+  padding: 16px !important;
+  align-items: center;
+}
+.wpWriteReview .wpFormReview .selectedServiceInput .selectedService .ant-select-selector .ant-select-selection-placeholder {
+  color: #6884A7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 0;
+  right: 16px;
+  left: 16px;
+}
+.wpWriteReview .wpFormReview .selectedServiceInput .selectedService .ant-select-selector .ant-select-selection-item {
+  color: #2A3467;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .wpCommonRate {
+  margin-bottom: 48px;
+}
+.wpWriteReview .wpFormReview .wpCommonRate .wpCriteriaRate {
+  display: flex;
+  flex-direction: column;
+}
+.wpWriteReview .wpFormReview .wpCommonRate .wpCriteriaRate .criteriaTitle {
+  color: #2A3467;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 4px;
+}
+.wpWriteReview .wpFormReview .wpCommonRate .wpCriteriaRate .wpRatingBar {
+  display: flex;
+  align-items: center;
+}
+.wpWriteReview .wpFormReview .wpCommonRate .wpCriteriaRate .wpRatingBar .ant-rate {
+  align-items: center;
+  display: flex;
+}
+.wpWriteReview .wpFormReview .wpCommonRate .wpCriteriaRate .wpRatingBar .ant-rate .ant-rate-star {
+  margin-left: 12px;
+  margin-right: 0;
+}
+.wpWriteReview .wpFormReview .wpInputReview {
+  margin-bottom: 16px;
+}
+.wpWriteReview .wpFormReview .wpInputReview .input-review {
+  margin-bottom: 8px;
+}
+.wpWriteReview .wpFormReview .wpInputReview .input-review .ant-input {
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  color: #2A3467;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .wpInputReview .input-review .ant-input::placeholder {
+  color: #6884A7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .wpInputReview .note {
+  color: #6884A7;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .wpImageUpload .ant-upload.ant-upload-select-picture-card:hover {
+  border-color: #00C5D7;
+}
+.wpWriteReview .wpFormReview .wpImageUpload .ant-upload.ant-upload-select-picture-card {
+  width: auto;
+  height: auto;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px dashed #6884A7;
+  margin-right: 0px;
+  margin-bottom: 24px;
+}
+.wpWriteReview .wpFormReview .wpImageUpload .ant-upload.ant-upload-select-picture-card .upLoadButton {
+  display: flex;
+  align-items: center;
+}
+.wpWriteReview .wpFormReview .wpImageUpload .ant-upload.ant-upload-select-picture-card .upLoadButton p {
+  text-wrap: nowrap;
+  margin-left: 4px;
+  color: #6884A7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .wpCommit {
+  margin-bottom: 16px;
+}
+.wpWriteReview .wpFormReview .wpCommit .ant-checkbox-inner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #6884a7;
+  border-radius: 5px;
+}
+.wpWriteReview .wpFormReview .wpCommit .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: unset;
+  border-color: #00c5d7;
+}
+.wpWriteReview .wpFormReview .wpCommit .ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: #00c5d7;
+}
+.wpWriteReview .wpFormReview .wpCommit .ant-checkbox-checked::after {
+  border-color: #00c5d7;
+  border-radius: 5px;
+}
+.wpWriteReview .wpFormReview .wpCommit .ant-checkbox + span {
+  padding: 0;
+}
+.wpWriteReview .wpFormReview .wpCommit p {
+  margin-left: 8px;
+  margin-bottom: 0;
+  color: #2A3467;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .wpCommit p a {
+  color: #00C5D7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.wpWriteReview .wpFormReview .submitButton {
+  width: 100%;
+  height: 56px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@media only screen and (max-width: 767px) {
+  .wpWriteReview .ant-modal-content .ant-modal-body {
+    padding: 14px;
+  }
+  .wpWriteReview .ant-select-dropdown .ant-select-item-option-content {
+    font-size: 14px !important;
+    color: var(--color-text, #6884a7);
+  }
+  .wpWriteReview .modalTitle {
+    font-size: 20px !important;
+  }
+  .wpWriteReview .wpFormReview .nameInput input {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .nameInput input::placeholder {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .selectedServiceInput .ant-select-selection-placeholder {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .selectedServiceInput .ant-select-selection-item {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .wpCommonRate .criteriaTitle {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .wpCommonRate .ant-rate-star {
+    margin-left: 8px !important;
+  }
+  .wpWriteReview .wpFormReview .wpInputReview .input-review .ant-input {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .wpInputReview .input-review .ant-input::placeholder {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .wpImageUpload .upLoadButton p {
+    font-size: 14px !important;
+  }
+  .wpWriteReview .wpFormReview .wpCommit p, .wpWriteReview .wpFormReview .wpCommit a {
+    font-size: 14px !important;
+  }
+}

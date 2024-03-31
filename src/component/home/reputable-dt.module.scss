@@ -1,0 +1,89 @@
+@import "../../const/settings.scss";
+.reputableDentistry {
+  max-width: 1200px;
+  // display: flex;
+  margin: 32px auto 64px;
+  // flex-direction: column;
+  // align-items: center;
+  h2 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 52px */
+    text-transform: capitalize;
+    color: #2a3467;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .line {
+    height: 6px;
+    width: 120px;
+    border-radius: 3px;
+    background-color: #00c5d7;
+    margin: auto;
+    margin-bottom: 24px;
+  }
+  .listDentistry {
+    margin: 48px 0;
+    width: 100%;
+  }
+  .moreButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 28px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #00c5d7;
+    background-color: #fff;
+    cursor: pointer;
+    p {
+      color: #00c5d7;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%; /* 27px */
+      margin-bottom: 0;
+      margin-right: 8px;
+    }
+  }
+  .wpButtonMore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.wpSkeletonItem {
+  width: 100%;
+  .ant-skeleton-element {
+    width: 100%;
+    .ant-skeleton-image {
+      width: 100% !important;
+    }
+  }
+}
+
+@include media(lg) {
+  .reputableDentistry {
+    margin: 48px 15px;
+  }
+}
+@include media(md) {
+  .reputableDentistry {
+    margin: 28px 15px;
+    h2 {
+      font-size: 24px;
+    }
+    .listDentistry {
+      margin: 28px 0;
+    }
+    .moreButton {
+      padding: 0 20px;
+      height: 40px;
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}

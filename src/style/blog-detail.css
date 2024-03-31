@@ -1,0 +1,28 @@
+.ant-collapse {
+  border: none;
+}
+
+.ant-collapse .ant-collapse-content-box {
+  background: var(--Bg, #f9f9f9);
+  padding: 0;
+}
+
+.ant-collapse .ant-collapse-header {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.ant-collapse svg {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.ant-collapse .ant-collapse-item  {
+  border: none;
+}
+
+.ant-collapse .ant-collapse-content {
+  border: none;
+  padding-top: 24px;
+  background: var(--Bg, #f9f9f9);
+}

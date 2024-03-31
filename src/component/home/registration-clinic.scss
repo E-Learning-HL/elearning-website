@@ -1,0 +1,167 @@
+@import "../../const/settings.scss";
+.wpRgClinic{
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+.wpRegistrationClinic {
+    background-color: #2a3467;
+    max-width: 1200px;
+    padding: 48px;
+    border-radius: 16px;
+    margin: auto;
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%;
+        text-transform: capitalize;
+        color: #FFFFFF;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      .line {
+        height: 3px;
+        width: 120px;
+        border-radius: 3px;
+        background-color: #00c5d7;
+      }
+    }
+    .registration-clinic-container {
+      display: flex;
+      margin-top: 48px;
+      max-height: 640px !important;
+      .wpClinicImage{
+        flex: 1;
+        margin-right: 30px;
+        .clinicImage {
+          // margin: 48px 30px 0 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+          
+        }
+      }
+      .wpForm{
+        flex: 1;
+        .wrapper-form-registration-clinic {
+          width: 100%;
+          // margin-top: 48px;
+          .input-registration-clinic {
+            width: 100%;
+            border-radius: 8px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-self: stretch;
+            height: 56px;
+            font-size: 16px;
+            color: #2a3467;
+            &::placeholder{
+              color: #6884A7;
+              font-size: 16px;
+            }
+          }
+          .select-registration-clinic {
+            .ant-select-selector {
+              padding: 12px;
+              height: 56px;
+              border-radius: 8px;
+
+            }
+            .ant-select-selection-search-input {
+              margin-top: 12px;
+              font-size: 16px;
+              color: #2a3467;
+            }
+            .ant-select-selection-placeholder{
+              color: #6884A7;
+              font-size: 16px;
+            }
+            .ant-select-selection-item{
+              font-size: 16px;
+              color: #2a3467;
+            }
+          }
+          .textarea-registration-clinic {
+            padding: 16px;
+            border-radius: 8px;
+            background: #FFFFFF;
+            min-height: 160px;
+            font-size: 16px;
+            color: #2a3467;
+            &::placeholder{
+              color: #6884A7;
+              font-size: 16px;
+            }
+          }
+          .submit-registration-clinic {
+            width: 100%;
+            color: #FFFFFF;
+            height: 56px;
+            padding: 0 48px;
+            border-radius: 8px;
+            border: 1px solid #00C5D7;
+            background: #00C5D7;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 27px;
+          }
+        }
+      }
+
+    }
+  }
+  
+  @include media(lg) {
+    .wpRegistrationClinic{
+      margin: 50px 15px;
+    }
+  }
+  @include media(md) {
+    .wpRegistrationClinic {
+      margin: 50px 15px;
+      padding: 21px;
+      .title{
+        h2{
+          font-size: 24px !important;
+        }
+      }
+      .registration-clinic-container{
+        margin-top: 21px;
+        .wpClinicImage{
+          display: none;
+        }
+        .input-registration-clinic{
+          font-size: 14px !important;
+          &::placeholder{
+            font-size: 14px !important;
+          }
+        }
+        .select-registration-clinic {
+          .ant-select-selection-search-input {
+            font-size: 14px !important;
+          }
+          .ant-select-selection-placeholder{
+            font-size: 14px !important;
+          }
+          .ant-select-selection-item{
+            font-size: 14px !important;
+          }
+        }
+        .textarea-registration-clinic {
+          font-size: 14px !important;
+          &::placeholder{
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+  }
+  

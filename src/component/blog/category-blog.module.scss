@@ -1,0 +1,91 @@
+@import "../../const/settings.scss";
+.wpCategoryBlog{
+    color: #2A3467;
+    .wpHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+        .headerTitle{
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 130%; /* 31.2px */    
+            margin-right: 48px;        
+        }
+        .headerButton{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .text{
+                color: var(--Color-Text, #6884A7);
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 24px */   
+                margin-right: 8px;             
+            }
+        }
+    }
+    .wpMainContent{
+        .wpItemContent{
+            cursor: pointer;
+            .wpContentImage{
+                height: 200px;
+                width: 100%;
+                margin-bottom: 16px;
+                .contentImage{
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+            }
+            .itemBlog{
+                color: var(--Color-Text, #6884A7);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 21px */  
+                margin-bottom: 4px;              
+            }
+            .itemTitle{
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 30px */
+                text-transform: capitalize;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .itemContent{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                align-self: stretch;
+                overflow: hidden;
+                color: var(--Color-Text, #6884A7);
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 24px */                                
+            }
+
+        }
+    }
+    .pagination{
+        justify-content: center;
+        display: flex;
+        margin-top: 48px;
+    }
+}
+
+@include media(md){
+    .wpCategoryBlog{
+        .wpMainContent{
+            .itemContent{
+                font-size: 14px !important;
+            }
+        }
+    }
+}

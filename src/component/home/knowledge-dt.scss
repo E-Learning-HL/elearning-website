@@ -1,0 +1,139 @@
+@import "../../const/settings.scss";
+.wp-knowledgeDentistry {
+  max-width: 1200px;
+  display: flex;
+  margin: 32px auto 64px;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 52px */
+    text-transform: capitalize;
+    color: #2a3467;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .line {
+    height: 6px;
+    width: 120px;
+    border-radius: 3px;
+    background-color: #00c5d7;
+    margin-bottom: 64px;
+  }
+  .wp-content {
+    margin-bottom: 64px;
+    .wp-contentItem {
+      cursor: pointer;
+      .wp-contentImage {
+        width: 100%;
+        height: 253px;
+        margin-bottom: 24px;
+        .ant-image {
+          width: 100%;
+          height: 100%;
+        }
+        .contentImage {
+          object-fit: cover;
+          border-radius: 8px;
+          position: relative !important;
+        }
+      }
+      .itemBlog {
+        color: var(--Color-BrandColor, #00c5d7);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 21px */
+        margin-bottom: 8px;
+      }
+      .itemTitle {
+        color: var(--Color-Primary, #2a3467);
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%; /* 31.2px */
+        margin-bottom: 8px;
+      }
+      .itemContent {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        align-self: stretch;
+        overflow: hidden;
+        color: var(--Color-Text, #6884a7);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 24px */
+      }
+    }
+  }
+  .moreButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 28px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #00c5d7;
+    background-color: #fff;
+    cursor: pointer;
+    p {
+      color: #00c5d7;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%; /* 27px */
+      margin-bottom: 0;
+      margin-right: 8px;
+    }
+  }
+}
+
+@include media(lg) {
+  .wp-knowledgeDentistry {
+    margin: 50px 15px;
+  }
+}
+
+@include media(md) {
+  .wp-knowledgeDentistry {
+    h2 {
+      font-size: 24px;
+    }
+    .line {
+      margin-bottom: 28px;
+    }
+    .wp-content {
+      margin-bottom: 28px;
+      .wp-contentItem {
+        .wp-contentImage {
+          height: 110px;
+          margin-bottom: 14px;
+          .contentImage{
+            height: 110px;
+            width: 100%;
+          }
+        }
+      }
+      .itemBlog {
+        font-size: 12px !important;
+      }
+      .itemTitle {
+        font-size: 14px !important;
+      }
+      .itemContent {
+        font-size: 14px !important;
+      }
+    }
+    .moreButton {
+      padding: 0 20px;
+      height: 40px;
+      p {
+        font-size: 14px !important;
+      }
+    }
+  }
+}

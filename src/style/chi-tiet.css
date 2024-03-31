@@ -1,0 +1,65 @@
+.wp-menu-section {
+  background: #fff;
+  border-bottom: 1px solid #bcf5ff;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  z-index: 2;
+}
+.wp-menu-section::-webkit-scrollbar {
+  display: none;
+}
+.wp-menu-section .item-menu {
+  color: var(--Color-Text, #6884a7);
+  text-align: center;
+  /* H3.5 */
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 31.2px */
+  padding: 12px 24px;
+}
+.wp-menu-section .active .item-menu {
+  color: var(--Color-Primary, #2a3467);
+  border-bottom: 4px solid #00c5d7;
+}
+.wp-menu-section .wp-item-menu {
+  display: inline-block;
+}
+.wp-menu-section .wp-item-menu:hover {
+  color: unset;
+}
+.wp-menu-section .wp-item-menu:active {
+  color: unset;
+}
+
+.ant-progress-circle .ant-progress-inner {
+  height: 150px !important;
+  width: 150px !important;
+}
+
+.element {
+  min-height: 100px;
+  background-color: #fff;
+  padding-top: 48px;
+  padding-left: 10px;
+}
+
+.element.no-padding {
+  padding-top: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  .element {
+    padding: 0 !important;
+    margin: 35px 20px 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .element {
+    padding: 0 !important;
+    margin: 30px 15px 0;
+  }
+  .wp-menu-section .item-menu {
+    font-size: 20px !important;
+  }
+}

@@ -1,0 +1,25 @@
+.row-wp-search-result .ant-select-selector {
+  border-radius: 8px !important;
+}
+.row-wp-search-result .search-input input {
+  border-radius: 8px;
+  font-size: 16px;
+}
+.row-wp-search-result .search-input input::-moz-placeholder {
+  font-size: 16px;
+}
+.row-wp-search-result .search-input input::placeholder {
+  font-size: 16px;
+}
+.row-wp-search-result .search-input button {
+  border-radius: 0 8px 8px 0 !important;
+}
+.row-wp-search-result .auto-complete-input {
+  width: 100%;
+}
+.row-wp-search-result .pagination {
+  margin-bottom: 64px;
+  justify-content: center;
+  display: flex;
+  margin-top: 48px;
+}

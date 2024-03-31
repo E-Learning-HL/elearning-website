@@ -1,0 +1,280 @@
+.wp-chatBox {
+  margin-top: 72px;
+  border: 1px solid #dddddd;
+  width: auto;
+  height: auto;
+  border-radius: 16px;
+}
+
+.wp-chatBox .wp-chatBoxHeader {
+  border-bottom: 1px solid #dddddd;
+  padding: 24px;
+  height: auto;
+}
+
+.wp-chatBox .wp-chatBoxHeader .clinicAvatar {
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+}
+
+.wp-chatBox .wp-chatBoxHeader .clinicName {
+  color: #2a3467;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.wp-chatBox .wp-chatBoxHeader .clinicStatusIcon {
+  margin-top: 6px;
+}
+
+.wp-chatBox .wp-chatBoxHeader .clinicStatusText {
+  margin-left: 4px;
+  font-size: 14px;
+  color: #6884a7;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.wp-chatBox .wp-chatBoxBody {
+  background: #f9f9f9;
+  height: 428px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 16px;
+  overflow-y: scroll;
+}
+
+.wp-chatBox .wp-chatBoxBody .chatBoxThreeDot {
+  display: flex;
+  margin-top: 8px;
+}
+
+.wp-chatBox .wp-chatBoxHeader .chatBoxAvatar, .wp-chatBox .wp-chatBoxBody .chatBoxAvatar {
+  border-radius: 99px;
+  border: 1px solid #DDDDDD;
+  object-fit: contain;
+}
+
+.wp-chatBox .wp-chatBoxBody .chatContainer {
+  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.wp-chatBox .wp-chatBoxBody .rowChat {
+  padding: 16px 16px 0 8px;
+}
+
+.wp-chatBox .wp-chatBoxBody .rowChatReply {
+  padding: 16px 0 0 8px;
+}
+
+.wp-chatBox .wp-chatBoxBody .chatContent {
+  border-radius: 16px;
+  background: #ffffff;
+  color: #2a3467;
+  padding: 8px 12px;
+  margin-top: 8px;
+}
+.wp-chatBox .wp-chatBoxBody .chatContent .ant-form-item {
+  margin-bottom: 0 !important;
+}
+
+.wp-chatBox .wp-chatBoxBody .chatContentReply {
+  border-radius: 16px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  background: #00c5d7;
+  color: #ffffff;
+}
+
+.wp-chatBox .wp-chatBoxBody .btnChatBox {
+  border-radius: 8px;
+  background: #dbeffa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  height: 48px;
+  border: none;
+  width: 100%;
+}
+
+.wp-chatBox .wp-chatBoxBody .chatBoxInput {
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #d1d5db;
+  height: 40px;
+}
+
+.wp-chatBox .wp-chatBoxBody .chatBoxSelect {
+  margin-bottom: 8px;
+}
+.wp-chatBox .wp-chatBoxBody .chatBoxSelect .ant-select-selector {
+  border: 1px solid #d1d5db;
+  height: 40px;
+  border-radius: 8px;
+  padding-top: 4px;
+}
+.wp-chatBox .wp-chatBoxBody .chatBoxSelect .ant-select-selection-search-input {
+  padding-top: 8px;
+}
+
+.wp-chatBox .wp-chatBoxBody .btnChatBoxSubmit {
+  width: 100%;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  height: 43px;
+  border-radius: 8px;
+  color: #00c5d7;
+  background: #dbeffa;
+}
+
+.wp-chatBox .wp-chatBoxFooter {
+  background: #ffffff;
+}
+
+.wp-chatBox .wp-chatBoxFooter .clinicRegister {
+  background: #dbeffa;
+  padding: 16px 24px;
+  height: 56px;
+  justify-content: center;
+  display: flex;
+}
+
+.wp-chatBox .wp-chatBoxFooter .clinicRegisterText {
+  color: #2a3467;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-left: 10px;
+}
+
+.wp-chatBox .wp-chatBoxFooter .clinicSupportText {
+  margin: 12px 24px 16px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  color: #6884a7;
+}
+
+.wp-chatBox .wp-chatBoxFooter .clinicSupportAmount {
+  color: #00c5d7;
+  margin: 0 4px;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.formChatBox ::-webkit-scrollbar {
+  width: 6px;
+}
+.formChatBox ::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+  border-radius: 6px;
+}
+.formChatBox ::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 6px;
+}
+
+.list_container {
+  overflow: auto;
+  height: 50px;
+  width: 40px;
+}
+
+.stage {
+  margin-left: 8px;
+  margin-top: 2px;
+  background: #ffffff;
+  width: 56px;
+  border-radius: 99px;
+}
+
+.dot-falling {
+  position: relative;
+  top: 15px;
+  left: -9975px;
+  width: 6px;
+  height: 6px;
+  border-radius: 8px;
+  background-color: #dbeffa;
+  color: #dbeffa;
+  box-shadow: 9999px 0 0 0 #dbeffa;
+  animation: dot-falling 1s infinite linear;
+  animation-delay: 0.1s;
+}
+
+.dot-falling::before,
+.dot-falling::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-falling::before {
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 8px;
+  background-color: #dbeffa;
+  color: #dbeffa;
+  animation: dot-falling-before 1s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-falling::after {
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 8px;
+  background-color: #dbeffa;
+  color: #dbeffa;
+  animation: dot-falling-after 1s infinite linear;
+  animation-delay: 0.2s;
+}
+
+@keyframes dot-falling {
+  0% {
+    box-shadow: 9999px -15px 0 0 rgba(152, 128, 255, 0);
+  }
+  25%, 50%, 75% {
+    box-shadow: 9999px 0 0 0 #dbeffa;
+  }
+  100% {
+    box-shadow: 9999px 15px 0 0 rgba(152, 128, 255, 0);
+  }
+}
+@keyframes dot-falling-before {
+  0% {
+    box-shadow: 9984px -15px 0 0 rgba(152, 128, 255, 0);
+  }
+  25%, 50%, 75% {
+    box-shadow: 9984px 0 0 0 #dbeffa;
+  }
+  100% {
+    box-shadow: 9984px 15px 0 0 rgba(152, 128, 255, 0);
+  }
+}
+@keyframes dot-falling-after {
+  0% {
+    box-shadow: 10014px -15px 0 0 rgba(152, 128, 255, 0);
+  }
+  25%, 50%, 75% {
+    box-shadow: 10014px 0 0 0 #dbeffa;
+  }
+  100% {
+    box-shadow: 10014px 15px 0 0 rgba(152, 128, 255, 0);
+  }
+}

@@ -1,0 +1,95 @@
+@import "../../const/settings.scss";
+.wpRemarkableService{
+    background: linear-gradient(0deg, rgba(219, 239, 250, 0.50) 0%, rgba(219, 239, 250, 0.50) 100%), #FFF;
+    display: flex;
+    justify-content: center;
+    .wpRemarkableServiceContent{
+        max-width: 1200px;
+        margin: 64px auto;
+        .wpTitle {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            h2 {
+              font-size: 30px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 130%; /* 52px */
+              text-transform: capitalize;
+              color: #2a3467;
+              margin-bottom: 24px;
+              text-align: center;
+            }
+            .line {
+              height: 6px;
+              width: 120px;
+              border-radius: 3px;
+              background-color: #00c5d7;
+              margin-bottom: 48px;
+            }
+          }
+        .listRemarkableService{
+            justify-content: center;
+            .itemService{
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #FFF;
+                border-radius: 16px;
+                padding: 32px 24px;
+                height: 100%;
+                .itemImage{
+                    justify-content: center;
+                    margin-bottom: 24px;
+                    .serviceImage{
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+                .itemTitle{
+                    justify-content: center;
+                    h3{
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 150%; 
+                        text-transform: capitalize;
+                        color: #2A3467;
+                        text-align: center;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media(lg){
+    .wpRemarkableService{
+        .wpRemarkableServiceContent{
+            margin: 50px 15px;
+            .listRemarkableService{
+                .itemService{
+                    padding: 21px
+                }
+            }
+        }
+    }
+}
+
+@include media(md){
+    .wpRemarkableService{
+        .wpRemarkableServiceContent{
+            margin: 50px 15px;
+            .wpTitle{
+                h2{
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 130%;
+                }
+            }
+        }
+    }
+}

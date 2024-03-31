@@ -1,0 +1,482 @@
+@import "../../const/settings.scss";
+.wpItemReview {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background: var(--Color-White, #fff);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  .ant-input-status-error.ant-input {
+    box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+  }
+  .ant-select-status-error.ant-select-multiple {
+    box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+  }
+  .ant-input-affix-wrapper-status-error {
+    box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2) !important;
+  }
+  .wpUserOverview {
+    margin-bottom: 12px;
+    .userOverview {
+      display: flex;
+      .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffd2df;
+        height: 40px;
+        width: 40px;
+        min-width: 40px;
+        border-radius: 20px;
+        color: #2a3467;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 150%; /* 24px */
+        margin-right: 8px;
+      }
+      .userInfo {
+        display: flex;
+        .wpUserName-Score {
+          margin-right: 8px;
+          display: flex;
+          flex-direction: column;
+          .userName {
+            color: #2a3467;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 150%; /* 24px */
+            margin-bottom: 4px;
+          }
+          .userScore {
+            display: flex;
+            align-items: center;
+            .title {
+              color: #ffa800;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 150%; /* 18px */
+              margin-right: 4px;
+              text-wrap: nowrap;
+            }
+            .score {
+              display: flex;
+              padding: 2px 4px;
+              align-items: center;
+              border-radius: 4px;
+              color: #ffa800;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 150%; /* 18px */
+              border: 1px solid #ffa800;
+              box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+              margin-right: 4px;
+            }
+            .image {
+            }
+          }
+        }
+        .listRatingService {
+          // display: flex;
+          // align-items: center;
+          .ratingService {
+            display: flex;
+            align-items: center;
+            padding: 3px 0;
+            margin-bottom: 3px;
+            .serviceNane {
+              color: #00c5d7;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 150%; /* 18px */
+              text-wrap: nowrap;
+              margin-left: 2px;
+            }
+          }
+        }
+      }
+    }
+    .logoReadyShare {
+      display: none;
+    }
+    .commonRatingPoint {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      .wpCretiriaPoint {
+        margin-right: 4px;
+        margin-bottom: 4px;
+        display: flex;
+        padding: 2px 6px;
+        align-items: center;
+        border-radius: 4px;
+        background: #f9f9f9;
+        .cretiria {
+          color: var(--Color-Primary, #2a3467);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 18px */
+          margin-right: 2px;
+        }
+        .point {
+          color: #ffa800;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%; /* 21px */
+          margin-right: 4px;
+        }
+      }
+      .more {
+        color: var(--Color-Text, #6884a7);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 18px */
+      }
+    }
+  }
+  .wpContent {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    .wpMainContent {
+      width: 100%;
+      .logoReadyShare {
+        margin-left: 16px;
+        margin-bottom: 16px;
+      }
+      .content {
+        margin-bottom: 16px;
+        overflow: hidden;
+        color: var(--Color-Primary, #2a3467);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 21px */
+      }
+      .wpImageContent {
+        display: flex;
+        margin-bottom: 16px;
+        position: relative;
+        .ant-image-mask {
+          display: none;
+        }
+        .imageContent {
+          height: 180px;
+          width: 320px;
+          object-fit: cover;
+          margin-right: 12px;
+        }
+        .buttonMoreImage {
+          height: 25px;
+          width: 45px;
+          border-radius: 4px;
+          background-color: rgba(0, 0, 0, 0.35);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px;
+          position: absolute;
+          bottom: 8px;
+          right: 20px;
+          cursor: pointer;
+        }
+      }
+      .spInteract {
+        display: flex;
+        justify-content: space-between;
+        .source {
+          color: var(--Color-Text, #6884a7);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 18px */
+        }
+      }
+      .wpInteract {
+        display: flex;
+        align-items: center;
+        .interact {
+          display: flex;
+          align-items: center;
+          margin-right: 8px;
+          .iconInteract {
+            cursor: pointer;
+            margin-right: 4px;
+          }
+          .numberInteract {
+            width: 21px;
+            color: var(--Color-Primary, #2a3467);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 18px */
+          }
+          .textInteract {
+            color: var(--Color-Primary, #2a3467);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 18px */
+            cursor: pointer;
+          }
+        }
+        .timeUpload {
+          color: var(--Color-Text, #6884a7);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 18px */
+        }
+      }
+    }
+  }
+  .wpReply {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    .listReply {
+      .itemReply:last-child {
+        margin-bottom: 8px;
+      }
+      .itemReply {
+        padding: 16px;
+        background-color: #f9f9f9;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        .userInfo {
+          display: flex;
+          align-items: center;
+          margin-bottom: 12px;
+          .avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffd2df;
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            color: #2a3467;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 150%; /* 24px */
+            margin-right: 8px;
+          }
+          .userName {
+            color: #2a3467;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 150%; /* 24px */
+          }
+        }
+        .wpContentReply {
+          overflow: hidden;
+          display: flex;
+          justify-content: space-between;
+          .wpMainContent {
+            .content {
+              margin-bottom: 16px;
+              color: var(--Color-Primary, #2a3467);
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 150%; /* 21px */
+            }
+            .wpImageContent {
+              display: flex;
+              margin-bottom: 16px;
+              .ant-image-mask {
+                display: none;
+              }
+              .imageContent {
+                height: 180px;
+                width: 320px;
+                object-fit: cover;
+                margin-right: 12px;
+              }
+            }
+
+            .wpInteract {
+              display: flex;
+              align-items: center;
+              .interact {
+                display: flex;
+                align-items: center;
+                margin-right: 8px;
+                .iconInteract {
+                  cursor: pointer;
+                  margin-right: 4px;
+                }
+                .numberInteract {
+                  width: 21px;
+                  color: var(--Color-Primary, #2a3467);
+                  font-size: 12px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 150%; /* 18px */
+                }
+              }
+              .timeUpload {
+                color: var(--Color-Text, #6884a7);
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 18px */
+              }
+            }
+          }
+        }
+      }
+    }
+    .seeMore {
+      color: #6884a7;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 150%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+    .formReply {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      background: var(--Bg, #f9f9f9);
+      .formTitle {
+        color: #2a3467;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 150%; /* 21px */
+        margin-bottom: 8px;
+      }
+      .nameReplyInput {
+        margin-bottom: 8px;
+        input {
+          border: none;
+          border-radius: 8px;
+          background-color: #fff;
+          padding: 16px;
+          color: #2a3467;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%;
+          &::placeholder {
+            color: #6884a7;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%;
+          }
+        }
+      }
+      .contentReplyInput {
+        margin-bottom: 0;
+        .ant-input-affix-wrapper {
+          border: none;
+          padding: 16px !important;
+          border-radius: 8px;
+          background-color: #fff;
+          padding: 0;
+          input {
+            color: #2a3467;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%;
+            &::placeholder {
+              color: #6884a7;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 150%;
+            }
+          }
+        }
+      }
+      .imageReplyInput {
+        margin-bottom: 0;
+        .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+          display: none;
+        }
+        .ant-upload-list-picture-card-container {
+          margin-bottom: 0;
+          margin-top: 8px;
+        }
+        .ant-form-item-control-input {
+          min-height: 0;
+        }
+      }
+    }
+  }
+}
+
+@include media(lg) {
+}
+@include media(md) {
+  .wpItemReview {
+    padding: 14px;
+    .wpUserOverview {
+      .logoReadyShare {
+        display: block;
+      }
+      .userOverview {
+        .userInfo {
+          flex-direction: column;
+          .listRatingService {
+            .ratingService {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .commonRatingPoint {
+        justify-content: flex-start;
+      }
+    }
+    .wpContent {
+      .wpMainContent {
+        .wpImageContent {
+          width: 100%;
+          .imageContent {
+            height: 164px;
+            width: 100%;
+          }
+        }
+      }
+      .logoReadyShare {
+        display: none;
+      }
+    }
+    .wpReply {
+      .nameReplyInput {
+        input {
+          font-size: 14px !important;
+          &::placeholder {
+            font-size: 14px !important;
+          }
+        }
+      }
+      .wpContentReply {
+        .imageContent {
+          width: 100% !important;
+        }
+      }
+      .contentReplyInput {
+        .ant-input-affix-wrapper {
+          input {
+            font-size: 14px !important;
+            &::placeholder {
+              font-size: 14px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

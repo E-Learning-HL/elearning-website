@@ -1,0 +1,36 @@
+.wpSkeletonItem .skeletonImage {
+  width: 100%;
+  height: 320px;
+  border-radius: 16px 16px 0 0;
+}
+.wpSkeletonItem .wpSkeletonInfo {
+  padding: 24px;
+  display: flex;
+}
+.wpSkeletonItem .wpSkeletonInfo .skeletonLogo {
+  margin-right: 16px;
+}
+.wpSkeletonItem .wpSkeletonInfo .skeletonLogo .ant-skeleton-avatar-circle {
+  height: 80px;
+  width: 80px;
+}
+.wpSkeletonItem .wpSkeletonInfo .wpSkeletonDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.wpSkeletonItem .wpSkeletonInfo .wpSkeletonDetails .skeletonInput1 {
+  margin-bottom: 4px;
+  width: 100%;
+}
+.wpSkeletonItem .wpSkeletonInfo .wpSkeletonDetails .skeletonInput2 {
+  margin-bottom: 4px;
+  width: 100%;
+}
+.wpSkeletonItem .wpSkeletonInfo .wpSkeletonDetails .wpSkeletonButton .skeletonButton1 {
+  margin-right: 8px;
+  width: 140px;
+}
+.wpSkeletonItem .wpSkeletonInfo .wpSkeletonDetails .wpSkeletonButton .skeletonButton2 {
+  width: 140px;
+}

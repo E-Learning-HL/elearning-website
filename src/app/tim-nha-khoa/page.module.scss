@@ -1,0 +1,649 @@
+@import "../../const/settings.scss";
+.wpSearchResult {
+  background: #fff;
+  color: #000;
+  // padding-top: 64px;
+  padding-bottom: 64px;
+  min-height: 100vh;
+  .contentSearch {
+    max-width: 1200px;
+    margin: auto;
+    // .wpColRight {
+    //   padding-left: 15px;
+    // }
+    .wpFilter {
+      .titleFilter {
+        color: var(--color-primary, #2a3467);
+        /* P2/Bold */
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 24px */
+      }
+      .wpTag {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        margin-bottom: 32px;
+
+        .listTag {
+          display: flex;
+          flex-wrap: wrap;
+
+          .tagSearch {
+            color: var(--color-text, #6884a7);
+            /* P3/Normal */
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 21px */
+            padding-left: 8px;
+            padding-top: 2px;
+            background: var(--Bg, #f9f9f9);
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            cursor: default;
+            .iconClose {
+              margin-left: 4px;
+              width: 14px;
+              height: 14px;
+              margin: 5px 4px 6px 4px;
+              cursor: pointer;
+            }
+            .tagSearchItem {
+              margin-bottom: 1px;
+            }
+          }
+          .tagClear {
+            color: var(--color-text, #6884a7);
+            /* P3/Normal */
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 21px */
+            // padding: 8px;
+            background: var(--Bg, #f9f9f9);
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: 5px;
+            padding-top: 3px;
+            padding-left: 7px;
+            padding-right: 7px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .wpResult {
+      .itemResult {
+        margin-bottom: 32px;
+        cursor: pointer;
+
+        .cover {
+          width: 100%;
+          position: static !important;
+          object-fit: cover;
+          height: 400px !important;
+          border-radius: 16px 16px 0px 0px;
+        }
+        .wpInfo {
+          border-radius: 0px 0px 16px 16px;
+          background: var(--Bg, #f9f9f9);
+          padding: 32px 40px;
+          display: flex;
+          flex-direction: column;
+
+          .wpFirstLine {
+            display: flex;
+            // justify-content: space-between;
+            .wpRight {
+              width: 100%;
+              .titleClinic {
+                color: var(--color-bg-navy, #2a3467);
+                /* H3 */
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 130%; /* 41.6px */
+                text-transform: capitalize;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+                margin-bottom: 8px;
+              }
+              .firstLineTag {
+                // margin-top: 16px;
+                display: flex;
+                .wpTagInfo {
+                  display: flex;
+                  color: var(--color-bg-navy, #2a3467);
+                  /* P2/Normal */
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 150%; /* 24px */
+                  width: fit-content;
+                  background: var(--color-white, #fff);
+                  padding: 4px 8px;
+                  border-radius: 8px;
+                  align-items: center;
+                  border: 1px solid var(--color-bg-orange, #ddd);
+                  margin-right: 8px;
+                  .iconLocation {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 8px;
+                  }
+                }
+              }
+              .secondLineTag {
+                display: flex;
+                align-items: start;
+                margin-top: 12px;
+                .iconMark {
+                  margin-right: 8px;
+                }
+                .titleSpecialization {
+                  color: var(--color-bg-navy, #2a3467);
+                  /* P2/Bold */
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 150%; /* 24px */
+                  margin-right: 8px;
+                  min-width: 102px;
+                  margin-top: 7px;
+                }
+                .valueSpecialization {
+                  color: var(--color-bg-navy, #2a3467);
+                  /* P2/Normal */
+                  // font-family: Roboto Flex;
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 150%; /* 24px */
+                  margin-top: 7px;
+                }
+              }
+              .thirdLineTag {
+                display: flex;
+                .buttonAdvise {
+                  margin-top: 24px;
+                  display: flex;
+                  align-items: center;
+                  border-radius: 8px;
+                  justify-content: center;
+                  border: 1px solid var(--Color-BrandColor, #00c5d7);
+                  padding: 12px 24px;
+                  color: #00c5d7;
+
+                  /* P2/Bold */
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 150%; /* 24px */
+                  cursor: pointer;
+                  margin-right: 8px;
+                }
+                .buttonDetail {
+                  margin-top: 24px;
+                  border-radius: 8px;
+                  background: #00c5d7;
+                  width: fit-content;
+                  padding: 12px 24px;
+                  color: #fff;
+
+                  /* P2/Bold */
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 150%; /* 24px */
+                  cursor: pointer;
+                  margin-right: 8px;
+                  .iconRight {
+                    margin-left: 8px;
+                  }
+                }
+              }
+              .wpAddress {
+                display: flex;
+                // margin-top: 10px;
+                color: var(--Color-Bg-Navy, #2a3467);
+                /* P2/Normal */
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 24px */
+                align-items: center;
+                .iconLocation {
+                  width: 20px;
+                  height: 20px;
+                  margin-right: 8px;
+                }
+              }
+              .wpRatingLine {
+                display: flex;
+                margin-top: 12px;
+                margin-bottom: 16px;
+                align-items: center;
+                .wpRatingInLine {
+                  display: flex;
+                  align-items: center;
+                }
+                .ratingPoint {
+                  display: flex;
+                  .point {
+                    color: #ffa800;
+
+                    /* H3.5 */
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 100%; /* 31.2px */
+                    padding: 6px 10px;
+                    border-radius: 8px;
+                    border: 2px solid #ffa800;
+
+                    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+                  }
+                  .iconRatingStar {
+                    margin-left: 8px;
+                    width: 32px;
+                    height: 32px;
+                    margin-right: 8px;
+                  }
+                }
+                .dash {
+                  width: 1px;
+                  height: 24px;
+                  background: var(--Color-Bg-Orange, #ddd);
+                  margin-left: 16px;
+                  margin-right: 16px;
+                }
+                .ratingRank {
+                  color: #ffa800;
+
+                  /* H4 */
+                  font-size: 18px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 150%; /* 30px */
+                  text-transform: capitalize;
+                }
+                .ratingQuantity {
+                  color: var(--Color-Text, #6884a7);
+                  /* P2/Normal */
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 150%; /* 24px */
+                  .ratingQuantityBold {
+                    color: var(--Color-Bg-Navy, #2a3467);
+                    /* P2/Bold */
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 150%; /* 24px */
+                    margin-right: 8px;
+                  }
+                }
+                .numberOfConsultation {
+                  color: var(--Color-Text, #6884a7);
+                  /* P2/Normal */
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 150%; /* 24px */
+                  .numberOfConsultationBold {
+                    color: var(--Color-Bg-Navy, #2a3467);
+                    /* P2/Bold */
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 150%; /* 24px */
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+            .wpLeft {
+              .logo {
+                width: 140px !important;
+                position: static !important;
+                object-fit: cover;
+                height: 140px !important;
+                border-radius: 50%;
+                object-fit: contain;
+                // @include media (lg){
+                //   height: ;
+                // }
+              }
+              margin-right: 30px;
+            }
+          }
+          .wpSecondLine {
+            display: none;
+          }
+        }
+      }
+    }
+    .wpColFilter {
+      height: calc(100vh - 82px);
+      overflow: auto;
+      position: sticky;
+      top: 82px;
+      .wpBlockKeyword {
+        .titleBlock {
+          color: var(--color-primary, #2a3467);
+          /* P2/Bold */
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%;
+          margin-bottom: 7px;
+        }
+      }
+      .wpBlockTime {
+        margin-top: 24px;
+      }
+      .wpBlockCategoryService {
+        margin-top: 24px;
+        .itemCheckbox {
+          color: var(--color-primary, #2a3467);
+          /* P2/Normal */
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 24px */
+        }
+      }
+      .wpButtonReSearch {
+        padding: 15px 0;
+        position: sticky;
+        bottom: 0;
+        background-color: #fff;
+        .buttonReSearch {
+          display: flex;
+          height: 48px;
+          padding: 0px 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          border-radius: 8px;
+          background: var(--color-brand-color, #00c5d7);
+          color: #fff;
+
+          /* P2/Bold */
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%;
+          cursor: pointer;
+        }
+      }
+      .wpPrice {
+        .wpInputForm {
+          display: flex;
+          align-items: center;
+          margin-bottom: 16px;
+          .inputForm {
+            align-items: center;
+            display: flex;
+            background-color: #fff;
+            padding: 4px 8px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+          }
+          p {
+            margin-bottom: 0;
+            margin: 0 8px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #2a3467;
+          }
+          p:last-child {
+            margin-right: 0;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%;
+            color: #6884a7;
+          }
+          .icon {
+            margin-right: 8px;
+          }
+        }
+      }
+      .wpWeekday {
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+    }
+    .wpBlockTopFilter {
+      padding: 32px;
+      border-radius: 16px;
+      background: var(--Bg, #f9f9f9);
+      position: relative;
+      top: -45px;
+      .wpItemSearch {
+        // padding: 0 6px;
+        .titleSearch {
+          color: var(--Color-Text, #6884a7);
+          /* InputTitle */
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 18px */
+        }
+        .buttonSearch {
+          display: flex;
+          height: 56px;
+          padding: 0px 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 8px;
+          background: var(--Color-BrandColor, #00c5d7);
+          color: #fff;
+
+          /* P1/Bold */
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%; /* 27px */
+          cursor: pointer;
+        }
+      }
+      .colButtonSearch {
+        display: flex;
+        align-items: flex-end;
+        .wpItemSearch {
+          width: 100%;
+          margin-bottom: 2px;
+        }
+      }
+    }
+    .wpBlockIntroduceCategoryService {
+      // margin-top: 64px;
+    }
+  }
+}
+.wpIntroduce {
+  .introduceTitle {
+    color: #2a3467;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+  }
+  .introduceLine {
+    max-width: 1200px;
+    height: 1px;
+    background: #bcf5ff;
+    border: 1px;
+    margin-bottom: 24px;
+  }
+}
+
+@include media(lg) {
+  .wpSearchResult {
+    padding: 0 15px !important;
+  }
+}
+@include media(md) {
+  .wpSearchResult {
+    padding: 0 15px !important;
+    .contentSearch {
+      .wpBlockTopFilter {
+        padding: 15px;
+        .buttonSearch {
+          font-size: 16px !important;
+          height: 54px !important;
+        }
+      }
+      .wpColFilter {
+        height: auto !important;
+        .wpButtonReSearch {
+          padding: 0;
+          margin-bottom: 24px;
+        }
+        .wpWeekday {
+          margin-top: 14px;
+          margin-bottom: 14px;
+        }
+      }
+      .wpResult {
+        .itemResult {
+          .cover {
+            height: 189px !important;
+          }
+          .wpInfo {
+            padding: 14px;
+            .wpFirstLine {
+              .wpLeft {
+                margin-right: 14px;
+                .logo {
+                  height: 60px !important;
+                  width: 60px !important;
+                }
+              }
+              .wpRight {
+                .firstLineTag {
+                  .wpTagInfo {
+                    font-size: 14px !important;
+                  }
+                }
+                .titleClinic {
+                  font-size: 20px !important;
+                }
+                .wpAddress {
+                  font-size: 14px !important;
+                  // margin-top: 7px;
+                }
+                .wpRatingLine {
+                  display: flex;
+                  flex-wrap: wrap;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  margin-top: 12px;
+                  margin-bottom: 12px;
+                  .wpRatingInLine {
+                    margin-bottom: 12px;
+                    .dash {
+                      display: none;
+                    }
+                  }
+                  .ratingQuantity {
+                    text-wrap: nowrap;
+                    font-size: 12px !important;
+                    .ratingQuantityBold {
+                      font-size: 14px !important;
+                    }
+                  }
+                  .numberOfConsultation {
+                    text-wrap: nowrap;
+                    font-size: 12px !important;
+                    .numberOfConsultationBold {
+                      font-size: 14px !important;
+                    }
+                  }
+                  .wpRatingInLine {
+                    .ratingPoint {
+                      display: flex;
+                      align-items: center;
+                      .point {
+                        font-size: 16px !important;
+                      }
+                      .iconRatingStar {
+                        height: 22px;
+                        width: 22px;
+                      }
+                    }
+                    .ratingRank {
+                      font-size: 14px !important;
+                    }
+                  }
+                }
+                .thirdLineTag {
+                  display: none;
+                }
+              }
+            }
+            .wpSecondLine {
+              display: flex;
+              margin-top: 12px;
+              .buttonAdvise {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                border-radius: 8px;
+                justify-content: center;
+                border: 1px solid var(--Color-BrandColor, #00c5d7);
+                height: 40px;
+                padding: 0 20px;
+                color: #00c5d7;
+
+                /* P2/Bold */
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 24px */
+                cursor: pointer;
+                margin-right: 8px;
+              }
+              .buttonDetail {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                border-radius: 8px;
+                background: var(--color-brand-color, #00c5d7);
+                height: 40px;
+                padding: 0 20px;
+                color: #fff;
+
+                /* P2/Bold */
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 24px */
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .wpIntroduce {
+    .introduceTitle {
+      font-size: 20px !important;
+    }
+  }
+}
