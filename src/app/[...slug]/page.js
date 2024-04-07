@@ -1,10 +1,9 @@
 import { parseSlug, getParseSlug } from "./service";
-import SearchResult from "../tim-nha-khoa/page";
+import SearchResult from "../build-roadmap/page";
 import NotFound from "../not-found/page";
 import moment from "moment";
 import { LIST_REDIRECT } from "@/src/const/list-redirect";
 import { redirect } from "next/navigation";
-
 export async function generateMetadata({ params, searchParams }) {
   const dataParseSlug = await parseSlug(params.slug);
   if (

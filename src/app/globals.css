@@ -116,3 +116,40 @@ a {
   position: relative;
 }
 
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../../public/fonts/SVN-Gilroy-Regular.woff') format('woff');
+  font-style: normal; /* Định nghĩa font này là dạng regular */
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../../public/fonts/SVN-Gilroy-Bold.woff') format('woff');
+  font-weight: bold; /* Định nghĩa font này là dạng bold */
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../../public/fonts/SVN-Gilroy-Italic.woff') format('woff');
+  font-style: italic; /* Định nghĩa font này là dạng italic */
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../../public/fonts/SVN-Gilroy-Medium.woff') format('woff');
+  font-weight: 500; /* Định nghĩa font này là dạng medium */
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../../public/fonts/SVN-Gilroy-SemiBold.woff') format('woff');
+  font-weight: 600; /* Định nghĩa font này là dạng semi-bold */
+}
+
+
+body{
+  font-family: 'Gilroy', sans-serif !important;
+  font-weight: normal; /* Sử dụng font regular */
+  font-style: normal; /* Sử dụng font regular */
+}

@@ -71,3 +71,11 @@
   font-size: 16px !important;
   padding: 0 12px;
 }
+
+#user-dropdown .ant-dropdown-menu {
+  margin-top: 25px;
+}
+#user-dropdown .labelSignOut {
+  border: none;
+  background: none;
+}

@@ -3,8 +3,8 @@
   background: #fff;
   color: #000;
   // padding-top: 64px;
-  padding-bottom: 64px;
-  min-height: 100vh;
+  padding-bottom: 32px;
+  // min-height: 100vh;
   .contentSearch {
     max-width: 1200px;
     margin: auto;
@@ -333,10 +333,54 @@
       }
     }
     .wpColFilter {
-      height: calc(100vh - 82px);
+      height: calc(100vh - 68px);
       overflow: auto;
       position: sticky;
-      top: 82px;
+      top: 68px;
+      .wpSummary {
+        display: flex;
+        flex-direction: column;
+        background: #f9f9f9;
+        padding: 24px;
+        border-radius: 16px;
+        .titleSum {
+          font-size: 18px;
+          font-weight: 600;
+          color: #013533;
+          text-align: center;
+          margin-bottom: 24px;
+        }
+        .roadMap {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+          .wpLeft {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .iconItem {
+              width: 28px;
+              height: 28px;
+              margin-right: 8px;
+            }
+            .titleContent {
+              font-size: 16px;
+              font-weight: 500;
+              color: #013533;
+            }
+          }
+          .mainContent {
+            font-size: 16px;
+            font-weight: 500;
+            color: #013533;
+          }
+        }
+      }
+
+
+
+      //nhakhoa
       .wpBlockKeyword {
         .titleBlock {
           color: var(--color-primary, #2a3467);
@@ -425,40 +469,238 @@
         margin-bottom: 16px;
       }
     }
+    .wpColRight{
+      .wpContentCourses{
+        .wpItemCourse{
+          background-color: #f9f9f9;
+          display: flex;
+          flex-direction: column;
+          padding: 24px;
+          border-radius: 16px;
+          margin-bottom: 16px;
+          .titleCourse{
+            color: #013533;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 24px;
+          }
+          .overView{
+            margin-bottom: 32px;
+            .items{
+              display: flex;
+              align-items: center;
+              .imageItems{
+                width: 40px;
+                height: 40px;
+                margin-right: 8px;
+              }
+              .contentItems{
+                display: flex;
+                flex-direction: column;
+                .titleItems{
+                  color: #013533;
+                  font-size: 14px;
+                  margin-bottom: 4px;
+                }
+                .valueItems{
+                  color: #013533;
+                  font-size: 16px;
+                  font-weight: 500;
+                  line-height: normal;
+                }
+              }
+            }
+          }
+          .wpCurri{
+            .itemCurri{
+              display: flex;
+              // align-items: center;
+              .imageCurri{
+                width: 50px;
+                height: 50px;
+                margin-right: 8px;
+              }
+              .contentCurri{
+                display: flex;
+                flex-direction: column;
+                .titleCurri{
+                  color: #013533;
+                  font-size: 16px;
+                  font-weight: 600;
+                }
+                .valueCurri{
+                  color: #013533;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     .wpBlockTopFilter {
-      padding: 32px;
-      border-radius: 16px;
+      padding: 20px 13px;
+      border-radius: 24px;
       background: var(--Bg, #f9f9f9);
       position: relative;
-      top: -45px;
-      .wpItemSearch {
-        // padding: 0 6px;
-        .titleSearch {
-          color: var(--Color-Text, #6884a7);
-          /* InputTitle */
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 150%; /* 18px */
-        }
-        .buttonSearch {
-          display: flex;
-          height: 56px;
-          padding: 0px 24px;
-          justify-content: center;
-          align-items: center;
-          gap: 8px;
-          border-radius: 8px;
-          background: var(--Color-BrandColor, #00c5d7);
-          color: #fff;
-
-          /* P1/Bold */
-          font-size: 18px;
-          font-style: normal;
+      top: -30px;
+      .wpSelectLeft {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 16px;
+        .alterSelectLeft{
+          color: #013533;
           font-weight: 600;
-          line-height: 150%; /* 27px */
-          cursor: pointer;
+          font-size: 18px;
+          text-align: center;
+          background: var(--Bg, #f9f9f9);
+          padding: 10px;
+          border-radius: 8px;
         }
+        .selectLeft {
+          background: var(--Bg, #f9f9f9);
+          padding: 10px;
+          border-radius: 8px;
+          display: flex;
+          flex-direction: column;
+          min-height: 351px;
+          .title {
+            color: #013533;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 32px;
+            text-align: center;
+          }
+          .listItem {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 8px;
+            .item {
+              width: 100%;
+              padding: 12px 16px;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              background-color: #fff;
+              border-radius: 8px;
+              margin-bottom: 6px;
+              .titleItem,
+              .priceItem {
+                color: #013533;
+                font-weight: 500;
+                font-size: 16px;
+              }
+            }
+          }
+          .wpDiscount {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            .titleCp {
+              color: #013533;
+              font-weight: 600;
+              font-size: 16px;
+            }
+            .coupon {
+              color: #013533;
+              font-weight: 600;
+              font-size: 16px;
+              padding: 5px 10px;
+              background-color: #5ab069;
+              border-radius: 8px;
+            }
+          }
+          .wpAmount {
+            margin-bottom: 16px;
+            width: 100%;
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #fff;
+            border-radius: 8px;
+            .titleAmount,
+            .paymentAmount {
+              color: #5ab069;
+              font-weight: 600;
+              font-size: 16px;
+            }
+          }
+          .methodPayment {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            .titlePay {
+              color: #013533;
+              font-weight: 600;
+              font-size: 16px;
+            }
+            // .imagePay {
+            //   width: 40px;
+            //   height: auto;
+            // }
+          }
+          .buttonPay {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            height: 45px;
+            padding: 12px 0;
+            border-radius: 16px;
+            color: #013533;
+            font-weight: 600;
+            font-size: 16px;
+            background-color: #5ab069;
+            width: 100%;
+          }
+        }
+      }
+      .wpSelectRight {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 16px;
+        .title {
+          color: #013533;
+          font-weight: 600;
+          font-size: 18px;
+          margin-bottom: 8px;
+        }
+        .selectRight {
+          background: var(--Bg, #f9f9f9);
+          height: 100%;
+          width: 100%;
+          padding: 10px;
+          border-radius: 8px;
+        }
+      }
+      .wpItemSearch {
+        // .titleSearch {
+        //   color: var(--Color-Text, #6884a7);
+        //   /* InputTitle */
+        //   font-size: 12px;
+        //   font-style: normal;
+        //   font-weight: 400;
+        //   line-height: 150%; /* 18px */
+        // }
+        // .buttonSearch {
+        //   display: flex;
+        //   height: 56px;
+        //   padding: 0px 24px;
+        //   justify-content: center;
+        //   align-items: center;
+        //   gap: 8px;
+        //   border-radius: 8px;
+        //   background: var(--Color-BrandColor, #00c5d7);
+        //   color: #fff;
+
+        //   /* P1/Bold */
+        //   font-size: 18px;
+        //   font-style: normal;
+        //   font-weight: 600;
+        //   line-height: 150%; /* 27px */
+        //   cursor: pointer;
+        // }
       }
       .colButtonSearch {
         display: flex;

@@ -2,30 +2,48 @@
 import styles from "./header.module.scss";
 import "@/src/style/header.css";
 import Image from "next/image";
-import logo from "@/public/image/logo-nha-nha-khoa-hub.png";
+import logo from "@/public/image/elearning-logo.png";
 import logoMobile from "@/public/image/logo-nha-khoa-hub-mobile.png";
 import * as NProgress from "nprogress";
 import { useRouter, usePathname } from "next/navigation";
-import { Button, Col, Drawer, Dropdown, Menu, Space, Row } from "antd";
-import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  Button,
+  Col,
+  Drawer,
+  Dropdown,
+  Menu,
+  Space,
+  Row,
+  Avatar,
+  notification,
+} from "antd";
+import {
+  MenuOutlined,
+  CloseOutlined,
+  QuestionCircleOutlined,
+  LogoutOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import arrowDownLine from "@/public/icon/arrow-down-line.svg";
 import arrowUpLine from "@/public/icon/arrow-up-line.svg";
 import { useQuery } from "@tanstack/react-query";
 import { toSlug } from "@/src/util/util";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { HIDE_HEADER_FOOTER } from "@/src/const/const";
+import { HIDE_HEADER } from "@/src/const/const";
 import "@/src/style/common.css";
+import { useSession, signIn, signOut } from "next-auth/react";
 
-const Header = (props) => {
+const Header = ({ sessionServer }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const showHeader = !HIDE_HEADER_FOOTER.includes(pathname);
+  const showHeader = !HIDE_HEADER.includes(pathname);
   const [anchorTarget, setAnchorTarget] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [openServiceMenu, setOpenServiceMenu] = useState(true);
   const [openBlogMenu, setOpenBlogMenu] = useState(true);
   const [active, setActive] = useState(null);
+  const { data: session } = useSession();
   const backToHome = () => {
     NProgress.start();
     router.push(`/`);
@@ -72,14 +90,42 @@ const Header = (props) => {
       };
     }
   });
+
+  const items = [
+    {
+      key: "forgot",
+      label: <Link href={`/user/password`}>Quên Mật Khẩu</Link>,
+      icon: <QuestionCircleOutlined />,
+    },
+    {
+      label: (
+        <div
+          className="labelSignOut"
+          onClick={() => {
+            signOut({ redirect: false }),
+              notification.success({
+                message: `Bạn đã đăng xuất!`,
+                description: "",
+                placement: "top",
+              });
+          }}
+        >
+          Đăng xuất
+        </div>
+      ),
+      key: "logout",
+      icon: <LogoutOutlined />,
+    },
+  ];
   // const scrollTo = (e) => {
   //   e.preventDefault();
   //   setOpenMenu(false);
   //   anchorTarget.scrollIntoView({ behavior: "smooth", block: "start" });
   // };
-  useEffect(() => {
-    setAnchorTarget(document.getElementById("registrationClinic"));
-  }, [props]);
+
+  // useEffect(() => {
+  //   setAnchorTarget(document.getElementById("registrationClinic"));
+  // }, [props]);
 
   return (
     <>
@@ -128,7 +174,7 @@ const Header = (props) => {
                         handleOpenMenu("service");
                       }}
                     >
-                      <span>Dịch vụ nha khoa</span>
+                      <span>Courses</span>
                       <Image
                         src={openServiceMenu ? arrowUpLine : arrowDownLine}
                       />
@@ -182,7 +228,7 @@ const Header = (props) => {
                   }}
                 >
                   <span className={styles.dropdownLink}>
-                    <Space className={styles.itemHover}>Dịch vụ nha khoa</Space>
+                    <Space className={styles.itemHover}>Courses</Space>
                     {/* <Image src={arrowDownLine} /> */}
                   </span>
                 </Dropdown>
@@ -195,13 +241,47 @@ const Header = (props) => {
                   </span>
                 </Dropdown>
               </div>
-              <Button
-                href="/lien-he-hop-tac"
-                className={`${styles.buttonClinic} button-white`}
-                // onClick={scrollTo}
-              >
-                ĐĂNG PHÒNG KHÁM
-              </Button>
+              {!session?.user ? (
+                <>
+                  <Button
+                    href="/login"
+                    className={`${styles.buttonClinic} button-white`}
+                    // onClick={() => router.push(`/login`)}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    href="/register"
+                    className={`${styles.buttonRegister} button-blue`}
+                    // onClick={scrollTo}
+                  >
+                    Register
+                  </Button>
+                </>
+              ) : (
+                <div id="user-dropdown">
+                  <Dropdown
+                    menu={{ items: items }}
+                    trigger={["click"]}
+                    className={styles.avatar}
+                    // placement="bottomRight"
+                    placement="bottom"
+                    getPopupContainer={() =>
+                      document.getElementById("user-dropdown")
+                    }
+                    overlayStyle={{ marginTop: "68px" }}
+                    // styles={{ marginTop:"20px" }}
+                  >
+                    <a onClick={(e) => e.preventDefault()}>
+                      <Avatar
+                        size={50}
+                        icon={<UserOutlined />}
+                        style={{ backgroundColor: "#5ab069" }}
+                      />
+                    </a>
+                  </Dropdown>
+                </div>
+              )}
             </div>
           </div>
         </div>

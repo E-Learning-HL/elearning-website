@@ -29,11 +29,11 @@ export default async function sitemap() {
       lastModified: new Date(),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}/tim-nha-khoa`,
+      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}/build-roadmap`,
       lastModified: new Date(),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}/tim-nha-khoa/sitemap.xml`,
+      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}/build-roadmap/sitemap.xml`,
       lastModified: new Date(),
     },
   ];

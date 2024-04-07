@@ -13,12 +13,12 @@
     margin: auto;
     align-items: center;
     display: flex;
-    height: 82px;
+    height: 68px;
   }
   .wpLogo {
     cursor: pointer;
     .logo {
-      height: 48px;
+      height: 38px;
       object-fit: contain;
       width: fit-content;
     }
@@ -34,7 +34,7 @@
     width: auto;
     max-width: 654px;
     color: #2a3467;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     font-weight: 500;
     margin: auto;
@@ -51,18 +51,34 @@
   }
   .buttonClinic {
     // padding: 12px 24px;
-    background: #ffffff;
-    color: #00c5d7;
-    border: 1px solid #00c5d7;
-    border-radius: 8px;
-    height: 50px;
-    width: 220px;
+    background: #eaf7eb;
+    color: #5ab069;
+    border-radius: 12px;
+    height: 45px;
+    width: 115px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
+    border: none;
     // line-height: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .buttonRegister {
+    // padding: 12px 24px;
+    background: #5ab069;
+    color: #fff;
+    border-radius: 12px;
+    height: 45px;
+    width: 115px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    // line-height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
   }
 }
 

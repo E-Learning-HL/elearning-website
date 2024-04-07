@@ -128,10 +128,10 @@ a.ant-btn {
 }
 .button-blue:hover {
   transition: background 0.5s;
-  background: #00aebe radial-gradient(circle, transparent 1%, #00aebe 1%) center/15000% !important;
+  background: #4ea35d radial-gradient(circle, transparent 1%, #4ea35d 1%) center/15000% !important;
 }
 .button-blue:active {
-  background-color: #0096a4 !important;
+  background-color: #469153 !important;
   background-size: 100% !important;
   transition: background 0s !important;
 }
@@ -141,7 +141,7 @@ a.ant-btn {
 }
 .button-white:hover {
   transition: background 0.5s;
-  background: #f7f7f7 radial-gradient(circle, transparent 1%, #f7f7f7 1%) center/15000% !important;
+  background: #dff3e0 radial-gradient(circle, transparent 1%, #dff3e0 1%) center/15000% !important;
 }
 .button-white:active {
   background-color: #e6e6e6 !important;

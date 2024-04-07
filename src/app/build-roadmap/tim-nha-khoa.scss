@@ -178,9 +178,170 @@
   }
 }
 .wrapper-form-search-top {
+  .ant-radio-button-wrapper:focus-within {
+    /* box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.12); */
+    box-shadow: none !important;
+  }
+  .start-point {
+    position: relative;
+    margin-bottom: 16px;
+    &:before {
+      position: absolute;
+      border-top: 1px dashed;
+      width: 100%;
+      display: block;
+      color: #5ab069;
+      top: 40px;
+      content: "";
+    }
+    .wp-radio-select {
+      display: flex;
+      .ant-radio-button-wrapper-checked {
+        .icon-location {
+          filter: none !important;
+        }
+      }
+      .wp-item-select {
+        border: none;
+        background: transparent;
+        &::before {
+          content: none;
+        }
+        .item-select {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .icon-location {
+            width: 32px;
+            height: auto;
+            filter: hue-rotate(132deg) saturate(18%) brightness(192%);
+          }
+          .icon-location:hover {
+            filter: none;
+          }
+          .text-brand {
+            font-size: 16px;
+            color: #013533;
+            font-weight: 500;
+          }
+          .item-image {
+            margin-top: 8px;
+            height: 50px;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+  .target-point {
+    .wp-radio-select {
+      display: flex;
+      position: relative;
+      &:before {
+        position: absolute;
+        border-top: 1px dashed;
+        width: 100%;
+        display: block;
+        color: #5ab069;
+        top: 40px;
+        content: "";
+      }
+      .ant-radio-button-wrapper-checked {
+        .icon-location {
+          filter: none !important;
+        }
+      }
+      .wp-item-select {
+        border: none;
+        background: transparent;
+        &::before {
+          content: none;
+        }
+        .item-select {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .icon-location {
+            width: 32px;
+            height: auto;
+            filter: hue-rotate(132deg) saturate(18%) brightness(192%);
+          }
+          .icon-location:hover {
+            filter: none;
+          }
+          .text-brand {
+            font-size: 16px;
+            color: #013533;
+            font-weight: 500;
+          }
+          .item-image {
+            margin-top: 8px;
+            height: 50px;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+  .wp-curri {
+    .ant-collapse-header {
+      background-color: #5ab069;
+      border-radius: 16px !important;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      .ant-collapse-header-text {
+        text-align: center;
+        color: #013533;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .ant-collapse-expand-icon {
+        display: flex;
+      }
+    }
+    .ant-collapse-content {
+      border-top: none !important;
+    }
+  }
+  .radio-payment-method {
+    display: flex;
+    flex-direction: row;
+    .ant-radio-button-checked {
+      box-shadow: 0 0 0 2px rgba(90, 176, 105, 0.3);
+      border-radius: 4px;
+    }
+    .ant-radio-button-wrapper {
+      height: auto;
+      padding: 0;
+      border: none !important;
+      background: transparent;
+      margin-left: 12px;
+      &::before {
+        content: none;
+      }
+    }
+    .wp-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .image-pay {
+        height: 45px;
+        width: 45px;
+      }
+      .text-pay {
+        font-size: 12px;
+        font-weight: 500;
+        text-wrap: nowrap;
+        line-height: normal;
+      }
+    }
+  }
+
   .ant-form-item {
     margin-bottom: 0;
   }
+
   .wrapper-form-search-address {
     .ant-form-item {
       .wp-button-choose {
@@ -274,8 +435,8 @@
       font-size: 14px !important;
     }
   }
-  .row-wp-search-result{
-    .ant-collapse{
+  .row-wp-search-result {
+    .ant-collapse {
       .ant-collapse-header {
         padding: 14px 21px;
       }

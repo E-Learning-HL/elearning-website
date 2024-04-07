@@ -30,7 +30,7 @@ const SearchBanner = ({ searchParams }) => {
   return (
     <>
       <div className={styles.searchBanner}>
-        <div className={styles.nav}>
+        {/* <div className={styles.nav}>
           <Breadcrumb>
             <Breadcrumb.Item>
               <Link href="/">Trang Chủ</Link>
@@ -61,75 +61,13 @@ const SearchBanner = ({ searchParams }) => {
                 </Breadcrumb.Item>
               )}
           </Breadcrumb>
-        </div>
+        </div> */}
         <div className={styles.mainBanner}>
-          <h2>
-            {!dataCategoryService &&
-              !dataCategoryService?.name &&
-              searchParams.province_name &&
-              searchParams.district_name && (
-                <div>
-                  Top nha khoa tại{" "}
-                  {capitalizeFirstLetters(searchParams.district_name)},{" "}
-                  {capitalizeFirstLetters(searchParams.province_name)} tốt nhất
-                  <div>Tháng {moment().format("MM/YYYY")}</div>
-                </div>
-              )}
-            {dataCategoryService &&
-              dataCategoryService?.name &&
-              searchParams.province_name &&
-              searchParams.district_name && (
-                <div>
-                  Top nha khoa{" "}
-                  {capitalizeFirstLetters(dataCategoryService?.name)} tại{" "}
-                  {capitalizeFirstLetters(searchParams.district_name)},{" "}
-                  {capitalizeFirstLetters(searchParams.province_name)} tốt nhất
-                  <div>Tháng {moment().format("MM/YYYY")}</div>
-                </div>
-              )}
-            {dataCategoryService &&
-              dataCategoryService?.name &&
-              searchParams.province_name &&
-              !searchParams.district_name && (
-                <div>
-                  Top nha khoa{" "}
-                  {capitalizeFirstLetters(dataCategoryService?.name)} tại{" "}
-                  {capitalizeFirstLetters(searchParams.province_name)} tốt nhất
-                  <div>Tháng {moment().format("MM/YYYY")}</div>
-                </div>
-              )}
-            {!dataCategoryService &&
-              !dataCategoryService?.name &&
-              searchParams.province_name &&
-              !searchParams.district_name && (
-                <div>
-                  Top nha khoa tại{" "}
-                  {capitalizeFirstLetters(searchParams.province_name)} tốt nhất
-                  <div>Tháng {moment().format("MM/YYYY")}</div>
-                </div>
-              )}
-
-            {dataCategoryService &&
-              dataCategoryService?.name &&
-              !searchParams.province_name &&
-              !searchParams.district_name && (
-                <div>
-                  Top nha khoa{" "}
-                  {capitalizeFirstLetters(dataCategoryService?.name)} tốt nhất
-                  <div>Tháng {moment().format("MM/YYYY")}</div>
-                </div>
-              )}
-            {!dataCategoryService?.name &&
-              !searchParams.province_name &&
-              !searchParams.district_name &&
-              "Tìm kiếm nha khoa uy tín phù hợp nhất"}
-          </h2>
+          <h2>Lộ trình chuyên biệt</h2>
           <p>
-            {dataCategoryService && dataCategoryService?.name
-              ? `Danh sách review địa chỉ phòng khám nha khoa với dịch vụ ${capitalizeFirstLetters(
-                  dataCategoryService?.name
-                )} uy tín gần nhất `
-              : "Cung cấp cho bạn địa chỉ nha khoa uy tín gần nhất."}
+            Không còn những giờ học nặng nề, khó hiểu. Với HL eLearing, bạn được
+            học đúng trình độ và mục tiêu. Đảm bảo học tới đâu, hiểu tới đó –
+            Hiểu sâu nhớ lâu, vận dụng nhuần nhuyễn, ứng dụng dễ dàng!
           </p>
         </div>
       </div>

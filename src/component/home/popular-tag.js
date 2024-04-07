@@ -68,10 +68,10 @@ export default function PopularTag() {
     },
   ];
   const onSearchByTime = (time) => {
-    wrapperRouterPush(router, `/tim-nha-khoa?time=${time}`);
+    wrapperRouterPush(router, `/build-roadmap?time=${time}`);
   };
   const onSearchByDay = (day) => {
-    wrapperRouterPush(router, `/tim-nha-khoa?weekday=${day}`);
+    wrapperRouterPush(router, `/build-roadmap?weekday=${day}`);
   };
   const onSearchByAddress = (name, province) => {
     wrapperRouterPush(router, `/${toSlug(province)}/${toSlug(name)}`);

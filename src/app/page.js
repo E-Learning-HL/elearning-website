@@ -29,21 +29,21 @@ import { BASE_URL } from "@/src/const/const";
 
 export const revalidate = 5;
 export default async function Home() {
-  let reviewDentistryData = null;
-  let knowledgeDentistryData = null;
-  let reputableData = null;
-  try {
-    const res = await Promise.all([
-      getBlog(1, "kien-thuc-nha-khoa", 6),
-      getBlog(1, "review-nha-khoa", 4),
-      searchTopDentistry(1),
-    ]);
-    knowledgeDentistryData = res.length == 3 ? res[0] : null;
-    reviewDentistryData = res.length == 3 ? res[1] : null;
-    reputableData = res.length == 3 ? res[2] : null;
-  } catch (error) {
-    console.log(error);
-  }
+  // let reviewDentistryData = null;
+  // let knowledgeDentistryData = null;
+  // let reputableData = null;
+  // try {
+  //   const res = await Promise.all([
+  //     getBlog(1, "kien-thuc-nha-khoa", 6),
+  //     getBlog(1, "review-nha-khoa", 4),
+  //     searchTopDentistry(1),
+  //   ]);
+  //   knowledgeDentistryData = res.length == 3 ? res[0] : null;
+  //   reviewDentistryData = res.length == 3 ? res[1] : null;
+  //   reputableData = res.length == 3 ? res[2] : null;
+  // } catch (error) {
+  //   console.log(error);
+  // }
 
   return (
     <>
@@ -67,7 +67,7 @@ export default async function Home() {
         <h1 className={styles.hiddenH1}>
           NhaKhoaHub - Nền tảng review và tìm kiếm nha khoa uy tín
         </h1>
-        <PopularTag />
+        {/* <PopularTag />
         {reputableData?.data && (
           <ReputableDT reputableData={reputableData?.data} />
         )}
@@ -82,7 +82,7 @@ export default async function Home() {
             knowledgeDentistryData={knowledgeDentistryData?.data?.result}
           />
         )}
-        <Frequentlyquest />
+        <Frequentlyquest /> */}
         <RegistrationClinic />
       </main>
     </>

@@ -10,14 +10,14 @@ import iconphone from "@/public/icon/icon-phone.svg";
 import iconfacebook from "@/public/icon/icon-facebook.svg";
 import iconzalo from "@/public/icon/icon-zalo.svg";
 import imgcertificate from "@/public/image/certificate.png";
-import { HIDE_HEADER_FOOTER } from "@/src/const/const";
+import { HIDE_FOOTER } from "@/src/const/const";
 import { Col, Row } from "antd";
 import Link from "next/link";
 
 const Footer = (props) => {
   const router = useRouter();
   const pathname = usePathname();
-  const showFooter = !HIDE_HEADER_FOOTER.includes(pathname);
+  const showFooter = !HIDE_FOOTER.includes(pathname);
 
   function triggerButton(button) {
     switch (button) {

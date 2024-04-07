@@ -29,7 +29,7 @@ export default function FormSearch() {
   const { data } = useQuery({
     queryKey: ["api-common"],
   });
-  const [url, setUrl] = useState("/tim-nha-khoa");
+  const [url, setUrl] = useState("/build-roadmap");
   const router = useRouter();
   const filterOption = (input, option) => {
     if (option.props.label) {
@@ -125,7 +125,7 @@ export default function FormSearch() {
 
     const param = new URLSearchParams(parseValue).toString();
     const urlQuery =
-      routeSearch.length > 0 ? routeSearch.join("") : "tim-nha-khoa";
+      routeSearch.length > 0 ? routeSearch.join("") : "";
     NProgress.start();
     router.push(`${urlQuery}?${param}`);
   };

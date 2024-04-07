@@ -86,7 +86,7 @@ export default function ShowBlogSuggest({ data, hasForm = true }) {
           Tìm kiếm nha khoa uy tín phù hợp nhất với bạn!
         </p>
         <Link
-          href="/tim-nha-khoa"
+          href="/build-roadmap"
           className={`${styles.wpInputearch} button-blue`}
         >
           TÌM KIẾM CƠ SỞ GẦN NHẤT

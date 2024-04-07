@@ -7,8 +7,8 @@
     margin: auto;
   }
   .mainBanner {
-    background-image: url("../../../public/image/search.png");
-    height: 320px;
+    background-image: url("../../../public/image/build-roadmap-cover.png");
+    height: 380px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -19,18 +19,20 @@
     h2 {
       font-size: 40px;
       font-weight: 600;
-      color: #2a3467;
+      color: #013533;
     }
     p {
       font-size: 18px;
       font-weight: 400;
-      color: #2a3467;
+      color: #013533;
+      text-align: center;
+      max-width: 50%;
     }
   }
   .mainBanner h2 {
     font-size: 40px;
     font-weight: 600;
-    color: #2a3467;
+    color: #013533;
     text-align: center;
   }
 }
@@ -41,14 +43,17 @@
       padding: 15px;
     }
     .mainBanner {
-      background-image: url("../../../public/image/searchmobile.png");
+      background-image: url("../../../public/image/build-roadmap-cover.png");
       h2 {
         font-size: 32px;
         text-align: center;
+        padding: 0 15px;
       }
       p {
         font-size: 16px;
         text-align: center;
+        padding: 0 15px;
+        max-width: none;
       }
     }
   }
