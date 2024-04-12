@@ -1,0 +1,177 @@
+.wp-allcourse {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.wp-allcourse .wpRemarkableServiceContent {
+  max-width: 1200px;
+  margin: 64px auto;
+}
+.wp-allcourse .wpRemarkableServiceContent .wpTitle {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.wp-allcourse .wpRemarkableServiceContent .wpTitle h2 {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 52px */
+  text-transform: capitalize;
+  color: #2a3467;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.wp-allcourse .wpRemarkableServiceContent .wpTitle .line {
+  height: 6px;
+  width: 120px;
+  border-radius: 3px;
+  background-color: #00c5d7;
+  margin-bottom: 48px;
+}
+.wp-allcourse .wpRemarkableServiceContent .listRemarkableService {
+  justify-content: center;
+}
+.wp-allcourse .wpRemarkableServiceContent .listRemarkableService .itemService {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  height: 100%;
+}
+.wp-allcourse .wpRemarkableServiceContent .listRemarkableService .itemService .itemImage {
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.wp-allcourse .wpRemarkableServiceContent .listRemarkableService .itemService .itemImage .serviceImage {
+  width: 80px;
+  height: 80px;
+}
+.wp-allcourse .wpRemarkableServiceContent .listRemarkableService .itemService .itemTitle {
+  justify-content: center;
+}
+.wp-allcourse .wpRemarkableServiceContent .listRemarkableService .itemService .itemTitle h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  text-transform: capitalize;
+  color: #013533;
+  text-align: center;
+  margin-bottom: 0;
+}
+.wp-allcourse .wpListCourse {
+  max-width: 1200px;
+  margin: 32px auto 64px;
+  width: 100%;
+}
+.wp-allcourse .wpListCourse h2 {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 52px */
+  text-transform: capitalize;
+  color: #013533;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.wp-allcourse .wpListCourse .line {
+  height: 6px;
+  width: 120px;
+  border-radius: 3px;
+  background-color: #5ab069;
+  margin: auto;
+  margin-bottom: 24px;
+}
+.wp-allcourse .wpListCourse .listDentistry {
+  margin: 48px 0;
+  width: 100%;
+}
+.wp-allcourse .wpListCourse .listDentistry .dentistryItem {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+.wp-allcourse .wpListCourse .listDentistry .dentistryItem .dentistryImg {
+  height: 250px !important;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+  position: static !important;
+  min-height: 250px;
+}
+.wp-allcourse .wpListCourse .listDentistry .dentistryItem .dentistryInfo {
+  padding: 24px;
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 0px 0px 16px 16px;
+  height: 100%;
+  flex-direction: column;
+}
+.wp-allcourse .wpListCourse .listDentistry .dentistryItem .dentistryInfo .titleCourse {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #013533;
+}
+.wp-allcourse .wpListCourse .listDentistry .dentistryItem .dentistryInfo .buttonMobile {
+  display: flex;
+  flex-direction: column;
+}
+.wp-allcourse .wpListCourse .listDentistry .dentistryItem .dentistryInfo .buttonMobile .buttonAdvise {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0 20px;
+  color: #5ab069;
+  /* P2/Bold */
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  margin-bottom: 16px;
+}
+.wp-allcourse .wpListCourse .listDentistry .dentistryItem .dentistryInfo .buttonMobile .buttonDetail {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  text-align: center;
+  background: var(--color-brand-color, #5ab069);
+  height: 40px;
+  padding: 0 20px;
+  color: #fff;
+  /* P2/Bold */
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+  .wp-allcourse .wpRemarkableServiceContent {
+    margin: 50px 15px;
+  }
+  .wp-allcourse .wpRemarkableServiceContent .listRemarkableService .itemService {
+    padding: 21px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .wp-allcourse .wpRemarkableServiceContent {
+    margin: 50px 15px;
+  }
+  .wp-allcourse .wpRemarkableServiceContent .wpTitle h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 130%;
+  }
+}

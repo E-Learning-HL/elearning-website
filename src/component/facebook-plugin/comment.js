@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const Comment = (props) => {
-  let dataHref = `${process.env.NEXT_PUBLIC_DEPLOY_URL}/blog/${props.dataHref}`;
+  let dataHref = `${process.env.NEXT_PUBLIC_URL}/phong-kham/${props.dataHref}`;
 
   useEffect(() => {
     initFacebookSDK();

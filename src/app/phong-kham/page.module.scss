@@ -1,0 +1,47 @@
+.wpAllCourse{
+    .wpSectionSearch {
+        z-index: 1;
+        height: 500px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        .coverHome {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: top;
+        }
+        .wpContentSearch {
+          position: absolute;
+          z-index: 1;
+          margin: auto;
+          margin-left: 120px;
+          width: 42%;
+    
+          .title {
+            color: var(--color-primary, #013533);
+            /* H1 */
+            // font-family: Roboto Flex;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 130%; /* 72.8px */
+            text-transform: capitalize;
+          }
+          .subTitle {
+            margin-top: 8px;
+            color: var(--color-text, #6884a7);
+            /* P1/Normal */
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 27px */
+          }
+          .formSearch {
+            max-width: 380px;
+            margin-top: 32px;
+          }
+        }
+      }
+
+}

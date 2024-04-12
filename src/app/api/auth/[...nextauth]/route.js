@@ -44,7 +44,7 @@ export const authOptions = {
           ...token,
           id: user.data.userId,
           access_token: user.data.accessToken,
-          // name: user.data.userName,
+          name: user.data.userName,
         };
       }
       return token;
@@ -56,7 +56,7 @@ export const authOptions = {
         ...session,
         user: {
           id: token.id,
-          // name: token.name,
+          name: token.name,
           access_token: token.access_token,
         },
       };

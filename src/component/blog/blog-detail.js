@@ -39,7 +39,7 @@ export default function ShowBlogDetail({ data }) {
 
       {/* Facebook */}
       <div className={styles.facebook_plugin}>
-        <Comment dataHref={data?.dataDetail?.slug} />
+        <Comme nt dataHref={data?.dataDetail?.slug} />
       </div>
 
       <div className={styles.wpBlogRelated}>

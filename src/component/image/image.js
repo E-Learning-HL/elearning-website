@@ -10,7 +10,8 @@ export default function ImageCommon({ data, style, width, height }) {
     <Image
       unoptimized
       fill={true}
-      src={image ? `${PREFIX_IMAGE_URL}${image.key}` : defaultImage}
+      // src={image ? `${PREFIX_IMAGE_URL}${image.key}` : defaultImage}
+      src={image ? image : defaultImage}
       className={style}
       onError={() => {
         setImage(null);
@@ -21,7 +22,8 @@ export default function ImageCommon({ data, style, width, height }) {
     <Image
       unoptimized
       fill={true}
-      src={image ? `${PREFIX_IMAGE_URL}${image.key}` : defaultImage}
+      // src={image ? `${PREFIX_IMAGE_URL}${image.key}` : defaultImage}
+      src={image ? image : defaultImage}
       className={style}
       onError={() => {
         setImage(null);

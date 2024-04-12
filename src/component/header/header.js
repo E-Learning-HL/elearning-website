@@ -30,7 +30,7 @@ import { useQuery } from "@tanstack/react-query";
 import { toSlug } from "@/src/util/util";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { HIDE_HEADER } from "@/src/const/const";
+import { HIDE_HEADER, HIDE_HEADER_DYNAMIC } from "@/src/const/const";
 import "@/src/style/common.css";
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -48,6 +48,7 @@ const Header = ({ sessionServer }) => {
     NProgress.start();
     router.push(`/`);
   };
+  const showFooterDynamic = !HIDE_HEADER_DYNAMIC.some(route => pathname.startsWith(route));
   const handleOpenMenu = (menuType) => {
     if (menuType === "service") {
       openServiceMenu === true
@@ -129,7 +130,7 @@ const Header = ({ sessionServer }) => {
 
   return (
     <>
-      {showHeader && (
+      {showHeader && showFooterDynamic && (
         <div className={styles.dataHeader}>
           <div className={styles.wrapperHeader}>
             <div className={styles.contentHeader}>
@@ -171,10 +172,11 @@ const Header = ({ sessionServer }) => {
                         openServiceMenu ? "opened" : ""
                       }`}
                       onClick={() => {
-                        handleOpenMenu("service");
+                        // handleOpenMenu("service");
+                        router.push("/")
                       }}
                     >
-                      <span>Courses</span>
+                      <span>Khóa học</span>
                       <Image
                         src={openServiceMenu ? arrowUpLine : arrowDownLine}
                       />

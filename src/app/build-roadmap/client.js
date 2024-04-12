@@ -113,6 +113,22 @@ function SearchResultClientChild({
   const formattedCourses = dataCourses?.map((course) => ({
     courseId: course.course_id,
   }));
+
+  const handleUpdateUrl = (startPoint, targetPoint) => {
+    // Tạo query object mới từ query parameters hiện tại
+    const query = {
+      ...router.query,
+      start_point: startPoint,
+      target_point: targetPoint,
+    };
+
+    // Thực hiện cập nhật URL mà không load lại trang
+    router.push({
+      pathname: router.pathname,
+      query: query,
+    });
+  };
+
   //parse tag
   let tagSearch = [];
   if (searchParams?.category_service_name) {
@@ -337,9 +353,9 @@ function SearchResultClientChild({
           axios
             .post(`${BASE_URL}/api/payments/create-payment`, body, {
               headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${session?.user?.access_token}`
-              }
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${session?.user?.access_token}`,
+              },
             })
             .then((res) => {})
             .catch((error) => {
@@ -600,6 +616,7 @@ function SearchResultClientChild({
                     className="wp-radio-select"
                     onChange={(e) => {
                       setStartPoint(e.target.value);
+                      router.replace(`/build-roadmap?start_point=${e.target.value}&target_point=${targetPoint}`, {shallow: true , scroll: false })
                     }}
                   >
                     {START_POINT.map((item) => {
@@ -636,6 +653,7 @@ function SearchResultClientChild({
                     className="wp-radio-select"
                     onChange={(e) => {
                       setTargetPoint(e.target.value);
+                      router.replace(`/build-roadmap?start_point=${startPoint}&target_point=${e.target.value}`, {shallow: true , scroll: false })
                     }}
                   >
                     {TARGET_POINT.map((item, idex) => {

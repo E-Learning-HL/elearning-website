@@ -2,6 +2,25 @@ import wpAxios from "@/src/util/request";
 import { BASE_URL } from "@/src/const/const";
 import axios from "axios";
 
+
+
+export async function getDetailCourse(id) {
+  const result = await wpAxios().get(`${BASE_URL}/api/courses/get-course-public/${id}`, {
+    params: {},
+  });
+  return result.data;
+}
+export async function getListCourses() {
+  const result = await wpAxios().get(`${BASE_URL}/api/courses/course-level`, {
+    params: {
+      startPoint: 0,
+      endPoint: 1000
+    },
+  });
+  return result.data;
+}
+
+
 export async function getDetailClinicAxios(slug) {
   const result = await wpAxios().get(`${BASE_URL}/clinic/findBySlug/${slug}`, {
     params: {},

@@ -3,21 +3,22 @@ import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import * as NProgress from "nprogress";
 import styles from "./footer.module.scss";
-import logo from "@/public/image/logo-nha-nha-khoa-hub.png";
+import logo from "@/public/image/elearning-logo.png";
 import imgabove from "@/public/image/footerimg1.svg";
 import imgbelow from "@/public/image/footerimg2.svg";
 import iconphone from "@/public/icon/icon-phone.svg";
 import iconfacebook from "@/public/icon/icon-facebook.svg";
 import iconzalo from "@/public/icon/icon-zalo.svg";
-import imgcertificate from "@/public/image/certificate.png";
-import { HIDE_FOOTER } from "@/src/const/const";
+import { HIDE_FOOTER, HIDE_FOOTER_DYNAMIC } from "@/src/const/const";
 import { Col, Row } from "antd";
 import Link from "next/link";
 
 const Footer = (props) => {
   const router = useRouter();
   const pathname = usePathname();
+  console.log("12312312312", pathname)
   const showFooter = !HIDE_FOOTER.includes(pathname);
+  const showFooterDynamic = !HIDE_FOOTER_DYNAMIC.some(route => pathname.startsWith(route));
 
   function triggerButton(button) {
     switch (button) {
@@ -35,7 +36,7 @@ const Footer = (props) => {
 
   return (
     <>
-      {showFooter && (
+      {showFooter && showFooterDynamic && (
         <div className={styles.wrapperFooter}>
           <Image className={styles.imgAbove} src={imgabove} alt="image" />
           <Image className={styles.imgBelow} src={imgbelow} alt="image" />
@@ -158,19 +159,19 @@ const Footer = (props) => {
                     />
                   </button>
                 </div>
-                <div>
+                {/* <div>
                   <Image
                     src={imgcertificate}
                     className={styles.certificateImage}
                     alt="certificate"
                   ></Image>
-                </div>
+                </div> */}
               </Col>
             </Row>
           </div>
           <div className={styles.line}></div>
           <div className={styles.wpCopyr}>
-            <p>Copyright© 2023 Nha Khoa Hub</p>
+            <p>Copyright© 2024 HL Techs</p>
           </div>
         </div>
       )}

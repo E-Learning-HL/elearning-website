@@ -12,7 +12,7 @@ import iconLocation from "@/public/icon/icon-location.svg";
 import iconScale from "@/public/icon/icon-scale.svg";
 import iconWorkTime from "@/public/icon/icon-work-time.svg";
 import { formatWorkingDays, ratingPointToText, toSlug } from "@/src/util/util";
-import { Col, Row, Progress, Breadcrumb, Modal, Button } from "antd";
+import { Col, Row, Progress, Breadcrumb, Modal, Button, Collapse } from "antd";
 import iconAdvise from "@/public/icon/icon-advise.svg";
 import defaultImage from "@/public/image/default-thumbnail.jpg";
 import "@/src/style/common.css";
@@ -20,6 +20,7 @@ import iconClose from "@/public/icon/icon-close.png";
 import _ from "lodash";
 import iconArrow from "@/public/icon/arrow-float-button.svg";
 import chatAlert from "@/public/icon/chat-alert.svg";
+import Comment from "../../../component/facebook-plugin/comment";
 import {
   Link as LinkScroll,
   DirectLink,
@@ -45,6 +46,17 @@ import ChatBox from "@/src/component/detail/chatbox";
 import Link from "next/link";
 import NotFound from "../../not-found/page";
 import Post from "@/src/component/detail/post";
+import iconBuy from "@/public/icon/icon-buy.png";
+import iconAmount from "@/public/icon/icon-amount.png";
+import iconCountdown from "@/public/icon/icon-countdown.png";
+import iconBooks from "@/public/icon/icon-books.png";
+import iconAmountTest from "@/public/icon/icon-test.png";
+import iconListening from "@/public/icon/icon-headphone.png";
+import iconWriting from "@/public/icon/icon-writing.png";
+import iconWritingAi from "@/public/icon/icon-writing-ai.png";
+import iconSpeaking from "@/public/icon/icon-speaking.png";
+import iconSpeakingAi from "@/public/icon/icon-speaking-ai.png";
+import iconReading from "@/public/icon/icon-reading.png";
 
 const dataMenuSection = [
   { id: "tong-quan", name: "Tổng quan" },
@@ -58,68 +70,71 @@ const dataMenuSection = [
   { id: "gioi-thieu", name: "Giới thiệu chi tiết" },
 ];
 export default function DetailClinicClient({
-  detailClinic,
-  searchParams,
-  dataParseSlug,
+  detailCourse,
+  params,
+  listCourse,
+  // dataParseSlug,
 }) {
-  if (detailClinic.error === "Not Found") {
+  if (detailCourse.error === "Not Found") {
     return <NotFound />;
   }
+  const { Panel } = Collapse;
+  console.log("detailCourse", listCourse);
   // console.log("detailClinic", detailClinic);
-  const cover = detailClinic?.image?.find(
-    (item) => item.image_type === IMAGE_TYPE.banner
-  );
-  const logo = detailClinic?.image?.find(
-    (item) => item.image_type === IMAGE_TYPE.avatar
-  );
-  const avatar = logo ? `${PREFIX_IMAGE_URL}${logo.key}` : defaultImage;
-  const workday = detailClinic?.workday?.map((item) => {
-    return {
-      id: item.weekday.id,
-      name: item.weekday.name,
-    };
-  });
-  const [openModal, setOpenModal] = useState(false);
-  const [appendChatAlert, setAppendChatAlert] = useState(true);
-  useEffect(() => {
-    if (openModal) {
-      document.body.classList.add("modal-open");
-    } else {
-      document.body.classList.remove("modal-open");
-    }
-    return () => {
-      document.body.classList.remove("modal-open");
-    };
-  }, [openModal]);
+  // const cover = detailClinic?.image?.find(
+  //   (item) => item.image_type === IMAGE_TYPE.banner
+  // );
+  // const logo = detailClinic?.image?.find(
+  //   (item) => item.image_type === IMAGE_TYPE.avatar
+  // );
+  // const avatar = logo ? `${PREFIX_IMAGE_URL}${logo.key}` : defaultImage;
+  // const workday = detailClinic?.workday?.map((item) => {
+  //   return {
+  //     id: item.weekday.id,
+  //     name: item.weekday.name,
+  //   };
+  // });
+  // const [openModal, setOpenModal] = useState(false);
+  // const [appendChatAlert, setAppendChatAlert] = useState(true);
+  // useEffect(() => {
+  //   if (openModal) {
+  //     document.body.classList.add("modal-open");
+  //   } else {
+  //     document.body.classList.remove("modal-open");
+  //   }
+  //   return () => {
+  //     document.body.classList.remove("modal-open");
+  //   };
+  // }, [openModal]);
 
-  //get url Breadcrumb address
-  let navUrl = "";
-  if (searchParams?.dichvu && dataParseSlug?.category_service_name) {
-    navUrl += `/${searchParams?.dichvu}`;
-  }
-  if (detailClinic?.address[0]?.province) {
-    navUrl += `/${toSlug(detailClinic?.address[0]?.province?.name)}`;
-  }
-  if (detailClinic?.address[0]?.district) {
-    navUrl += `/${toSlug(detailClinic?.address[0]?.district?.name)}`;
-  }
-  const debounceScroll = _.debounce((id) => {
-    console.log("onSetActive");
-    const element_to_scroll_to = document.getElementById(id);
-    if (element_to_scroll_to) {
-      // element_to_scroll_to.scrollIntoView({
-      //   behavior: "smooth",
-      // });
-      // window.scrollTo(element_to_scroll_to.offsetTop, 0);
-      document.getElementById("wp-menu-section").scrollTo({
-        left: document.getElementById(id).offsetLeft - 50,
-        behavior: "smooth",
-      });
-    }
-  }, 300);
+  // //get url Breadcrumb address
+  // let navUrl = "";
+  // if (searchParams?.dichvu && dataParseSlug?.category_service_name) {
+  //   navUrl += `/${searchParams?.dichvu}`;
+  // }
+  // if (detailClinic?.address[0]?.province) {
+  //   navUrl += `/${toSlug(detailClinic?.address[0]?.province?.name)}`;
+  // }
+  // if (detailClinic?.address[0]?.district) {
+  //   navUrl += `/${toSlug(detailClinic?.address[0]?.district?.name)}`;
+  // }
+  // const debounceScroll = _.debounce((id) => {
+  //   console.log("onSetActive");
+  //   const element_to_scroll_to = document.getElementById(id);
+  //   if (element_to_scroll_to) {
+  //     // element_to_scroll_to.scrollIntoView({
+  //     //   behavior: "smooth",
+  //     // });
+  //     // window.scrollTo(element_to_scroll_to.offsetTop, 0);
+  //     document.getElementById("wp-menu-section").scrollTo({
+  //       left: document.getElementById(id).offsetLeft - 50,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, 300);
   return (
     <div className={styles.wpDetailClinicDetail}>
-      <div className={styles.nav}>
+      {/* <div className={styles.nav}>
         <Breadcrumb>
           <Breadcrumb.Item>
             <Link href="/">Trang Chủ</Link>
@@ -147,10 +162,10 @@ export default function DetailClinicClient({
             <Link href="">{detailClinic?.name}</Link>
           </Breadcrumb.Item>
         </Breadcrumb>
-      </div>
+      </div> */}
       <div className={styles.wpSectionCover}>
         <div className={styles.wpCover}>
-          <ImageCommon data={cover} style={styles.cover} />
+          <ImageCommon data={detailCourse?.file[0]?.url} style={styles.cover} />
         </div>
         <Image className={styles.imgAbove} src={imgabove} alt="image" />
         <Image className={styles.imgBelow} src={imgbelow} alt="image" />
@@ -167,7 +182,7 @@ export default function DetailClinicClient({
       </div>
       <div className={styles.wpLineCard}>
         <div className={styles.wpCardInfo}>
-          <div className={styles.wpCardAbove}>
+          {/* <div className={styles.wpCardAbove}>
             <div className={styles.wpCardLeft}>
               <ImageCommon data={logo} style={styles.logo} />
             </div>
@@ -223,14 +238,8 @@ export default function DetailClinicClient({
               </div>
               <Row className={styles.wpLastLine}>
                 <Col xl={14}>
-                  {/* <div className={styles.wpScale}>
-                    <Image src={iconScale} className={styles.iconScale} />
-                    <div className={styles.titleScale}>Quy mô:</div>
-                    <div className={styles.valueScale}>_ cơ sở</div>
-                  </div> */}
                   <div className={styles.wpTime}>
                     <Image src={iconWorkTime} className={styles.iconWorkTime} />
-                    {/* <div className={styles.titleScale}>Thời gian làm việc:</div> */}
                     {detailClinic?.time_note ? (
                       <div className={styles.valueScale}>
                         <b>Thời gian làm việc:&nbsp;&nbsp;</b>
@@ -258,22 +267,26 @@ export default function DetailClinicClient({
                 </Col>
               </Row>
             </div>
-          </div>
+          </div> */}
+          <div className={styles.courseTitle}>{detailCourse?.nameCourse}</div>
           <div className={styles.wpCardBelow}>
+            <div className={styles.wpbuttonPrice}>
+              Giá: {detailCourse?.price.toLocaleString("en-US")}
+            </div>
             <div
               className={`${styles.wpbuttonGetAdvise} button-blue`}
               onClick={() => {
                 setOpenModal(true);
               }}
             >
-              <Image src={iconAdvise} className={styles.iconAdvise} />
-              NHẬN TƯ VẤN MIỄN PHÍ
+              <Image src={iconBuy} className={styles.iconAdvise} />
+              ĐĂNG KÝ NGAY
             </div>
           </div>
         </div>
       </div>
       {/* Menu */}
-      <div className={`${styles.wpMenu} wp-menu-section`} id="wp-menu-section">
+      {/* <div className={`${styles.wpMenu} wp-menu-section`} id="wp-menu-section">
         {dataMenuSection.map((item, index) => {
           return (
             <LinkScroll
@@ -296,231 +309,188 @@ export default function DetailClinicClient({
             </LinkScroll>
           );
         })}
-      </div>
+      </div> */}
       {/* section */}
-      <div className={styles.wpSection}>
-        <div className={styles.wpSectionLeft} id="sectionLeft">
-          {/* tong-quan */}
-          <div className={styles.wpSectionOverview}>
-            <Element name="tong-quan" className="element">
-              <div className={styles.titleSection}>Tổng quan</div>
-              <div className={styles.dash}></div>
-              <div className={styles.wpOverview}>
-                <Row gutter={15}>
-                  <Col
-                    xl={6}
-                    xs={24}
-                    sm={24}
-                    md={6}
-                    className={styles.colCircleProgress}
-                  >
-                    <Progress
-                      type="circle"
-                      percent={detailClinic?.total_rating * 10}
-                      format={(percent) => (
-                        <div>
-                          <div className={styles.overviewPoint}>
-                            {(percent / 10).toFixed(1) == 0
-                              ? "-"
-                              : (percent / 10).toFixed(1)}
-                          </div>
-                          <div className={styles.overviewPointText}>
-                            {ratingPointToText(
-                              detailClinic?.total_rating
-                                ? detailClinic?.total_rating
-                                : 0.0
-                            )}
+      <div className={styles.wpDetail}>
+        <div className={styles.wpSection}>
+          <Row gutter={[{ md: 25, xl: 30 }, 10]}>
+            <Col xl={16} xs={24} sm={24} md={14} className={styles.wpColRight}>
+              {/* <SearchResult
+              searchParams={searchParams}
+              searchResult={searchResult}
+            /> */}
+              <div className={styles.wpContentCourses}>
+                <div className={styles.wpItemCourse}>
+                  <div
+                    className={styles.titleCourse}
+                    dangerouslySetInnerHTML={{
+                      __html: detailCourse?.introduce,
+                    }}
+                  ></div>
+                  <div className={styles.overView}>
+                    <Row gutter={[15, 15]}>
+                      <Col xl={12}>
+                        <div className={styles.items}>
+                          <Image
+                            className={styles.imageItems}
+                            src={iconBooks}
+                          ></Image>
+                          <div className={styles.contentItems}>
+                            <div className={styles.titleItems}>
+                              Number of lessons
+                            </div>
+                            <div className={styles.valueItems}>
+                              {detailCourse?.lessonCount}
+                            </div>
                           </div>
                         </div>
-                      )}
-                      strokeColor={STROKE_COLOR}
-                      trailColor={TRAIL_COLOR}
-                    />
-                  </Col>
-                  <Col xl={9} xs={24} sm={24} md={9}>
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.infrastructure}
-                      name="Cơ sở vật chất"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.service_quality}
-                      name="Chất lượng dịch vụ"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.technology}
-                      name="Công nghệ điều trị"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.procedure}
-                      name="Quy trình làm việc"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.infrastructure}
-                      name="Thái độ phục vụ"
-                    />
-                  </Col>
-                  <Col xl={9} xs={24} sm={24} md={9}>
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.doctor}
-                      name="Đội ngũ bác sỹ"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.price}
-                      name="Giá cả hợp lý"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.guarantee}
-                      name="Chế độ bảo hành"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.care}
-                      name="Chăm sóc sau điều trị"
-                    />
-                    <ItemOverviewRating
-                      percent={detailClinic?.overview_rating?.introduce}
-                      name="Sẵn sàng giới thiệu"
-                    />
-                  </Col>
-                </Row>
-                <div
-                  className={styles.buttonViewReview}
-                  onClick={() => {
-                    const getElementReview = document.getElementById("review");
-                    if (getElementReview) {
-                      getElementReview.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                >
-                  Xem đánh giá của {detailClinic?.ratings?.length} khách hàng
-                  khác
+                      </Col>
+                      <Col xl={12}>
+                        <div className={styles.items}>
+                          <Image
+                            className={styles.imageItems}
+                            src={iconAmountTest}
+                          ></Image>
+                          <div className={styles.contentItems}>
+                            <div className={styles.titleItems}>
+                              Number of assignments
+                            </div>
+                            <div className={styles.valueItems}>100+</div>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xl={12}>
+                        <div className={styles.items}>
+                          <Image
+                            className={styles.imageItems}
+                            src={iconWritingAi}
+                          ></Image>
+                          <div className={styles.contentItems}>
+                            <div className={styles.titleItems}>
+                              AI grading listening
+                            </div>
+                            <div className={styles.valueItems}>Unlimited</div>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xl={12}>
+                        <div className={styles.items}>
+                          <Image
+                            className={styles.imageItems}
+                            src={iconSpeakingAi}
+                          ></Image>
+                          <div className={styles.contentItems}>
+                            <div className={styles.titleItems}>
+                              AI grading speaking
+                            </div>
+                            <div className={styles.valueItems}>Unlimited</div>
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className={`${styles.wpCurri} wp-curri-detail`}>
+                    <Collapse defaultActiveKey={1}>
+                      <Panel header="CURRICULUM" key={1}>
+                        <Row gutter={[15, 15]}>
+                          <Col xl={12}>
+                            <div className={styles.itemCurri}>
+                              <Image
+                                src={iconListening}
+                                className={styles.imageCurri}
+                              ></Image>
+                              <div className={styles.contentCurri}>
+                                <div className={styles.titleCurri}>
+                                  Listening
+                                </div>
+                                <div className={styles.valueCurri}>
+                                  {detailCourse.listening}
+                                </div>
+                              </div>
+                            </div>
+                          </Col>
+                          <Col xl={12}>
+                            <div className={styles.itemCurri}>
+                              <Image
+                                src={iconSpeaking}
+                                className={styles.imageCurri}
+                              ></Image>
+                              <div className={styles.contentCurri}>
+                                <div className={styles.titleCurri}>
+                                  Speaking
+                                </div>
+                                <div className={styles.valueCurri}>
+                                  {detailCourse.speaking}
+                                </div>
+                              </div>
+                            </div>
+                          </Col>
+                          <Col xl={12}>
+                            <div className={styles.itemCurri}>
+                              <Image
+                                src={iconReading}
+                                className={styles.imageCurri}
+                              ></Image>
+                              <div className={styles.contentCurri}>
+                                <div className={styles.titleCurri}>Reading</div>
+                                <div className={styles.valueCurri}>
+                                  {detailCourse.reading}
+                                </div>
+                              </div>
+                            </div>
+                          </Col>
+                          <Col xl={12}>
+                            <div className={styles.itemCurri}>
+                              <Image
+                                src={iconWriting}
+                                className={styles.imageCurri}
+                              ></Image>
+                              <div className={styles.contentCurri}>
+                                <div className={styles.titleCurri}>Writing</div>
+                                <div className={styles.valueCurri}>
+                                  {detailCourse.writing}
+                                </div>
+                              </div>
+                            </div>
+                          </Col>
+                        </Row>
+                      </Panel>
+                    </Collapse>
+                  </div>
+                </div>
+                <div className={styles.facebook_plugin}>
+                  <Comment dataHref={params?.slug} />
                 </div>
               </div>
-            </Element>
-          </div>
-          {/* thong-tin-chung */}
-          <div>
-            <Element name="thong-tin-chung" className="element">
-              <div className={styles.titleSection}>Thông tin chung</div>
-              <div className={styles.dash}></div>
-              <InfoCommon detailClinic={detailClinic} />
-            </Element>
-          </div>
-          {/* bang-gia-dich-vu */}
-          <div>
-            <Element name="bang-gia-dich-vu" className="element">
-              <div className={styles.titleSection}>Bảng giá dịch vụ</div>
-              <div className={styles.dash}></div>
-              {detailClinic.category_service_clinic[0]?.category_service && (
-                <Price detailClinic={detailClinic} />
-              )}
-              {!detailClinic.category_service_clinic[0]?.category_service && (
-                <div
-                  style={{
-                    color: "#2a3467",
-                    display: "flex",
-                    justifyContent: "center",
-                    fontSize: "16px",
-                    margin: "12px 0px",
-                  }}
-                >
-                  Chưa có thông tin
+            </Col>
+            <Col xl={8} xs={24} sm={24} md={10}>
+              <div className={styles.wpColFilter} id="wpCol">
+                <div className={styles.ortherCourses}>
+                  <div className={styles.title}>Khóa học khác</div>
+                  <div className={styles.listItem}>
+                    {/* map here */}
+                    {listCourse?.map((item) => {
+                      return (
+                        <div className={styles.item}>
+                          <ImageCommon
+                            // src={item?.file[0]?.url}
+                            style={styles.imageOtherCourse}
+                          ></ImageCommon>
+                          <div className={styles.courseTitle}>
+                            {item?.course_name_course}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              )}
-            </Element>
-          </div>
-          {/* co-so-vat-chat */}
-          <div>
-            <Element name="co-so-vat-chat" className="element">
-              <div className={styles.titleSection}>Cơ sở vật chất</div>
-              <div className={styles.dash}></div>
-              <Infrastructure detailClinic={detailClinic} />
-            </Element>
-          </div>
-          {/* tin-tuc */}
-          <div>
-            <Element name="tin-tuc" className="element">
-              <div className={styles.titleSection}>Tin Tức</div>
-              <div className={styles.dash}></div>
-              <Post detailClinic={detailClinic} />
-            </Element>
-          </div>
-          {/* doi-ngu-bac-si */}
-          <div>
-            <Element name="doi-ngu-bac-si" className="element">
-              <div className={styles.titleSection}>Đội ngũ bác sỹ</div>
-              <div className={styles.dash}></div>
-              {detailClinic?.doctor?.length ? (
-                <Doctor detailClinic={detailClinic} />
-              ) : null}
-              {!detailClinic?.doctor?.length && (
-                <div
-                  style={{
-                    color: "#2a3467",
-                    display: "flex",
-                    justifyContent: "center",
-                    fontSize: "16px",
-                    margin: "12px 0px",
-                  }}
-                >
-                  Chưa có thông tin
-                </div>
-              )}
-            </Element>
-          </div>
-          <div>
-            <Element name="vi-tri" className="element">
-              <div className={styles.titleSection}>Vị trí</div>
-              <div className={styles.dash}></div>
-              <Location address={detailClinic?.address} />
-            </Element>
-          </div>
-          <div>
-            <Element name="danh-gia" className="element" id="review">
-              <div className={styles.titleSection}>Đánh giá</div>
-              <div className={styles.dash}></div>
-              <Review detailClinic={detailClinic} />
-            </Element>
-          </div>
-
-          <div>
-            <Element name="gioi-thieu" className="element">
-              <div className={styles.titleSection}>Giới Thiệu Chi Tiết</div>
-              <div className={styles.dash}></div>
-              <IntroduceDetail content={detailClinic?.introduce} />
-            </Element>
-          </div>
+              </div>
+            </Col>
+          </Row>
         </div>
-        <div className={styles.wpChat}>
-          <Element name="form-lien-he" className="element formChatBox">
-            <ChatBox detailClinic={detailClinic} />
-          </Element>
-        </div>
-        <Modal
-          className="wpModalChatBox"
-          open={openModal}
-          onCancel={() => {
-            setOpenModal(false);
-          }}
-          footer={null}
-          closable={false}
-          width={380}
-          style={{ top: 20 }}
-          destroyOnClose={true}
-        >
-          <div style={{ position: "relative" }}>
-            <ChatBox detailClinic={detailClinic} isModal={true} />
-            <div
-              className="closeModal"
-              onClick={() => {
-                setOpenModal(false);
-              }}
-            >
-              <Image src={iconClose} />
-            </div>
-          </div>
-        </Modal>
       </div>
-      <div
+
+      {/* <div
         className={styles.floatButton}
         onClick={() => {
           setOpenModal(true);
@@ -532,7 +502,7 @@ export default function DetailClinicClient({
         {appendChatAlert && (
           <Image src={chatAlert} className={styles.chatAlert} />
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

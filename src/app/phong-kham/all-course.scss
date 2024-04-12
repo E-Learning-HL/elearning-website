@@ -1,0 +1,378 @@
+@import "../../const/settings.scss";
+.wp-allcourse {
+  // background: linear-gradient(0deg, rgba(219, 239, 250, 0.50) 0%, rgba(219, 239, 250, 0.50) 100%), #FFF;
+  background: #fff;
+  display: flex;
+  // justify-content: center;
+  flex-direction: column;
+  .wpRemarkableServiceContent {
+    max-width: 1200px;
+    margin: 64px auto;
+    .wpTitle {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%; /* 52px */
+        text-transform: capitalize;
+        color: #2a3467;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      .line {
+        height: 6px;
+        width: 120px;
+        border-radius: 3px;
+        background-color: #00c5d7;
+        margin-bottom: 48px;
+      }
+    }
+    .listRemarkableService {
+      justify-content: center;
+      .itemService {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        // cursor: pointer; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 32px 24px;
+        height: 100%;
+        .itemImage {
+          justify-content: center;
+          margin-bottom: 24px;
+          .serviceImage {
+            width: 80px;
+            height: 80px;
+          }
+        }
+        .itemTitle {
+          justify-content: center;
+          h3 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+            text-transform: capitalize;
+            color: #013533;
+            text-align: center;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  .wpListCourse {
+    max-width: 1200px;
+    margin: 32px auto 64px;
+    width: 100%;
+    h2 {
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%; /* 52px */
+      text-transform: capitalize;
+      color: #013533;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .line {
+      height: 6px;
+      width: 120px;
+      border-radius: 3px;
+      background-color: #5ab069;
+      margin: auto;
+      margin-bottom: 24px;
+    }
+    .listDentistry {
+      margin: 48px 0;
+      width: 100%;
+      .dentistryItem {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        cursor: pointer;
+        .dentistryImg {
+          height: 250px !important;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 16px 16px 0 0;
+          position: static !important;
+          min-height: 250px;
+        }
+        .dentistryInfo {
+          padding: 24px;
+          display: flex;
+          background-color: #f9f9f9;
+          border-radius: 0px 0px 16px 16px;
+          height: 100%;
+          flex-direction: column;
+          .titleCourse{
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            color: #013533;
+          }
+        //   .dentistryLogo {
+        //     margin-right: 16px;
+        //     .img {
+        //       object-fit: cover;
+        //       width: 80px !important;
+        //       height: 80px !important;
+        //       position: static !important;
+        //       border-radius: 100px;
+        //       background-color: #fff;
+        //     }
+        //   }
+        //   .dentistryDetails {
+        //     flex-grow: 1;
+        //     .coverContainer {
+        //       display: flex;
+        //       align-items: center;
+        //       .dentistryName {
+        //         text-transform: capitalize;
+        //         font-weight: 600;
+        //         color: #2a3467;
+        //         font-size: 20px;
+        //         margin-bottom: 8px;
+        //         display: -webkit-box;
+        //         -webkit-box-orient: vertical;
+        //         -webkit-line-clamp: 2;
+        //         overflow: hidden;
+        //       }
+        //     }
+        //     .wpRatingLine {
+        //       display: flex;
+        //       margin-bottom: 16px;
+        //       align-items: center;
+        //       .wpPoint {
+        //         display: flex;
+        //         align-items: center;
+        //       }
+        //       .ratingPoint {
+        //         display: flex;
+        //         align-items: center;
+        //         .point {
+        //           color: #ffa800;
+
+        //           /* H3.5 */
+        //           font-size: 20px;
+        //           font-style: normal;
+        //           font-weight: 600;
+        //           line-height: 150%; /* 31.2px */
+        //           padding: 4px 8px;
+        //           border-radius: 8px;
+        //           border: 2px solid #ffa800;
+        //           box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+        //         }
+        //         .iconRatingStar {
+        //           margin-left: 8px;
+        //           width: 32px;
+        //           height: 32px;
+        //           margin-right: 8px;
+        //         }
+        //       }
+        //       .dash {
+        //         width: 1px;
+        //         height: 24px;
+        //         background: var(--Color-Bg-Orange, #ddd);
+        //         margin-left: 8px;
+        //         margin-right: 8px;
+        //       }
+        //       .ratingRank {
+        //         color: #ffa800;
+
+        //         /* H4 */
+        //         font-size: 16px;
+        //         font-style: normal;
+        //         font-weight: 600;
+        //         line-height: 150%; /* 30px */
+        //         text-transform: capitalize;
+        //       }
+        //       .count {
+        //         display: flex;
+        //         align-items: center;
+        //         .ratingQuantity {
+        //           color: var(--Color-Text, #6884a7);
+        //           /* P2/Normal */
+        //           font-size: 14px;
+        //           font-style: normal;
+        //           font-weight: 400;
+        //           line-height: 150%; /* 24px */
+        //           .ratingQuantityBold {
+        //             color: var(--Color-Bg-Navy, #2a3467);
+        //             /* P2/Bold */
+        //             font-size: 16px;
+        //             font-style: normal;
+        //             font-weight: 600;
+        //             line-height: 150%; /* 24px */
+        //             margin-right: 8px;
+        //           }
+        //         }
+        //         .numberOfConsultation {
+        //           color: var(--Color-Text, #6884a7);
+        //           /* P2/Normal */
+        //           font-size: 14px;
+        //           font-style: normal;
+        //           font-weight: 400;
+        //           line-height: 150%; /* 24px */
+        //           .numberOfConsultationBold {
+        //             color: var(--Color-Bg-Navy, #2a3467);
+        //             /* P2/Bold */
+        //             font-size: 16px;
+        //             font-style: normal;
+        //             font-weight: 600;
+        //             line-height: 150%; /* 24px */
+        //             margin-right: 8px;
+        //           }
+        //         }
+        //       }
+        //     }
+        //     .dentistryContainer {
+        //       display: flex;
+        //       margin-bottom: 16px;
+        //       .dentistryAT {
+        //         display: flex;
+        //         align-items: center;
+        //         border: 1px solid #ddd;
+        //         border-radius: 8px;
+        //         padding: 4px 8px;
+        //         background-color: #fff;
+        //         p {
+        //           color: #2a3467;
+        //           font-size: 16px;
+        //           font-style: normal;
+        //           font-weight: 400;
+        //           margin: 0 0 0 8px;
+        //         }
+        //         .icon {
+        //           width: 20px;
+        //           height: 20px;
+        //         }
+        //       }
+        //       .dentistryAT:nth-child(1) {
+        //         margin-right: 8px;
+        //       }
+        //     }
+        //     .thirdLineTag {
+        //       display: flex;
+        //       .buttonAdvise {
+        //         display: flex;
+        //         align-items: center;
+        //         border-radius: 8px;
+        //         border: 1px solid var(--Color-BrandColor, #00c5d7);
+        //         height: 40px;
+        //         padding: 0 24px;
+        //         color: #00c5d7;
+        //         background-color: #fff;
+
+        //         /* P2/Bold */
+        //         font-size: 16px;
+        //         font-style: normal;
+        //         font-weight: 600;
+        //         line-height: 150%; /* 24px */
+        //         cursor: pointer;
+        //         margin-right: 8px;
+        //       }
+        //       .buttonDetail {
+        //         display: flex;
+        //         align-items: center;
+        //         border-radius: 8px;
+        //         background: var(--color-brand-color, #00c5d7);
+        //         height: 40px;
+        //         padding: 0 24px;
+        //         color: #fff;
+
+        //         /* P2/Bold */
+        //         font-size: 16px;
+        //         font-style: normal;
+        //         font-weight: 600;
+        //         line-height: 150%; /* 24px */
+        //         cursor: pointer;
+        //         margin-right: 8px;
+        //       }
+        //     }
+        //   }
+          .buttonMobile {
+            display: flex;
+            flex-direction: column;
+            .buttonAdvise {
+            //   flex-grow: 1;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              border-radius: 8px;
+            //   border: 1px solid var(--Color-BrandColor, #5ab069);
+            //   height: 40px;
+              padding: 0 20px;
+              color: #5ab069;
+            //   background-color: #fff;
+    
+              /* P2/Bold */
+              font-size: 16px !important;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 150%; /* 24px */
+            //   margin-right: 8px;
+                margin-bottom: 16px;
+            }
+            .buttonDetail {
+              flex-grow: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 8px;
+              text-align: center;
+              background: var(--color-brand-color, #5ab069);
+              height: 40px;
+              padding: 0 20px;
+              color: #fff;
+    
+              /* P2/Bold */
+              font-size: 14px !important;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 150%; /* 24px */
+              cursor: pointer;
+              // margin-right: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media(lg) {
+  .wp-allcourse {
+    .wpRemarkableServiceContent {
+      margin: 50px 15px;
+      .listRemarkableService {
+        .itemService {
+          padding: 21px;
+        }
+      }
+    }
+  }
+}
+
+@include media(md) {
+  .wp-allcourse {
+    .wpRemarkableServiceContent {
+      margin: 50px 15px;
+      .wpTitle {
+        h2 {
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 130%;
+        }
+      }
+    }
+  }
+}

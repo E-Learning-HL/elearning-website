@@ -53,6 +53,42 @@
 .element.no-padding {
   padding-top: 0;
 }
+.wp-curri-detail {
+  .ant-collapse{
+    border: none !important;
+    .ant-collapse-item{
+      border-bottom: 0;
+    }
+  }
+  .ant-collapse-content-box{
+    padding: 16px 0 24px;
+  }
+  .ant-collapse-header {
+    background-color: #5ab069;
+    border-radius: 16px !important;
+    padding: 16px 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row-reverse !important;
+    .ant-collapse-header-text {
+      text-align: center;
+      color: #013533;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .ant-collapse-expand-icon {
+      display: flex;
+      .ant-collapse-arrow{
+        margin-right: 12px;
+      }
+    }
+  }
+  .ant-collapse-content {
+    border-top: none !important;
+    background-color: transparent;
+    margin: 0 24px 0;
+  }
+}
 
 @include media(lg){
     .element{

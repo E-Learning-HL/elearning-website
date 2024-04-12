@@ -1,6 +1,6 @@
 @import "../../const/settings.scss";
 .wrapperFooter {
-  background-color: #dbeffa;
+  background-color: #eaf7eb;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,6 @@
     top: 0px;
     right: 0px;
   }
-
   .imgBelow {
     position: absolute;
     bottom: -5px;
@@ -58,13 +57,13 @@
       width: 172px;
     }
     .footerHead {
-      color: #2a3467;
+      color: #013533;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 12px;
     }
     .footerIntroduce {
-      color: #6884a7;
+      color: #789594;
       font-size: 16px;
       font-weight: 400;
       margin-bottom: 16px;
@@ -73,7 +72,7 @@
       }
     }
     .footerAdd {
-      color: #6884a7;
+      color: #789594;
       font-size: 16px;
       margin-bottom: 0;
       p {
@@ -85,7 +84,7 @@
       .footerLink {
         margin-bottom: 8px;
         a {
-          color: #6884a7;
+          color: #789594;
           font-size: 16px;
           font-weight: 400;
         }
@@ -95,7 +94,7 @@
       .footerLink {
         margin-bottom: 12px;
         a {
-          color: #6884a7;
+          color: #789594;
           font-size: 16px;
           font-weight: 400;
         }
@@ -108,7 +107,7 @@
     background: #fff;
   }
   .wpCopyr {
-    color: #6884a7;
+    color: #789594;
     font-size: 12px;
     font-weight: 400;
     margin-top: 25px;

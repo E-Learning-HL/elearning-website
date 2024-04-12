@@ -87,7 +87,13 @@ export const HIDE_FOOTER = [
   "/forgot-password",
   "/register",
 ];
+export const HIDE_FOOTER_DYNAMIC = [
+  "/learn/"
+];
 export const HIDE_HEADER = [];
+export const HIDE_HEADER_DYNAMIC = [
+  "/learn/"
+];
 
 //nhakhoahub
 
@@ -127,56 +133,22 @@ export const TOP_PROVINCE = [
   // },
 ];
 
-export const CATEGORY_SERVICE = [
+export const MARKER_HL = [
   {
-    id: 147483647,
-    name: "Bọc răng sứ",
-    link: require("@/public/image/boc-rang-su.svg"),
+    name: "Bằng 1/10 học phí tại trung tâm",
+    link: require("@/public/icon/icon-price.png"),
   },
   {
-    id: 147483648,
-    name: "Dán răng sứ",
-    link: require("@/public/image/dan-rang-su.svg"),
+    name: "Chấm chỉnh sửa chi tiết",
+    link: require("@/public/icon/icon-grading.png"),
   },
   {
-    id: 147483649,
-    name: "Niềng răng",
-    link: require("@/public/image/nieng-rang-tham-my.svg"),
+    name: "Giao diện giống thi máy",
+    link: require("@/public/icon/icon-computer.png"),
   },
   {
-    id: 147483650,
-    name: "Trồng răng Implant",
-    link: require("@/public/image/trong-rang-implant.svg"),
-  },
-  {
-    id: 147483651,
-    name: "Nhổ răng khôn",
-    link: require("@/public/image/nho-rang-khon.svg"),
-  },
-  {
-    id: 147483652,
-    name: "Trám răng",
-    link: require("@/public/image/han-tram-rang.svg"),
-  },
-  {
-    id: 147483653,
-    name: "Tẩy trắng răng",
-    link: require("@/public/image/tay-trang-rang.svg"),
-  },
-  {
-    id: 147483654,
-    name: "Điều trị tủy",
-    link: require("@/public/image/dieu-tri-tuy.svg"),
-  },
-  {
-    id: 147483655,
-    name: "Điều trị nha chu",
-    link: require("@/public/image/dieu-tri-nha-chu.svg"),
-  },
-  {
-    id: 147483656,
-    name: "Điều trị cười hở lợi",
-    link: require("@/public/image/dieu-tri-cuoi-ho-loi.svg"),
+    name: "Giáo vụ hỗ trợ 24/7",
+    link: require("@/public/icon/icon-support.png"),
   },
 ];
 
