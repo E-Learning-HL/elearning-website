@@ -48,7 +48,9 @@ const Header = ({ sessionServer }) => {
     NProgress.start();
     router.push(`/`);
   };
-  const showFooterDynamic = !HIDE_HEADER_DYNAMIC.some(route => pathname.startsWith(route));
+  const showFooterDynamic = !HIDE_HEADER_DYNAMIC.some((route) =>
+    pathname.startsWith(route)
+  );
   const handleOpenMenu = (menuType) => {
     if (menuType === "service") {
       openServiceMenu === true
@@ -173,7 +175,7 @@ const Header = ({ sessionServer }) => {
                       }`}
                       onClick={() => {
                         // handleOpenMenu("service");
-                        router.push("/")
+                        router.push("/");
                       }}
                     >
                       <span>Khóa học</span>
@@ -202,7 +204,18 @@ const Header = ({ sessionServer }) => {
                 <Image className={styles.logoMobile} src={logoMobile} />
               </Link>
               <div className={styles.dropdownHeader}>
-                <Dropdown
+                <Link href={"/course"}>
+                  <span className={styles.dropdownLink}>
+                    <Space
+                      className={styles.itemHover}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Khóa học
+                    </Space>
+                  </span>
+                </Link>
+
+                {/* <Dropdown
                   // menu={{ items: serviceItems }}
                   // open={true}
                   dropdownRender={() => {
@@ -230,10 +243,9 @@ const Header = ({ sessionServer }) => {
                   }}
                 >
                   <span className={styles.dropdownLink}>
-                    <Space className={styles.itemHover}>Courses</Space>
-                    {/* <Image src={arrowDownLine} /> */}
+                    <Space className={styles.itemHover}>Khóa học</Space>
                   </span>
-                </Dropdown>
+                </Dropdown> */}
                 <Dropdown menu={{ items: blogItems }}>
                   <span className={styles.dropdownLink}>
                     <Link href="/blog">

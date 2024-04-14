@@ -21,6 +21,7 @@ import _ from "lodash";
 import iconArrow from "@/public/icon/arrow-float-button.svg";
 import chatAlert from "@/public/icon/chat-alert.svg";
 import Comment from "../../../component/facebook-plugin/comment";
+import { useRouter } from "next/navigation";
 import {
   Link as LinkScroll,
   DirectLink,
@@ -78,6 +79,7 @@ export default function DetailClinicClient({
   if (detailCourse.error === "Not Found") {
     return <NotFound />;
   }
+  const router = useRouter();
   const { Panel } = Collapse;
   console.log("detailCourse", listCourse);
   // console.log("detailClinic", detailClinic);
@@ -276,8 +278,11 @@ export default function DetailClinicClient({
             <div
               className={`${styles.wpbuttonGetAdvise} button-blue`}
               onClick={() => {
-                setOpenModal(true);
+                router.push(
+                  `/build-roadmap?start_point=${detailCourse?.start}&target_point=${detailCourse?.target}`
+                );
               }}
+              style={{ cursor:'pointer' }}
             >
               <Image src={iconBuy} className={styles.iconAdvise} />
               ĐĂNG KÝ NGAY
@@ -470,10 +475,11 @@ export default function DetailClinicClient({
                   <div className={styles.listItem}>
                     {/* map here */}
                     {listCourse?.map((item) => {
+                      console.log("123123", item);
                       return (
                         <div className={styles.item}>
                           <ImageCommon
-                            // src={item?.file[0]?.url}
+                            data={item?.url}
                             style={styles.imageOtherCourse}
                           ></ImageCommon>
                           <div className={styles.courseTitle}>

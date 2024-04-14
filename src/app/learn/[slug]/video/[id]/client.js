@@ -21,6 +21,7 @@ import {
   Space,
   Avatar,
   Progress,
+  notification,
 } from "antd";
 import "@/src/style/video-learn.css";
 const { Header, Content, Footer, Sider } = Layout;
@@ -32,10 +33,14 @@ import iconExamLesson from "@/public/icon/icon-lesson-exam.png";
 import iconVideoLesson from "@/public/icon/icon-lesson-video.png";
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const { Panel } = Collapse;
 
-export default function VideoLearningPage() {
+export default function VideoLearningPage({ dataLesson, dataCourse }) {
+  const router = useRouter();
+  console.log("propss", dataLesson);
+  console.log("propssdataCourse", dataCourse);
   const items = [
     {
       key: 1,
@@ -157,14 +162,23 @@ export default function VideoLearningPage() {
                 </div>
               </div>
               <div className="video-learn">
-                <video controls style={{ width:'100%' }} preload="none" controlsList="nodownload">
+                <video
+                  controls
+                  style={{
+                    width: "100%",
+                    borderRadius: "8px",
+                    maxHeight: "60vh",
+                  }}
+                  controlsList="nodownload"
+                >
                   <source
-                    src="http://localhost:9000/elearning/41df3cbf-a6a3-4574-9edd-71157ea890a0_IMG_6720.MOV?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=elearning%2F20240411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240411T175203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e414f76f2fc4da1981fb68c961de47cf60094f1c2464456fa72eb4f43497bf48"
+                    src={dataLesson?.file[0]?.url}
                     // type="video/mp4"
                   />
                   Your browser does not support the video tag.
                 </video>
               </div>
+              <div className="title-lesson">{dataLesson.nameLesson}</div>
             </div>
           </Content>
           {/* <Footer
@@ -177,7 +191,7 @@ export default function VideoLearningPage() {
         </Layout>
         <Sider
           theme="light"
-          width={400}
+          width={450}
           breakpoint="lg"
           collapsedWidth="0"
           onBreakpoint={(broken) => {
@@ -188,277 +202,74 @@ export default function VideoLearningPage() {
           }}
         >
           <div className="wp-content-right">
+            <div className="title-course">{dataCourse.course.nameCourse}</div>
             <Collapse defaultActiveKey={""} bordered={false} ghost>
-              <Panel
-                header={
-                  <div className="section-panel">
-                    <Image
-                      alt=""
-                      src={iconExam}
-                      className="image-section"
-                    ></Image>
-                    <div className="right-panel">
-                      <div className="title">Unit Starter</div>
-                      <div className="section-progess">
-                        <Progress
-                          strokeColor={{
-                            "0%": "#108ee9",
-                            "100%": "#87d068",
-                          }}
-                          percent={79}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                }
-                key="1"
-              >
-                <div className="list-lesson">
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
+              {dataCourse?.course?.section.map((item, index) => {
+                return (
+                  <Panel
+                    header={
+                      <div className="section-panel">
                         <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
+                          alt=""
+                          src={iconExam}
+                          className="image-section"
                         ></Image>
-                        <div className="text-type">Video</div>
+                        <div className="right-panel">
+                          <div className="title">{`Section ${index+1}: ${item.nameSection}`}</div>
+                          <div className="section-progess">
+                            <Progress
+                              strokeColor={{
+                                "0%": "#108ee9",
+                                "100%": "#87d068",
+                              }}
+                              percent={79}
+                            />
+                          </div>
+                        </div>
                       </div>
+                    }
+                    key={item.id}
+                  >
+                    <div className="list-lesson">
+                      {item.lesson?.map((itemLesson) => {
+                        return (
+                          <Link
+                            href={`/learn/${dataCourse.course.id}/video/${itemLesson.id}`}
+                          >
+                            <div
+                              className="item-lesson"
+                              // onClick={() => {
+                              //   router.push(
+                              //     `/learn/${dataCourse.course.id}/video/${itemLesson.id}`
+                              //   );
+                              // }}
+                            >
+                              <Image
+                                src={iconLearn}
+                                className="image-lesson"
+                              ></Image>
+                              <div className="item-lesson-right">
+                                <div className="title-lesson">
+                                  {itemLesson.nameLesson}
+                                </div>
+                                <div className="type">
+                                  {/* <Image
+                                    src={iconVideoLesson}
+                                    className="icon-type"
+                                  ></Image> */}
+                                  <div className="text-type">
+                                    <VideoCameraOutlined />&nbsp;&nbsp;Video
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
-                  </div>
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Panel>
-              <Panel
-                header={
-                  <div className="section-panel">
-                    <Image
-                      alt=""
-                      src={iconExam}
-                      className="image-section"
-                    ></Image>
-                    <div className="right-panel">
-                      <div className="title">Unit Starter</div>
-                      <div className="section-progess">
-                        <Progress
-                          strokeColor={{
-                            "0%": "#108ee9",
-                            "100%": "#87d068",
-                          }}
-                          percent={79}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                }
-                key="1"
-              >
-                <div className="list-lesson">
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Panel>
-              <Panel
-                header={
-                  <div className="section-panel">
-                    <Image
-                      alt=""
-                      src={iconExam}
-                      className="image-section"
-                    ></Image>
-                    <div className="right-panel">
-                      <div className="title">Unit Starter</div>
-                      <div className="section-progess">
-                        <Progress
-                          strokeColor={{
-                            "0%": "#108ee9",
-                            "100%": "#87d068",
-                          }}
-                          percent={79}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                }
-                key="1"
-              >
-                <div className="list-lesson">
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Panel>
-              <Panel
-                header={
-                  <div className="section-panel">
-                    <Image
-                      alt=""
-                      src={iconExam}
-                      className="image-section"
-                    ></Image>
-                    <div className="right-panel">
-                      <div className="title">Unit Starter</div>
-                      <div className="section-progess">
-                        <Progress
-                          strokeColor={{
-                            "0%": "#108ee9",
-                            "100%": "#87d068",
-                          }}
-                          percent={79}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                }
-                key="1"
-              >
-                <div className="list-lesson">
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Panel>
-              <Panel
-                header={
-                  <div className="section-panel">
-                    <Image
-                      alt=""
-                      src={iconExam}
-                      className="image-section"
-                    ></Image>
-                    <div className="right-panel">
-                      <div className="title">Unit Starter</div>
-                      <div className="section-progess">
-                        <Progress
-                          strokeColor={{
-                            "0%": "#108ee9",
-                            "100%": "#87d068",
-                          }}
-                          percent={79}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                }
-                key="1"
-              >
-                <div className="list-lesson">
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="item-lesson">
-                    <Image src={iconLearn} className="image-lesson"></Image>
-                    <div className="item-lesson-right">
-                      <div className="title-lesson">Tìm hiểu về khóa học</div>
-                      <div className="type">
-                        <Image
-                          src={iconVideoLesson}
-                          className="icon-type"
-                        ></Image>
-
-                        <div className="text-type">Video</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Panel>
+                  </Panel>
+                );
+              })}
             </Collapse>
           </div>
         </Sider>

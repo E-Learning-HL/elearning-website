@@ -171,6 +171,22 @@ a.ant-btn {
   }
 }
 
+.button-gray{
+  background-position: center;
+  &:hover {
+    transition: background 0.5s;
+    background: darken(#f9f9f9, 3%) radial-gradient(circle, transparent 1%, darken(#f9f9f9, 3%) 1%) center/15000% !important;
+  }
+  
+  // &:active {
+  //   background-color: darken(#fff, 10%) !important;
+  //   background-size: 100% !important;
+  //   transition: background 0s !important;
+  // }
+}
+
+
+
 .block-animation{
   transition: box-shadow 0.3s ease;
   &:hover{

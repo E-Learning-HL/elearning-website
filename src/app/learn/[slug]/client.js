@@ -33,8 +33,8 @@ import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import LayoutStudy from "@/src/component/study/layout-study";
 
-export default function LearnPage() {
-
+export default function LearnPage(props) {
+ console.log("props", props)
 
   return (
     <div className="learn-page">
@@ -176,7 +176,7 @@ export default function LearnPage() {
           </Content>
         </Layout>
       </Layout> */}
-      <LayoutStudy />
+      <LayoutStudy dataCourse={props.dataCourse} ownedCourse={props.ownedCourse}/>
     </div>
   );
 }

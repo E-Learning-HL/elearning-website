@@ -88,11 +88,13 @@ export const HIDE_FOOTER = [
   "/register",
 ];
 export const HIDE_FOOTER_DYNAMIC = [
-  "/learn/"
+  "/learn/",
+  "/exam/"
 ];
 export const HIDE_HEADER = [];
 export const HIDE_HEADER_DYNAMIC = [
-  "/learn/"
+  "/learn/",
+  "/exam/"
 ];
 
 //nhakhoahub

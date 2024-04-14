@@ -9,7 +9,7 @@
       display: flex;
       justify-content: center;
       .logo {
-        height: 50px;
+        height: 48px;
         width: auto;
       }
     }
@@ -104,8 +104,8 @@
           display: flex;
           align-items: center;
           .image-section {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             margin-right: 16px;
           }
           .right-panel {
@@ -114,7 +114,7 @@
             justify-content: center;
             width: 100%;
             .title {
-              font-size: 24px;
+              font-size: 20px;
               font-weight: 600;
               color: #013533;
             }
@@ -131,13 +131,19 @@
           overflow: auto;
           height: calc(100vh - 142px);
         }
+        .ant-collapse-content-box {
+          padding: 12px 38px !important;
+        }
         .list-lesson {
           .item-lesson {
             display: flex;
-            margin-bottom: 12px;
+            padding: 6px 8px;
+            margin-bottom: 2px;
+            border-radius: 8px;
+            cursor: pointer;
             .image-lesson {
-              width: 45px;
-              height: 45px;
+              width: 40px;
+              height: 40px;
               margin-right: 12px;
             }
             .item-lesson-right {
@@ -158,8 +164,69 @@
                 }
                 .text-type {
                   font-size: 14px;
+                  font-weight: normal;
+                  color: #789594;
+                  line-height: 50%;
+                }
+              }
+            }
+          }
+        }
+        .list-tests {
+          overflow: auto;
+          height: calc(100vh - 142px);
+          .item-tests {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            border-radius: 16px;
+            padding: 12px;
+            .image-exam {
+              width: 70px;
+              height: 70px;
+              margin-right: 16px;
+            }
+            .exam-info {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: 100%;
+              .title {
+                font-size: 20px;
+                font-weight: 600;
+                color: #013533;
+              }
+              .access {
+                display: flex;
+                align-items: center;
+                .button-start {
+                  height: 25px;
+                  width: 80px;
+                  border-radius: 8px;
                   font-weight: 500;
-                  color: #013533;
+                  color: #fff;
+                  font-size: 14px;
+                  background-color: #5ab069;
+                  line-height: 190%;
+                  // display: flex;
+                  // align-items: center;
+                  text-align: center;
+                  cursor: pointer;
+                }
+                .button-result {
+                  cursor: pointer;
+                  margin-left: 8px;
+                  height: 25px;
+                  width: 80px;
+                  font-weight: 500;
+                  border-radius: 8px;
+                  font-size: 14px;
+                  color: #5ab069;
+                  background-color: #eaf7eb;
+                  line-height: 190%;
+                  // display: flex;
+                  // align-items: center;
+                  text-align: center;
                 }
               }
             }
@@ -168,6 +235,9 @@
       }
     }
   }
+}
+.ant-dropdown-menu-item {
+  cursor: default !important;
 }
 
 .lable-item-courses {
@@ -179,10 +249,11 @@
     display: flex;
     align-items: center;
     .img-course {
-      height: 35px;
-      width: 55px;
+      height: 35px !important;
+      width: 55px !important;
       margin-right: 8px;
       object-fit: cover;
+      position: relative !important;
     }
     .title-orther-course {
       font-size: 16px;

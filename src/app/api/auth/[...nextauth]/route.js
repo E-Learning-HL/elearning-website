@@ -27,6 +27,8 @@ export const authOptions = {
         const user = await res.json();
         if (user?.message) throw new Error(user?.message);
 
+        console.log("++++user", user)
+
         return user;
       },
     }),
@@ -34,7 +36,7 @@ export const authOptions = {
   session: {
     jwt: true,
     useLocalStorage: true,
-    maxAge: 24 * 60 * 60,
+    maxAge: 30 * 24 * 60 * 60,
   },
   secret: process.env.NEXT_PUBLIC_SECRET,
   callbacks: {

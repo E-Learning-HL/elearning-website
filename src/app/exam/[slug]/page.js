@@ -1,22 +1,22 @@
 import styles from "./page.module.scss";
-import LearnPage from "./client";
+import ExamPage from "./client";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
-import { getCourse, getOwnedCourse } from "./service";
+import { getAllTest, getOwnedCourse } from "./service";
 
-export default async function Learn({ params, searchParams }) {
+export default async function Exam({ params, searchParams }) {
   const session = await getServerSession(authOptions);
 
   let ownedCourse = null;
-  let dataCourse = null;
+  let dataAllTest = null;
 
   try {
     //course id (slug)
     ownedCourse = await getOwnedCourse(session.user.access_token);
     console.log("ownedCourse", ownedCourse);
 
-    dataCourse = await getCourse(params.slug, session.user.access_token);
-    console.log("dataCourse", dataCourse);
+    dataAllTest = await getAllTest(params.slug, session.user.access_token);
+    // console.log("dataCourse", dataCourse);
     // dataCourse = resutlDataCourse;
 
     // ownedCourse = resultOwnedCourse;
@@ -27,13 +27,13 @@ export default async function Learn({ params, searchParams }) {
     (item) => item.course.id == params.slug
   );
   if (!ownedCourseId) return null;
-
+  if (!dataAllTest) return null;
   // const listOwnerCourse = ownedCourse?.map(item => item.id)
   // console.log("listOwnerCourse", listOwnerCourse)
 
   return (
     <div className={styles.wpLearnPage}>
-      <LearnPage dataCourse={dataCourse} ownedCourse={ownedCourse} />
+      <ExamPage ownedCourse={ownedCourse} dataAllTest={dataAllTest}/>
     </div>
   );
 }

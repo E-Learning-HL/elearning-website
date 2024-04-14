@@ -50,7 +50,7 @@ export default function AllCoursePage({listCourse}) {
                   className="dentistryItem block-animation-darker"
                 //   onClick={() => onShowDetail(data?.slug)}
                 >
-                  <ImageCommon data={imageTest} style="dentistryImg" />
+                  <ImageCommon data={item?.url} style="dentistryImg" />
                   <div className="dentistryInfo">
                     {/* <div style={{ display: "flex" }}>
                       <div className="dentistryLogo">
@@ -148,7 +148,7 @@ export default function AllCoursePage({listCourse}) {
                         Giá : {item?.course_price?.toLocaleString("en-US")}
                       </div>
                       <Link
-                        href={"/phong-kham/" + item.course_id}
+                        href={"/course/" + item.course_id}
                         // href={"/"}
                         className="buttonDetail button-blue"
                       >

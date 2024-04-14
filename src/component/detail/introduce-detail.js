@@ -1,4 +1,4 @@
-import styles from "@/src/app/phong-kham/[slug]/page.module.scss";
+import styles from "@/src/app/course/[slug]/page.module.scss";
 import React, { useState, useRef, useEffect } from "react";
 import Parser from "html-react-parser";
 import iconShowContent from "@/public/icon/icon-show-content.svg";

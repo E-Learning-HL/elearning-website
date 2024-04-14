@@ -1,5 +1,5 @@
 "use client";
-import styles from "@/src/app/phong-kham/[slug]/page.module.scss";
+import styles from "@/src/app/course/[slug]/page.module.scss";
 import { STROKE_COLOR, TRAIL_COLOR, PREFIX_IMAGE_URL } from "@/src/const/const";
 import { Col, Row, Progress } from "antd";
 

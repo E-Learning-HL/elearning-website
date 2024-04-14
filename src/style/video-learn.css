@@ -61,6 +61,12 @@
 .wp-video-page .wp-layout .left-layout .wp-content .video-learn {
   width: 100%;
   height: auto;
+  margin-bottom: 24px;
+}
+.wp-video-page .wp-layout .left-layout .wp-content .title-lesson {
+  color: #013533;
+  font-size: 18px;
+  font-weight: 600;
 }
 .wp-video-page .wp-layout .left-layout .wp-content .wp-content-left {
   background-color: #fff;
@@ -102,6 +108,9 @@
   overflow: auto;
   height: calc(100vh - 142px);
 }
+.wp-video-page .wp-layout .left-layout .wp-content .wp-content-left .ant-collapse-content-box {
+  padding: 12px 35px !important;
+}
 .wp-video-page .wp-layout .left-layout .wp-content .wp-content-left .list-lesson .item-lesson {
   display: flex;
   margin-bottom: 12px;
@@ -139,6 +148,13 @@
   border-radius: 16px;
   padding: 16px;
 }
+.wp-video-page .wp-layout .wp-content-right .title-course {
+  text-align: center;
+  color: #013533;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
 .wp-video-page .wp-layout .wp-content-right .ant-collapse-expand-icon {
   display: none;
 }
@@ -147,8 +163,8 @@
   align-items: center;
 }
 .wp-video-page .wp-layout .wp-content-right .section-panel .image-section {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin-right: 16px;
 }
 .wp-video-page .wp-layout .wp-content-right .section-panel .right-panel {
@@ -158,7 +174,7 @@
   width: 100%;
 }
 .wp-video-page .wp-layout .wp-content-right .section-panel .right-panel .title {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;
   color: #013533;
 }
@@ -173,13 +189,16 @@
   overflow: auto;
   height: calc(100vh - 65px);
 }
+.wp-video-page .wp-layout .wp-content-right .ant-collapse-content-box {
+  padding: 12px 35px !important;
+}
 .wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson {
   display: flex;
   margin-bottom: 12px;
 }
 .wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson .image-lesson {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   margin-right: 12px;
 }
 .wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson .item-lesson-right {
@@ -188,20 +207,12 @@
   flex-direction: column;
 }
 .wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson .item-lesson-right .title-lesson {
-  font-size: 16px;
-  font-weight: 600;
-  color: #013533;
-}
-.wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson .item-lesson-right .type {
-  display: flex;
-}
-.wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson .item-lesson-right .type .icon-type {
-  width: 15px;
-  height: 15px;
-  margin-right: 8px;
-}
-.wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson .item-lesson-right .type .text-type {
   font-size: 14px;
   font-weight: 500;
   color: #013533;
+}
+.wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson .item-lesson-right .type .text-type {
+  font-size: 12px;
+  font-weight: normal;
+  color: #789594;
 }

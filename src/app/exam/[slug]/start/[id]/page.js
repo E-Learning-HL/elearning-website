@@ -1,10 +1,10 @@
-import VideoLearningPage from "./client";
+import StartExamPage from "./client";
 import styles from "./page.module.scss";
 import { getOwnedCourse, getCourse } from "../../service";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
-export default async function VideoLearning({ params, searchParams }) {
+export default async function StartExam({ params, searchParams }) {
   const session = await getServerSession(authOptions);
   let dataLesson = null;
   let ownedCourse = null;
@@ -34,12 +34,13 @@ export default async function VideoLearning({ params, searchParams }) {
   } catch (error) {
     console.log("error", error);
   }
-  const check = ownedCourse?.find((item) => item.course.id == params.slug);
-  if (!check || !dataLesson) return null;
+//   const check = ownedCourse?.find((item) => item.course.id == params.slug);
+//   if (!check || !dataLesson) return null;
 
   return (
     <div className={styles.wpVideoLearning}>
-      <VideoLearningPage dataLesson={dataLesson} dataCourse={dataCourse}/>
+      {/* <StartExamPage dataLesson={dataLesson} dataCourse={dataCourse}/> */}
+      <StartExamPage/>
     </div>
   );
 }

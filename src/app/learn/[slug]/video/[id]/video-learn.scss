@@ -63,6 +63,12 @@
         .video-learn{
             width: 100%;
             height: auto;
+            margin-bottom: 24px;
+        }
+        .title-lesson{
+            color: #013533;
+            font-size: 18px;
+            font-weight: 600;
         }
         .wp-content-left {
           background-color: #fff;
@@ -103,6 +109,9 @@
           .ant-collapse {
             overflow: auto;
             height: calc(100vh - 142px);
+          }
+          .ant-collapse-content-box{
+            padding: 12px 35px !important;
           }
           .list-lesson {
             .item-lesson {
@@ -147,6 +156,13 @@
       // min-height: 500px;
       border-radius: 16px;
       padding: 16px;
+      .title-course{
+        text-align: center;
+        color: #013533;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
       .ant-collapse-expand-icon {
         display: none;
       }
@@ -154,8 +170,8 @@
         display: flex;
         align-items: center;
         .image-section {
-          width: 80px;
-          height: 80px;
+          width: 60px;
+          height: 60px;
           margin-right: 16px;
         }
         .right-panel {
@@ -164,7 +180,7 @@
           justify-content: center;
           width: 100%;
           .title {
-            font-size: 24px;
+            font-size: 16px;
             font-weight: 600;
             color: #013533;
           }
@@ -181,13 +197,16 @@
         overflow: auto;
         height: calc(100vh - 65px);
       }
+      .ant-collapse-content-box{
+        padding: 12px 35px !important;
+      }
       .list-lesson {
         .item-lesson {
           display: flex;
           margin-bottom: 12px;
           .image-lesson {
-            width: 45px;
-            height: 45px;
+            width: 35px;
+            height: 35px;
             margin-right: 12px;
           }
           .item-lesson-right {
@@ -195,21 +214,24 @@
             justify-content: center;
             flex-direction: column;
             .title-lesson {
-              font-size: 16px;
-              font-weight: 600;
+              font-size: 14px;
+              font-weight: 500;
               color: #013533;
+              // margin-bottom: 6px;
             }
             .type {
-              display: flex;
-              .icon-type {
-                width: 15px;
-                height: 15px;
-                margin-right: 8px;
-              }
+              // display: flex;
+              // align-items: center;
+              // .icon-type {
+              //   width: 15px;
+              //   height: 15px;
+              //   margin-right: 6px;
+              // }
               .text-type {
-                font-size: 14px;
-                font-weight: 500;
-                color: #013533;
+                // margin-left: 4px;
+                font-size: 12px;
+                font-weight: normal;
+                color: #789594;
               }
             }
           }

@@ -16,20 +16,18 @@ import Link from "next/link";
 const Footer = (props) => {
   const router = useRouter();
   const pathname = usePathname();
-  console.log("12312312312", pathname)
   const showFooter = !HIDE_FOOTER.includes(pathname);
-  const showFooterDynamic = !HIDE_FOOTER_DYNAMIC.some(route => pathname.startsWith(route));
+  const showFooterDynamic = !HIDE_FOOTER_DYNAMIC.some((route) =>
+    pathname.startsWith(route)
+  );
 
   function triggerButton(button) {
     switch (button) {
       case "phone":
-        window.open("tel:(+84)961423199", "_self");
+        window.open("tel:(+84)923286123", "_self");
         break;
       case "facebook":
-        window.open("https://www.facebook.com/nhakhoahub.vn", "_blank");
-        break;
-      case "zalo":
-        window.open("https://zalo.me/1287972218027383068", "_blank");
+        window.open("https://www.facebook.com/truongdhxaydung", "_blank");
         break;
     }
   }
@@ -44,7 +42,7 @@ const Footer = (props) => {
             <Image className={styles.logo} src={logo} />
           </Link>
           <div className={styles.contentFooter}>
-            <Row gutter={[30, 28]}>
+            <Row gutter={[30, 28]} style={{ display:'flex', justifyContent:'center' }}>
               <Col xs={24} sm={24} md={12} xl={8}>
                 <div className={styles.about}>
                   <div>
@@ -53,23 +51,17 @@ const Footer = (props) => {
                   <div>
                     <div className={styles.footerIntroduce}>
                       <p>
-                        NhaKhoaHub - Nền tảng review và tìm kiếm nha khoa uy tín
-                        hàng đầu Việt Nam
+                        HL eLearning - Nền tảng luyện thi IELTS tích hợp AI Tiên
+                        phong công nghệ, dẫn đầu hiệu quả
                       </p>
                     </div>
                     <div className={styles.footerAdd}>
                       <p>
-                        <strong>Công ty TNHH Fenik Technologies</strong>
+                        <strong>Đại học Xây Dựng Hà Nội</strong>
                         <br />
-                        <strong>Mã số thuế:</strong> 0109872256
+                        <strong>Địa chỉ:</strong> Số 55 Giải Phóng, Đồng Tâm,
+                        Hai Bà Trưng, Hà Nội
                         <br />
-                        <strong>Địa chỉ:</strong> Số 104, ngõ 54 Lê Quang Đạo,
-                        Mễ Trì, Nam Từ Liêm, Hà Nội
-                        <br />
-                        <strong>Email:</strong>{" "}
-                        nhakhoahub@fenik-technologies.com
-                        <br />
-                        <strong>Hotline:</strong> 0961 423 199
                       </p>
                     </div>
                   </div>
@@ -86,15 +78,15 @@ const Footer = (props) => {
                         <Link href="/gioi-thieu">Giới thiệu</Link>
                       </div>
                       <div className={styles.footerLink}>
-                        <Link href="/lien-he-hop-tac">Liên hệ hợp tác</Link>
+                        <Link href="">Liên hệ hợp tác</Link>
                       </div>
                     </Col>
                     <Col xs={12} sm={12} md={24} xl={24}>
                       <div className={styles.footerLink}>
-                        <Link href="/dieu-khoan">Điều khoản sử dụng</Link>
+                        <Link href="">Điều khoản sử dụng</Link>
                       </div>
                       <div className={styles.footerLink}>
-                        <Link href="/chinh-sach-bao-mat">
+                        <Link href="">
                           Chính sách bảo mật
                         </Link>
                       </div>
@@ -102,7 +94,7 @@ const Footer = (props) => {
                   </Row>
                 </div>
               </Col>
-              <Col xs={24} sm={24} md={12} xl={5}>
+              {/* <Col xs={24} sm={24} md={12} xl={5}>
                 <p className={styles.footerHead}>HỖ TRỢ KHÁCH HÀNG</p>
                 <div className={styles.wpFooterSuport}>
                   <Row gutter={[14, 0]}>
@@ -133,9 +125,9 @@ const Footer = (props) => {
                     </Col>
                   </Row>
                 </div>
-              </Col>
+              </Col> */}
               <Col xs={24} sm={24} md={12} xl={6}>
-                <p className={styles.footerHead}>KẾT NỐI VỚI NHAKHOAHUB</p>
+                <p className={styles.footerHead}>KẾT NỐI VỚI HL ELEARNING</p>
                 <div className={styles.socialLink}>
                   <button onClick={() => triggerButton("phone")}>
                     <Image
@@ -151,7 +143,7 @@ const Footer = (props) => {
                       alt="icon"
                     />
                   </button>
-                  <button onClick={() => triggerButton("zalo")}>
+                  <button>
                     <Image
                       src={iconzalo}
                       className={styles.iconFooter}

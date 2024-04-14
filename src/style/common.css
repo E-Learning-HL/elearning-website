@@ -149,6 +149,14 @@ a.ant-btn {
   transition: background 0s !important;
 }
 
+.button-gray {
+  background-position: center;
+}
+.button-gray:hover {
+  transition: background 0.5s;
+  background: #f1f1f1 radial-gradient(circle, transparent 1%, #f1f1f1 1%) center/15000% !important;
+}
+
 .block-animation {
   transition: box-shadow 0.3s ease;
 }
