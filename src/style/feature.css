@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   margin: auto;
+  margin-bottom: 100px;
 }
 .wpFeature .listFeature {
   width: 100%;
@@ -20,7 +21,7 @@
   position: relative;
   top: 0;
   transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 100;
+  z-index: 1;
 }
 .wpFeature .listFeature .itemFeature:hover {
   top: -1.25rem !important;
@@ -33,13 +34,11 @@
   background: #5ab069;
   height: 40px;
   width: 150px;
-  position: absolute;
-  top: 0;
-  left: 50%;
+  margin-top: -32px;
+  margin-bottom: 14px;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -56,4 +55,9 @@
   font-size: 24px;
   font-weight: 600;
   color: #013533;
+}
+.wpFeature .listFeature .itemFeature .itemTitle p {
+  font-size: 16px;
+  color: #789594;
+  text-align: center;
 }
