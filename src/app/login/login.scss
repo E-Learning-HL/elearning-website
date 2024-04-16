@@ -295,6 +295,23 @@
           margin-bottom: 16px;
           cursor: pointer;
         }
+        .noti-success{
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          margin-bottom: 36px;
+          .image-success{
+            width: 120px !important;
+            height: 120px !important;
+          }
+          .title-succes{
+            font-size: 20px;
+            color: #013533;
+            text-align: center;
+            font-weight: 600;
+          }
+        }
+
       }
       .sign-up {
         color: #013533;

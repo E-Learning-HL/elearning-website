@@ -6,13 +6,14 @@ import coverLogin from "@/public/image/login-image.png";
 import logoElearning from "@/public/image/elearning-logo.png";
 import Link from "next/link";
 import "@/src/style/login.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputOTP } from "antd-input-otp";
 import iconGoogle from "@/public/icon/icon-google.png";
 import iconFacebook from "@/public/icon/icon-facebook.png";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import axios from "axios";
+import { BASE_URL } from "@/src/const/const";
 
 const FormItem = Form.Item;
 const { Countdown } = Statistic;
@@ -23,12 +24,17 @@ export default function LoginPage() {
   const [forgotForm] = Form.useForm();
   const [validateForm] = Form.useForm();
   const [resetForm] = Form.useForm();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const [currentEmail, setCurrentEmail] = useState(null);
+  const [initialTime, setInitialTime] = useState();
 
+  useEffect(() => {
+    if (action === "VALIDATE") setInitialTime(Date.now() + 1000 * 60 * 5);
+  }, [action]);
 
   const onFinish = async (values) => {
-    if(action === "LOGIN"){
+    if (action === "LOGIN") {
       setLoading(true);
       const result = await signIn("credentials", {
         redirect: false, // Đảm bảo không chuyển hướng trang tự động
@@ -51,13 +57,140 @@ export default function LoginPage() {
           description: "",
           placement: "top",
         });
-        router.push('/')
+        router.push("/");
         setTimeout(() => {
           setLoading(false);
         }, 3000);
       }
     }
+  };
+
+  const handleContinue = async (values) => {
+    setLoading(true);
+    setCurrentEmail(values.username);
+    try {
+    } catch (error) {}
+    axios
+      .post(`${BASE_URL}/api/auth/forget-password`, {
+        email: values.username,
+      })
+      .then((res) => {
+        console.log("resss", res);
+        if (res.data.success) setAction("VALIDATE");
+        else
+          notification.error({
+            message: "Địa chỉ email không hợp lệ!",
+            description: "",
+            placement: "top",
+          });
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("error", error);
+        notification.error({
+          message: "Địa chỉ email không hợp lệ!",
+          description: "",
+          placement: "top",
+        });
+        setLoading(false);
+      });
+  };
+
+  const handleContinueValidate = async () => {
+    setLoading(true);
+    const fieldValue = await validateForm.validateFields();
+    console.log("fieldValue", fieldValue);
+    const otp = fieldValue?.otp.join("");
+    axios
+      .post(`${BASE_URL}/api/auth/verify-email`, {
+        email: currentEmail,
+        verificationCode: parseInt(otp),
+      })
+      .then((res) => {
+        console.log("resss", res);
+        if (res.data.success) setAction("RESET");
+        else
+          notification.error({
+            message: "OTP không hợp lệ!",
+            description: "",
+            placement: "top",
+          });
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("error", error);
+        notification.error({
+          message: "OTP không hợp lệ!",
+          description: "",
+          placement: "top",
+        });
+        setLoading(false);
+      });
+  };
+
+  const handleReset = (values) => {
+    setLoading(true);
+    axios
+      .post(`${BASE_URL}/api/auth/reset-password`, {
+        email: currentEmail,
+        newPassword: values.password,
+      })
+      .then((res) => {
+        console.log("resss", res);
+        if (res.data.status == 200){
+          notification.success({
+            message: "Cập nhật mật khẩu thành công.",
+            description: "",
+            placement: "top",
+          });
+          setAction("LOGIN")
+        setLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.log("error", error);
+        notification.error({
+          message: "Có lỗi xảy ra!",
+          description: "",
+          placement: "top",
+        });
+        setLoading(false);
+      });
   }
+
+  const handleResend = () => {
+    setLoading(true);
+    axios
+      .post(`${BASE_URL}/api/auth/forget-password`, {
+        email: currentEmail,
+      })
+      .then((res) => {
+        console.log("resss", res);
+        if (res.data.success) {
+          notification.success({
+            message: "OTP đã được gửi lại!",
+            description: "",
+            placement: "top",
+          });
+          setInitialTime(Date.now() + 1000 * 60 * 5);
+        } else
+          notification.error({
+            message: "Có lỗi xảy ra!",
+            description: "",
+            placement: "top",
+          });
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("error", error);
+        notification.error({
+          message: "Có lỗi xảy ra!",
+          description: "",
+          placement: "top",
+        });
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="wp-login-page">
@@ -80,190 +213,210 @@ export default function LoginPage() {
         </Col>
         <Col xs={24} sm={24} md={8} xl={8} className="wp-login-form">
           <div className="wp-form">
-            {/* {action === "FORGOT" && (
+            {action === "FORGOT" && (
               <div className="descript">
-                Please enter your phone number, we will send you an OTP code to
-                reset your password.
+                Xin vui lòng cung cấp địa chỉ email của bạn, chúng tôi sẽ gửi mã
+                OTP để bạn có thể đặt lại mật khẩu.
               </div>
-            )} */}
-            {/* {action === "LOGIN" && (
+            )}
+            {action === "VALIDATE" && (
               <div className="descript">
-                Please enter the OTP code sent to{" "}
-                <strong>hungit@gmail.com</strong> to reset your password.
+                Vui lòng nhập OTP được gửi đến
+                <strong> {currentEmail}</strong> để đặt lại mật khẩu.
               </div>
-            )} */}
+            )}
 
             {/* login form */}
-            <Form
-              form={loginForm}
+            {action === "LOGIN" && (
+              <Form
+                form={loginForm}
                 onFinish={onFinish}
-              //   onFinishFailed={onFinishFailed}
-              autoComplete="off"
-              className="login-form"
-            >
-              <FormItem
-                name="username"
-                rules={[
-                  {
-                    required: true,
-                    type: "email",
-                    message: "Please input your email!",
-                  },
-                ]}
-                className="email-input"
+                //   onFinishFailed={onFinishFailed}
+                autoComplete="off"
+                className="login-form"
               >
-                <Input placeholder="Enter email" />
-              </FormItem>
+                <FormItem
+                  name="username"
+                  rules={[
+                    {
+                      required: true,
+                      type: "email",
+                      message: "Please input your email!",
+                    },
+                  ]}
+                  className="email-input"
+                >
+                  <Input placeholder="Enter email" />
+                </FormItem>
 
-              <FormItem
-                name="password"
-                rules={[
-                  { required: true, message: "Please input your password!" },
-                ]}
-                className="pass-input"
-              >
-                <Input.Password placeholder="Enter password" />
-              </FormItem>
-              <div className="forgot-pass">Forgot password?</div>
+                <FormItem
+                  name="password"
+                  rules={[
+                    { required: true, message: "Please input your password!" },
+                  ]}
+                  className="pass-input"
+                >
+                  <Input.Password placeholder="Enter password" />
+                </FormItem>
+                <div
+                  className="forgot-pass"
+                  onClick={() => {
+                    setAction("FORGOT");
+                  }}
+                >
+                  Forgot password?
+                </div>
 
-              <FormItem className="submit-button">
-                <Button htmlType="submit">{loading ? <LoadingOutlined /> : "ĐĂNG NHẬP"}</Button>
-              </FormItem>
-              <div className="other-way">
-                <div className="wp-text">
-                  <div className="line"></div>
-                  <div className="text">Or continue with</div>
-                  <div className="line"></div>
-                </div>
-                <div className="wp-ways">
-                  <div className="wp-icon">
-                    <Image src={iconGoogle} className="icon"></Image>
+                <FormItem className="submit-button">
+                  <Button htmlType="submit">
+                    {loading ? <LoadingOutlined /> : "ĐĂNG NHẬP"}
+                  </Button>
+                </FormItem>
+                <div className="other-way">
+                  <div className="wp-text">
+                    <div className="line"></div>
+                    <div className="text">Or continue with</div>
+                    <div className="line"></div>
                   </div>
-                  <div className="wp-icon">
-                    <Image src={iconFacebook} className="icon"></Image>
+                  <div className="wp-ways">
+                    <div className="wp-icon">
+                      <Image src={iconGoogle} className="icon"></Image>
+                    </div>
+                    <div className="wp-icon">
+                      <Image src={iconFacebook} className="icon"></Image>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Form>
+              </Form>
+            )}
+
             {/* forgot form */}
-            {/* <Form
-              form={forgotForm}
-              //   onFinish={onFinish}
-              //   onFinishFailed={onFinishFailed}
-              autoComplete="off"
-              className="login-form"
-            >
-              <FormItem
-                name="username"
-                rules={[
-                  {
-                    required: true,
-                    type: "email",
-                    message: "Please input your email!",
-                  },
-                ]}
-                className="email-input"
+            {action === "FORGOT" && (
+              <Form
+                form={forgotForm}
+                onFinish={handleContinue}
+                //   onFinishFailed={onFinishFailed}
+                autoComplete="off"
+                className="login-form"
               >
-                <Input placeholder="Email" />
-              </FormItem>
+                <FormItem
+                  name="username"
+                  rules={[
+                    {
+                      required: true,
+                      type: "email",
+                      message: "Please input your email!",
+                    },
+                  ]}
+                  className="email-input"
+                >
+                  <Input placeholder="Email" />
+                </FormItem>
 
-              <FormItem className="submit-button">
-                <Button htmlType="submit">TIẾP TỤC</Button>
-              </FormItem>
-            </Form> */}
+                <FormItem className="submit-button">
+                  <Button htmlType="submit">
+                    {loading ? <LoadingOutlined /> : "TIẾP TỤC"}
+                  </Button>
+                </FormItem>
+              </Form>
+            )}
             {/* validate form */}
-            {/* <Form
-              form={validateForm}
-              //   onFinish={onFinish}
-              //   onFinishFailed={onFinishFailed}
-              autoComplete="off"
-              className="login-form"
-            >
-              <FormItem
-                name="otp"
-                rules={[
-                  // {
-                  //   required: true,
-                  //   message: "Please input your OTP!",
-                  // },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || value.every((item) => item === '') || value === undefined) {
-                        return Promise.reject(
-                          new Error("Please enter OTP!")
-                        );
-                      }
-                      return Promise.resolve();
-                    },
-                  }),
-                ]}
-                className="email-input otp-input"
+            {action === "VALIDATE" && (
+              <Form
+                form={validateForm}
+                // onFinish={handleContinueValidate}
+                //   onFinishFailed={onFinishFailed}
+                autoComplete="off"
+                className="login-form"
               >
-                <InputOTP inputType="numeric" placeholder="_" />
-              </FormItem>
-
-              <Countdown
-                value={Date.now() + 1000 * 60 * 5}
-                format="mm:ss"
-                className="count-down"
-              />
-              <div className="re-send">Resend</div>
-              <FormItem className="submit-button">
-                <Button htmlType="submit" onClick={() => {
-                  console.log(validateForm.getFieldValue('otp'))
-                }}>TIẾP TỤC</Button>
-              </FormItem>
-            </Form> */}
-            {/* reset form */}
-            {/* <Form
-              form={resetForm}
-              //   onFinish={onFinish}
-              //   onFinishFailed={onFinishFailed}
-              autoComplete="off"
-              className="login-form"
-            >
-              <FormItem
-                name="password"
-                rules={[
-                  { required: true, message: "Vui lòng nhập mật khẩu mới!" },
-                ]}
-                className="pass-input"
-              >
-                <Input.Password placeholder="Mật khẩu" />
-              </FormItem>
-              <FormItem
-                name="comfirmpassword"
-                dependencies={["password"]}
-                rules={[
-                  {
-                    required: true,
-                    message: "",
-                  },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || getFieldValue("password") === value) {
+                <FormItem
+                  name="otp"
+                  rules={[
+                    // {
+                    //   required: true,
+                    //   message: "Please input your OTP!",
+                    // },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (
+                          !value ||
+                          value.every((item) => item === "") ||
+                          value === undefined
+                        ) {
+                          return Promise.reject(new Error("Please enter OTP!"));
+                        }
                         return Promise.resolve();
-                      }
-                      return Promise.reject(
-                        new Error("Password confirmation does not match!")
-                      );
-                    },
-                  }),
-                ]}
-                className="pass-input-cf"
-              >
-                <Input.Password placeholder="Enter confirmation password" />
-              </FormItem>
+                      },
+                    }),
+                  ]}
+                  className="email-input otp-input"
+                >
+                  <InputOTP inputType="numeric" placeholder="_" />
+                </FormItem>
 
-              <FormItem className="submit-button">
-                <Button htmlType="submit">XÁC NHẬN</Button>
-              </FormItem>
-            </Form> */}
-            {/* <div className="sign-up">
-              Bạn chưa có tài khoản?
-              <Link href="/sign-up"> Đăng ký ngay!</Link>
-            </div> */}
-            {/* <div className="return-login">Quay lại trang đăng nhập</div> */}
+                <Countdown
+                  value={initialTime}
+                  format="mm:ss"
+                  className="count-down"
+                />
+                <div className="re-send" onClick={handleResend}>Resend</div>
+                <FormItem className="submit-button">
+                  <Button onClick={handleContinueValidate}>
+                    {loading ? <LoadingOutlined /> : "TIẾP TỤC"}
+                  </Button>
+                </FormItem>
+              </Form>
+            )}
+
+            {/* reset form */}
+            {action === "RESET" && (
+              <Form
+                form={resetForm}
+                  onFinish={handleReset}
+                //   onFinishFailed={onFinishFailed}
+                autoComplete="off"
+                className="login-form"
+              >
+                <FormItem
+                  name="password"
+                  rules={[
+                    { required: true, message: "Vui lòng nhập mật khẩu mới!" },
+                  ]}
+                  className="pass-input"
+                >
+                  <Input.Password placeholder="Mật khẩu" />
+                </FormItem>
+                <FormItem
+                  name="comfirmpassword"
+                  dependencies={["password"]}
+                  rules={[
+                    {
+                      required: true,
+                      message: "",
+                    },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue("password") === value) {
+                          return Promise.resolve();
+                        }
+                        return Promise.reject(
+                          new Error("Password confirmation does not match!")
+                        );
+                      },
+                    }),
+                  ]}
+                  className="pass-input-cf"
+                >
+                  <Input.Password placeholder="Nhập lại mật khẩu" />
+                </FormItem>
+
+                <FormItem className="submit-button">
+                  <Button htmlType="submit">
+                    {loading ? <LoadingOutlined /> : "XÁC NHẬN"}
+                  </Button>
+                </FormItem>
+              </Form>
+            )}
           </div>
         </Col>
       </Row>

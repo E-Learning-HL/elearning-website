@@ -1,19 +1,19 @@
 import StartExamPage from "./client";
 import styles from "./page.module.scss";
-import { getOwnedCourse, getCourse } from "../../service";
+import { getOwnedCourse, getAllTest } from "../../service";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 export default async function StartExam({ params, searchParams }) {
   const session = await getServerSession(authOptions);
-  let dataLesson = null;
+  let dataTests = null;
   let ownedCourse = null;
-  let dataCourse = null;
+  let dataAllTests = null;
 
   async function getData(access_token, slug) {
     const res = await Promise.all([
       getOwnedCourse(access_token),
-      getCourse(slug, access_token),
+      getAllTest(slug, access_token),
     ]);
     // useStore.setState({ data: res[6] })
     return res;
@@ -25,22 +25,20 @@ export default async function StartExam({ params, searchParams }) {
       parseInt(params?.slug)
     );
     ownedCourse = data[0];
-    dataCourse = data[1];
-    dataLesson = dataCourse?.course.section
-      .flatMap((section) => section.lesson)
-      .find((lesson) => lesson.id === parseInt(params.id));
+    dataAllTests = data[1];
+    dataTests = dataAllTests?.listAssignment.find(item => item.id == params.id)
     console.log("========ownedCourse", ownedCourse);
-    console.log("=========dataLesson", dataLesson);
+    console.log("=========dataLesson", dataTests);
   } catch (error) {
     console.log("error", error);
   }
-//   const check = ownedCourse?.find((item) => item.course.id == params.slug);
-//   if (!check || !dataLesson) return null;
+  const check = ownedCourse?.find((item) => item.course.id == params.slug);
+  if (!check || !dataTests) return null;
 
   return (
     <div className={styles.wpVideoLearning}>
       {/* <StartExamPage dataLesson={dataLesson} dataCourse={dataCourse}/> */}
-      <StartExamPage/>
+      <StartExamPage dataTests={dataTests} session={session}/>
     </div>
   );
 }

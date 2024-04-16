@@ -38,7 +38,7 @@ export default function ExamPage(props) {
 
   return (
     <div className="learn-page">
-      <LayoutStudy dataAllTest={props.dataAllTest} ownedCourse={props.ownedCourse}/>
+      <LayoutStudy dataAllTest={props.dataAllTest} ownedCourse={props.ownedCourse} params={props.params}/>
     </div>
   );
 }

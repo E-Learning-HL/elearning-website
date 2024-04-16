@@ -8,6 +8,7 @@
   background: #fff;
   position: sticky;
   top: 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
   .contentHeader {
     max-width: 1200px;
     margin: auto;
@@ -33,20 +34,28 @@
     height: 48px;
     width: auto;
     max-width: 654px;
-    color: #2a3467;
+    color: #013533;
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
     margin: auto;
     padding: 12px 0;
-    .dropdownLink {
-      color: #2a3467 !important;
+    .dropdownLink, .myCourse, .buildRoadmap {
+      color: #013533 !important;
       &:nth-child(1) {
         margin-right: 48px;
       }
       .itemHover {
         cursor: default;
       }
+    }
+    .myCourse{
+      margin-left: 48px;
+      margin-right: 0;
+    }
+    .buildRoadmap{
+      margin-left: 0  !important;
+      margin-right: 0 !important;
     }
   }
   .buttonClinic {

@@ -3,6 +3,20 @@ import { BASE_URL } from "@/src/const/const";
 import { URL_BLOG, REVALIDATE } from "@/src/const/const";
 
 // import { cache } from "react";
+
+
+
+export async function getAllMyCourse(access_token) {
+  const result = await wpAxios().get(`${BASE_URL}/api/enrolments`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+  // console.log("result", result);
+  return result.data;
+}
+
 export async function getAllService() {
   const result = await wpAxios().get(`${BASE_URL}/admin/category-service/all`);
   // console.log("result", result);

@@ -13,17 +13,21 @@
   height: 48px;
   width: auto;
 }
+.wp-layout .ant-menu-item {
+  height: auto;
+}
 .wp-layout .wp-label {
   display: flex;
   align-items: center;
+  padding: 8px 16px;
 }
 .wp-layout .wp-label .iconSlider {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin-right: 16px;
 }
 .wp-layout .wp-label .lable {
-  font-size: 24px;
+  font-size: 20px;
   color: #013533;
   font-weight: 600;
 }
@@ -158,6 +162,7 @@
   background-color: #f9f9f9;
   border-radius: 16px;
   padding: 12px;
+  margin-bottom: 16px;
 }
 .wp-layout .right-layout .wp-content .wp-content-left .list-tests .item-tests .image-exam {
   width: 70px;

@@ -79,3 +79,21 @@
   border: none;
   background: none;
 }
+
+#my-courses .wp-my-course {
+  display: flex;
+  align-items: center;
+}
+#my-courses .wp-my-course .img-course {
+  width: 50px !important;
+  height: 30px !important;
+  object-fit: cover;
+  margin-right: 8px;
+  position: relative !important;
+}
+#my-courses .wp-my-course .title-orther-course {
+  font-size: 16px;
+  font-weight: 600;
+  color: #013533;
+  line-height: 186%;
+}

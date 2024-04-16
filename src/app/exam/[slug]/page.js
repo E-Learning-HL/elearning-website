@@ -33,7 +33,7 @@ export default async function Exam({ params, searchParams }) {
 
   return (
     <div className={styles.wpLearnPage}>
-      <ExamPage ownedCourse={ownedCourse} dataAllTest={dataAllTest}/>
+      <ExamPage ownedCourse={ownedCourse} dataAllTest={dataAllTest} params={params.slug}/>
     </div>
   );
 }

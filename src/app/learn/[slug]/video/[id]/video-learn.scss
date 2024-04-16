@@ -195,10 +195,8 @@
       }
       .ant-collapse {
         overflow: auto;
-        height: calc(100vh - 65px);
-      }
-      .ant-collapse-content-box{
-        padding: 12px 35px !important;
+        height: calc(100vh - 112px);
+        // padding: 12px 35px !important;
       }
       .list-lesson {
         .item-lesson {

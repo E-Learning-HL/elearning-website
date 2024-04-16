@@ -38,6 +38,7 @@ export const authOptions = {
     useLocalStorage: true,
     maxAge: 30 * 24 * 60 * 60,
   },
+  disableRefetchOnRefocus: true,
   secret: process.env.NEXT_PUBLIC_SECRET,
   callbacks: {
     async jwt({ token, user, session }) {

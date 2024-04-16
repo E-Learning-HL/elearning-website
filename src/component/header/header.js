@@ -33,6 +33,8 @@ import Link from "next/link";
 import { HIDE_HEADER, HIDE_HEADER_DYNAMIC } from "@/src/const/const";
 import "@/src/style/common.css";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { getAllMyCourse } from "@/src/app/service";
+import ImageCommon from "../image/image";
 
 const Header = ({ sessionServer }) => {
   const router = useRouter();
@@ -43,6 +45,7 @@ const Header = ({ sessionServer }) => {
   const [openServiceMenu, setOpenServiceMenu] = useState(true);
   const [openBlogMenu, setOpenBlogMenu] = useState(true);
   const [active, setActive] = useState(null);
+  const [dataMyCourse, setDataMyCourse] = useState(null);
   const { data: session } = useSession();
   const backToHome = () => {
     NProgress.start();
@@ -81,23 +84,43 @@ const Header = ({ sessionServer }) => {
         ),
       };
     });
-  const blogItems = data.listCategoryBlog.data?.result?.map((item) => {
-    if (item.name != "Uncategorized") {
-      return {
-        key: item.term_id.toString(),
-        label: (
-          <Link href={`/blog/${item.slug}`} onClick={() => setOpenMenu(false)}>
-            {item.name}
-          </Link>
-        ),
-      };
-    }
+  useEffect(() => {
+    // console.log("result", session)
+    const fetch = async () => {
+      if (session?.user) {
+        const result = await getAllMyCourse(session?.user?.access_token);
+        setDataMyCourse(result);
+      }
+    };
+    fetch();
+  }, [session]);
+
+  const myCourseItems = dataMyCourse?.map((item) => {
+    return {
+      key: item.id,
+      label: (
+        <Link
+          href={`/learn/${item.course.id}`}
+          onClick={() => setOpenMenu(false)}
+        >
+          <div className="wp-my-course">
+            <ImageCommon
+              data={item?.course?.file[0]?.url}
+              style={"img-course"}
+            ></ImageCommon>
+            <div className="title-orther-course">
+              {item?.course?.nameCourse}
+            </div>
+          </div>
+        </Link>
+      ),
+    };
   });
 
   const items = [
     {
       key: "forgot",
-      label: <Link href={`/user/password`}>Quên Mật Khẩu</Link>,
+      label: <Link href={`/user/password`}>Đổi Mật Khẩu</Link>,
       icon: <QuestionCircleOutlined />,
     },
     {
@@ -195,7 +218,7 @@ const Header = ({ sessionServer }) => {
                       <span>Blog</span>
                       <Image src={openBlogMenu ? arrowUpLine : arrowDownLine} />
                     </div>
-                    {<Menu mode={"inline"} items={blogItems}></Menu>}
+                    {<Menu mode={"inline"} items={myCourseItems}></Menu>}
                   </div>
                 </Drawer>
               </div>
@@ -246,14 +269,36 @@ const Header = ({ sessionServer }) => {
                     <Space className={styles.itemHover}>Khóa học</Space>
                   </span>
                 </Dropdown> */}
-                <Dropdown menu={{ items: blogItems }}>
-                  <span className={styles.dropdownLink}>
-                    <Link href="/blog">
-                      <Space>Blog</Space>
-                    </Link>
-                    {/* <Image src={arrowDownLine} /> */}
+
+                <Link href={"/build-roadmap"}>
+                  <span className={styles.buildRoadmap}>
+                    <Space
+                      className={styles.itemHover}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Xây dựng lộ trình
+                    </Space>
                   </span>
-                </Dropdown>
+                </Link>
+                {session?.user && (
+                  <Dropdown
+                    menu={{ items: myCourseItems }}
+                    getPopupContainer={() =>
+                      document.getElementById("my-courses")
+                    }
+                  >
+                    <Link href={"/my-learning"}>
+                      <span className={styles.myCourse} id="my-courses">
+                        <Space
+                          className={styles.itemHover}
+                          style={{ cursor: "pointer" }}
+                        >
+                          Khóa học của tôi
+                        </Space>
+                      </span>
+                    </Link>
+                  </Dropdown>
+                )}
               </div>
               {!session?.user ? (
                 <>

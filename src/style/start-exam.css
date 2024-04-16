@@ -1,0 +1,204 @@
+@charset "UTF-8";
+.wp-video-page {
+  width: 100%;
+  height: 100%;
+}
+.wp-video-page .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9; /* Màu nền với độ mờ */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wp-video-page .modal .wp-test-sound, .wp-video-page .modal .wp-continue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  color: #013533;
+  font-size: 16px;
+  font-weight: 600;
+}
+.wp-video-page .modal .wp-test-sound .button-test-sound, .wp-video-page .modal .wp-continue .button-test-sound {
+  height: 45px;
+  padding: 0 24px;
+  background-color: rgb(90, 176, 105);
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.wp-video-page .hidden {
+  display: none;
+}
+.wp-video-page .left-layout {
+  width: 100%;
+  height: 100%;
+}
+.wp-video-page .left-layout .wp-header {
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.wp-video-page .left-layout .wp-header .user-info {
+  display: flex;
+  align-items: center;
+}
+.wp-video-page .left-layout .wp-header .user-info .user-name {
+  margin-right: 8px;
+  color: #013533;
+  font-size: 18px;
+  font-weight: 600;
+}
+.wp-video-page .left-layout .wp-header .control-countdown {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-size: 14px;
+  color: #013533;
+  font-weight: 500;
+}
+.wp-video-page .left-layout .wp-header .control-countdown .count-down-number .ant-statistic-content {
+  font-size: 18px;
+  font-family: inherit;
+}
+.wp-video-page .left-layout .wp-header .control-countdown .count-down-number span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #013533;
+}
+.wp-video-page .left-layout .wp-header .button-finish {
+  height: 45px;
+  padding: 0 24px;
+  background-color: rgb(90, 176, 105);
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.wp-video-page .left-layout .wp-content {
+  padding: 16px;
+}
+.wp-video-page .left-layout .wp-content .content-listening {
+  background-color: #fff;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  overflow: auto;
+}
+.wp-video-page .left-layout .wp-content .content-listening .index-question {
+  padding: 4px 8px;
+  background-color: #d7f8d9;
+  font-size: 16px;
+  font-weight: 600;
+  color: #013533;
+  width: fit-content;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.wp-video-page .left-layout .wp-content .content-listening .wp-input-choice {
+  /* Quy tắc cho các ô */
+}
+.wp-video-page .left-layout .wp-content .content-listening .wp-input-choice table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: max-content;
+}
+.wp-video-page .left-layout .wp-content .content-listening .wp-input-choice td,
+.wp-video-page .left-layout .wp-content .content-listening .wp-input-choice th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.wp-video-page .left-layout .wp-content .content-listening .wp-input-choice input {
+  border: none;
+  border-radius: 6px;
+  background-color: #eaf7eb;
+  padding: 2px 8px;
+  color: #013533;
+  font-weight: 400;
+}
+.wp-video-page .left-layout .wp-content .content-listening .wp-input-choice .input:focus-visible {
+  box-shadow: 0 0 0 2px rgba(90, 176, 105, 0.3);
+}
+.wp-video-page .left-layout .wp-content .content-listening .wp-simple-choice .title {
+  font-size: 16px;
+  color: #013533;
+  margin-bottom: 6px;
+}
+.wp-video-page .left-layout .wp-content .content-listening .wp-multiple-choice .title {
+  font-size: 16px;
+  color: #013533;
+  margin-bottom: 6px;
+}
+.wp-video-page .left-layout .wp-content .content-reading {
+  background-color: #fff;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  overflow: hidden;
+}
+.wp-video-page .left-layout .wp-content .content-reading .content, .wp-video-page .left-layout .wp-content .content-reading .question-reading {
+  height: calc(100vh - 135px);
+  overflow: auto;
+  color: #013533;
+  overflow-x: hidden;
+}
+.wp-video-page .left-layout .wp-content .content-reading .index-question {
+  padding: 4px 8px;
+  background-color: #d7f8d9;
+  font-size: 16px;
+  font-weight: 600;
+  color: #013533;
+  width: fit-content;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.wp-video-page .left-layout .wp-content .content-reading .wp-input-choice {
+  /* Quy tắc cho các ô */
+}
+.wp-video-page .left-layout .wp-content .content-reading .wp-input-choice table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: max-content;
+}
+.wp-video-page .left-layout .wp-content .content-reading .wp-input-choice td,
+.wp-video-page .left-layout .wp-content .content-reading .wp-input-choice th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.wp-video-page .left-layout .wp-content .content-reading .wp-input-choice input {
+  border: none;
+  border-radius: 6px;
+  background-color: #eaf7eb;
+  padding: 2px 8px;
+  color: #013533;
+  font-weight: 400;
+}
+.wp-video-page .left-layout .wp-content .content-reading .wp-input-choice .input:focus-visible {
+  box-shadow: 0 0 0 2px rgba(90, 176, 105, 0.3);
+}
+.wp-video-page .left-layout .wp-content .content-reading .wp-simple-choice .title {
+  font-size: 16px;
+  color: #013533;
+  margin-bottom: 6px;
+}
+.wp-video-page .left-layout .wp-content .content-reading .wp-multiple-choice .title {
+  font-size: 16px;
+  color: #013533;
+  margin-bottom: 6px;
+}

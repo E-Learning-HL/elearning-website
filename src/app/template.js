@@ -10,7 +10,6 @@ export default function Template({ children }) {
 
   // const router = useRouter();
   useEffect(() => {
-    console.log("completed ====");
     NProgress.done();
   }, [pathname]);
   return <div>{children}</div>;

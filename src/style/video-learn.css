@@ -187,10 +187,7 @@
 }
 .wp-video-page .wp-layout .wp-content-right .ant-collapse {
   overflow: auto;
-  height: calc(100vh - 65px);
-}
-.wp-video-page .wp-layout .wp-content-right .ant-collapse-content-box {
-  padding: 12px 35px !important;
+  height: calc(100vh - 112px);
 }
 .wp-video-page .wp-layout .wp-content-right .list-lesson .item-lesson {
   display: flex;

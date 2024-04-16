@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
-import coverHome from "@/public/image/cover-home.jpg";
+import coverHome from "@/public/image/cover-home-page.png";
 import FormSearch from "@/src/component/home/form-search";
 import PopularTag from "@/src/component/home/popular-tag";
 import Header from "@/src/component/header/header";
@@ -12,6 +12,7 @@ import RemarkableService from "../component/home/remarkable-service";
 import ReviewDentistry from "../component/home/review-dt";
 import KnowledgeDentistry from "../component/home/knowledge-dt";
 import RegistrationClinic from "../component/home/registration-clinic";
+import Feature from "../component/home/feature";
 import { searchTopDentistry } from "@/src/component/home/search-province-dt.js";
 import { getBlog } from "@/src/app/service.js";
 import imgabove from "@/public/image/footerimg1.svg";
@@ -50,23 +51,28 @@ export default async function Home() {
       {/* <Header /> */}
       {/* <Nav name={['trang chu', {name: 'dich vu', link: '/dich-vu'} ]} /> */}
       <main className={styles.wpMain}>
-        <div className={styles.wpSectionSearch}>
-          <Image className={styles.coverHome} src={coverHome} alt="cover" />
-          <div className={styles.wpContentSearch}>
-            <h2 className={styles.title}>
-              Tìm Kiếm Nha Khoa Uy&nbsp;Tín Phù&nbsp;Hợp Nhất Với Bạn
-            </h2>
-            <div className={styles.subTitle}>
+        <div className={styles.wpTop}>
+          <div className={styles.wpSectionSearch}>
+            <div className={styles.wpContentSearch}>
+              <h2 className={styles.title}>
+                Nền&nbsp;Tảng <br />
+                <span>Học&nbsp;&&nbsp;Luyện Thi</span>
+                <br />
+                Thông&nbsp;Minh
+              </h2>
+              {/* <div className={styles.subTitle}>
               Nền tảng review và tìm kiếm nha khoa uy tín hàng đầu Việt Nam
             </div>
             <div className={styles.formSearch}>
               <FormSearch />
+            </div> */}
+            </div>
+            <div className={styles.wpCoverHome}>
+              <Image className={styles.coverHome} src={coverHome} alt="cover" />
             </div>
           </div>
         </div>
-        <h1 className={styles.hiddenH1}>
-          NhaKhoaHub - Nền tảng review và tìm kiếm nha khoa uy tín
-        </h1>
+
         {/* <PopularTag />
         {reputableData?.data && (
           <ReputableDT reputableData={reputableData?.data} />
@@ -81,8 +87,9 @@ export default async function Home() {
           <KnowledgeDentistry
             knowledgeDentistryData={knowledgeDentistryData?.data?.result}
           />
-        )}
-        <Frequentlyquest /> */}
+        )}*/}
+        <Feature />
+        <Frequentlyquest /> 
         <RegistrationClinic />
       </main>
     </>

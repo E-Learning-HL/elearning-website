@@ -33,7 +33,7 @@ export default async function Learn({ params, searchParams }) {
 
   return (
     <div className={styles.wpLearnPage}>
-      <LearnPage dataCourse={dataCourse} ownedCourse={ownedCourse} />
+      <LearnPage dataCourse={dataCourse} ownedCourse={ownedCourse} params={params.slug}/>
     </div>
   );
 }

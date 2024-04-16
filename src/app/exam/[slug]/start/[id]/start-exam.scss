@@ -1,0 +1,226 @@
+.wp-video-page {
+  width: 100%;
+  height: 100%;
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9; /* Màu nền với độ mờ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .wp-test-sound , .wp-continue{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+      color: #013533;
+      font-size: 16px;
+      font-weight: 600;
+      .button-test-sound{
+        height: 45px;
+        padding: 0 24px;
+        background-color: rgb(90, 176, 105);
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+  }
+  .hidden {
+    display: none;
+  }
+  .left-layout {
+    width: 100%;
+    height: 100%;
+    .wp-header {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      .user-info {
+        display: flex;
+        align-items: center;
+        .user-name {
+          margin-right: 8px;
+          color: #013533;
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+      .control-countdown {
+        display: flex;
+        align-items: center;
+        margin: auto;
+        font-size: 14px;
+        color: #013533;
+        font-weight: 500;
+        .count-down-number {
+          .ant-statistic-content {
+            font-size: 18px;
+            font-family: inherit;
+          }
+          span {
+            font-size: 18px;
+            font-weight: 600;
+            color: #013533;
+          }
+        }
+      }
+      .button-finish {
+        height: 45px;
+        padding: 0 24px;
+        background-color: rgb(90, 176, 105);
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+    .wp-content {
+      // background-color: #fff;
+      padding: 16px;
+      .content-listening {
+        background-color: #fff;
+        border-radius: 16px;
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        overflow: auto;
+        .index-question {
+          padding: 4px 8px;
+          background-color: #d7f8d9;
+          font-size: 16px;
+          font-weight: 600;
+          color: #013533;
+          width: fit-content;
+          border-radius: 8px;
+          margin-bottom: 12px;
+        }
+        .wp-input-choice {
+          table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: max-content;
+          }
+
+          /* Quy tắc cho các ô */
+          td,
+          th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+          input {
+            border: none;
+            border-radius: 6px;
+            background-color: #eaf7eb;
+            padding: 2px 8px;
+            color: #013533;
+            // font-size: 16px;
+            font-weight: 400;
+            // line-height: 150%;
+          }
+          .input:focus-visible {
+            box-shadow: 0 0 0 2px rgba(90, 176, 105, 0.3);
+            // border-color: white;
+          }
+        }
+        .wp-simple-choice {
+          .title {
+            font-size: 16px;
+            // font-weight: 500;
+            color: #013533;
+            margin-bottom: 6px;
+          }
+        }
+        .wp-multiple-choice {
+          .title {
+            font-size: 16px;
+            // font-weight: 400;
+            color: #013533;
+            margin-bottom: 6px;
+          }
+        }
+      }
+      .content-reading {
+        background-color: #fff;
+        border-radius: 16px;
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        overflow: hidden;
+        .content , .question-reading{
+          height: calc(100vh - 135px);
+          overflow: auto;
+          color: #013533;
+          overflow-x: hidden;
+        }
+        .index-question {
+          padding: 4px 8px;
+          background-color: #d7f8d9;
+          font-size: 16px;
+          font-weight: 600;
+          color: #013533;
+          width: fit-content;
+          border-radius: 8px;
+          margin-bottom: 12px;
+        }
+        .wp-input-choice {
+          table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: max-content;
+          }
+
+          /* Quy tắc cho các ô */
+          td,
+          th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+          input {
+            border: none;
+            border-radius: 6px;
+            background-color: #eaf7eb;
+            padding: 2px 8px;
+            color: #013533;
+            // font-size: 16px;
+            font-weight: 400;
+            // line-height: 150%;
+          }
+          .input:focus-visible {
+            box-shadow: 0 0 0 2px rgba(90, 176, 105, 0.3);
+            // border-color: white;
+          }
+        }
+        .wp-simple-choice {
+          .title {
+            font-size: 16px;
+            // font-weight: 500;
+            color: #013533;
+            margin-bottom: 6px;
+          }
+        }
+        .wp-multiple-choice {
+          .title {
+            font-size: 16px;
+            // font-weight: 400;
+            color: #013533;
+            margin-bottom: 6px;
+          }
+        }
+      }
+    }
+  }
+}

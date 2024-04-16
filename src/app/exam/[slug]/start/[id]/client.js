@@ -7,6 +7,7 @@ import {
   QuestionCircleOutlined,
   LogoutOutlined,
   CaretLeftOutlined,
+  ClockCircleOutlined,
 } from "@ant-design/icons";
 import React, { useState, useEffect, useRef } from "react";
 import {
@@ -22,8 +23,12 @@ import {
   Avatar,
   Progress,
   notification,
+  Statistic,
+  Radio,
+  Checkbox,
+  Input,
 } from "antd";
-import "@/src/style/video-learn.css";
+import "@/src/style/start-exam.css";
 const { Header, Content, Footer, Sider } = Layout;
 import Image from "next/image";
 import logo from "@/public/image/elearning-logo.png";
@@ -35,100 +40,100 @@ import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Form } from "antd";
-import silenceAudio from "@/public/audio/250-milliseconds-of-silence.mp3";
+import audioTest from "@/public/audio/example_voice.mp3";
 
 const { Panel } = Collapse;
 
-export default function VideoLearningPage({ dataLesson, dataCourse }) {
-  const [examForm] = Form.useForm();
+export default function VideoLearningPage({ dataTests, session }) {
+  const { Countdown } = Statistic;
+  const [listeningForm] = Form.useForm();
+  const [readingForm] = Form.useForm();
   const router = useRouter();
   //   console.log("propss", dataLesson);
   //   console.log("propssdataCourse", dataCourse);
   const audioRef = useRef(null);
-  const { data: session } = useSession();
-  const items = [
-    {
-      key: 1,
-      label: (
-        <div className="wp-label">
-          <Image src={iconLearn} alt="icon" className="iconSlider"></Image>
-          <div className="lable">Learn</div>
-        </div>
-      ),
-    },
-    {
-      key: 2,
-      label: (
-        <div className="wp-label">
-          <Image src={iconExam} alt="icon" className="iconSlider"></Image>
-          <div className="lable">Exam</div>
-        </div>
-      ),
-    },
-  ];
-  const userItems = [
-    {
-      key: "forgot",
-      label: <Link href={`/user/password`}>Quên Mật Khẩu</Link>,
-      icon: <QuestionCircleOutlined />,
-    },
-    {
-      label: (
-        <div
-          className="labelSignOut"
-          onClick={() => {
-            signOut({ redirect: false }),
-              notification.success({
-                message: `Bạn đã đăng xuất!`,
-                description: "",
-                placement: "top",
-              });
-          }}
-        >
-          Đăng xuất
-        </div>
-      ),
-      key: "logout",
-      icon: <LogoutOutlined />,
-    },
-  ];
-  const itemCourse = [
-    {
-      label: (
-        <div className="lable-item-courses">
-          <div className="first-item-course">
-            <Image src={iconExamLesson} className="img-course"></Image>
-            <div className="title-orther-course">Bứt phá IELTS 3.0-4.5+</div>
-          </div>
-          <div className="button-orther-course">Bắt đầu học</div>
-        </div>
-      ),
-      key: "0",
-    },
-    {
-      label: (
-        <div className="lable-item-courses">
-          <div className="first-item-course">
-            <Image src={iconExamLesson} className="img-course"></Image>
-            <div className="title-orther-course">Bứt phá IELTS 3.0-4.5+</div>
-          </div>
-          <div className="button-orther-course">Bắt đầu học</div>
-        </div>
-      ),
-      key: "1",
-    },
-  ];
+  // const { data: session } = useSession();
+  const [showModal, setShowModal] = useState(true);
+  const [currentSection, setCurrentSection] = useState("LISTENING");
+  const taskListening = dataTests?.task?.find(
+    (item) => item.taskType === "LISTENING"
+  );
+  const taskReading = dataTests?.task?.find(
+    (item) => item.taskType === "READING"
+  );
+  // console.log("taskListening", taskListening);
+  console.log("taskListening", taskListening);
 
-//   useEffect(() => {
-//     const audioElement = audioRef.current;
-//     if (audioElement) {
-//       audioElement.play();
-//     }
-//   }, [audioRef.current]);
+  function replaceSpecialChars(html, index) {
+    let subIndex = 0;
+    const replacedHTML = html.replace(/\{\@\@\}/g, function (match) {
+      subIndex++;
+      return `<input name="question${index}-${subIndex}" />`;
+    });
+    return replacedHTML;
+  }
+  useEffect(() => {
+    console.log(showModal);
+  }, [showModal]);
+
+  useEffect(() => {
+    console.log("currentSection", currentSection);
+  }, [currentSection]);
+  useEffect(() => {
+    console.log("currentSection12312312");
+  }, []);
+
+  const onSubmit = () => {
+    // const inputForm = document?.getElementById("input-form");
+    // const inputValue = inputForm.elements["inputName"].value;
+    // console.log("input", inputValue);
+    setCurrentSection("READING");
+  };
 
   return (
     <div className="wp-video-page">
-      <Layout className="left-layout">
+      {showModal && (
+        <div className="modal">
+          <div className="wp-test-sound">
+            Put on your headphones and click the Play sound button to test
+            <div
+              className="button-test-sound button-blue"
+              onClick={() => {
+                const audioElement = document.getElementById("audio-test");
+                if (audioElement) {
+                  audioElement.play();
+                }
+                // setShowModal(false);
+              }}
+            >
+              Play sound
+            </div>
+          </div>
+          <div className="wp-continue">
+          If the headphones are working correctly, press "Next" to continue.
+            <div
+              className="button-test-sound button-blue"
+              onClick={() => {
+                const audioElement = document.getElementById("audio-listening");
+                if (audioElement) {
+                  audioElement.play();
+                }
+                setShowModal(false);
+              }}
+            >
+              Next
+            </div>
+          </div>
+          <div className="control-audio" style={{ display: "none" }}>
+            <audio controls id="audio-test">
+              <source src={audioTest} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+      )}
+
+      <Layout className={showModal ? "hidden" : "left-layout"}>
         <Header className="wp-header">
           <div className="user-info">
             <div className="user-name">{session?.user?.name}</div>
@@ -138,16 +143,34 @@ export default function VideoLearningPage({ dataLesson, dataCourse }) {
               style={{ backgroundColor: "#5ab069" }}
             />
           </div>
-          <div className="control-time-audio">
-            <iframe src={silenceAudio} allow="autoplay" id="audio" style="display: none"></iframe>
-            <audio controls id="audio-listening" autoPlay >
-              <source
-                src="http://localhost:9000/elearning/870c3464-0563-4eb0-a948-71392329d8be_Cambridge%20Grammar%20for%20IELTS.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=elearning%2F20240410%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240410T040059Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=43083899f428609c0ab90707594ae4a9525e1866aa2ef126b8c8e682a883c0b6"
-                // type="audio/mpeg"
-              />
-              Your browser does not support the audio element.
-            </audio>
+          {currentSection === "LISTENING" && (
+            <div className="control-audio" style={{ display: "none" }}>
+              <audio controls id="audio-listening">
+                <source
+                  src={taskListening?.file[0]?.url}
+                  // type="audio/mpeg"
+                />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          )}
+
+          <div className="control-countdown">
+            <ClockCircleOutlined />
+            &nbsp;&nbsp;
+            <Countdown
+              value={Date.now() + 1000 * 60 * 15}
+              format="mm"
+              className="count-down-number"
+              // onFinish={onFinish}
+            />
+            &nbsp;&nbsp;
+            {"minute(s) left"}
           </div>
+          <div className="button-finish button-blue" onClick={onSubmit}>
+            Finish Section
+          </div>
+
           {/* <Row gutter={[20, 0]}>
             <Col xl={16} xs={24} sm={24} md={16} className="course-select">
               <Dropdown menu={{ items: itemCourse }} trigger={["click"]}>
@@ -176,7 +199,231 @@ export default function VideoLearningPage({ dataLesson, dataCourse }) {
             </Col>
           </Row> */}
         </Header>
-        <Content>
+        <Content className="wp-content">
+          {currentSection === "LISTENING" ? (
+            <div className="content-listening">
+              <Form form={listeningForm}>
+                <Row gutter={[20, 30]}>
+                  {/* listening task first */}
+                  {taskListening.question?.map((item, index) => {
+                    let html = "";
+                    if (item.questionType === "INPUT") {
+                      html = replaceSpecialChars(item.title, index);
+                      return (
+                        // <Col xl={24}>
+                        //   <div className="wp-input-choice">
+                        //     <div className="index-question">
+                        //       Question {index + 1}
+                        //     </div>
+                        //     <div
+                        //       // className={styles.titleCourse}
+                        //       dangerouslySetInnerHTML={{
+                        //         __html: html,
+                        //       }}
+                        //     ></div>
+                        //   </div>
+                        // </Col>
+                        <Col xl={24}>
+                          <div className="wp-input-choice">
+                            <div className="index-question">
+                              Question {index + 1}
+                            </div>
+                            <div>
+                              <form id="input-form">
+                                <div
+                                  // className={styles.titleCourse}
+                                  dangerouslySetInnerHTML={{
+                                    __html: html,
+                                  }}
+                                ></div>
+                              </form>
+                            </div>
+                          </div>
+                        </Col>
+                      );
+                    } else if (item.questionType === "SIMPLE_CHOICE") {
+                      return (
+                        <Col xl={12}>
+                          <div className="wp-simple-choice">
+                            <div className="index-question">
+                              Question {index + 1}
+                            </div>
+                            <div className="title">{item.title}</div>
+                            <Form.Item name={[`Question${index}`]}>
+                              <Radio.Group
+                              // size="large"
+                              // className="simple-choice-radio"
+                              // onChange={(e) => setPaymentMethod(e.target.value)}
+                              >
+                                <Space direction="vertical">
+                                  {item.answer?.map((itemAws) => {
+                                    return (
+                                      <Radio value={itemAws.content}>
+                                        {itemAws.content}
+                                      </Radio>
+                                    );
+                                  })}
+                                </Space>
+                              </Radio.Group>
+                            </Form.Item>
+                          </div>
+                        </Col>
+                      );
+                    } else if (item.questionType === "MULTIPLE_CHOICE") {
+                      return (
+                        <Col xl={12}>
+                          <div className="wp-multiple-choice">
+                            <div className="index-question">
+                              Question {index + 1}
+                            </div>
+                            <div className="title">{item.title}</div>
+                            <Form.Item name={[`Question${index}`]}>
+                              <Checkbox.Group
+                                style={{
+                                  width: "100%",
+                                }}
+                                // onChange={onChange}
+                              >
+                                <Space direction="vertical">
+                                  {item.answer?.map((itemAws) => {
+                                    return (
+                                      <Checkbox value={itemAws.content}>
+                                        {itemAws.content}
+                                      </Checkbox>
+                                    );
+                                  })}
+                                </Space>
+                              </Checkbox.Group>
+                            </Form.Item>
+                          </div>
+                        </Col>
+                      );
+                    }
+                  })}
+                </Row>
+              </Form>
+            </div>
+          ) : (
+            <div className="content-reading">
+              <Row gutter={[30, 30]}>
+                <Col xl={12}>
+                  <div className="content">
+                    <div
+                      // className={styles.titleCourse}
+                      dangerouslySetInnerHTML={{
+                        __html: taskReading?.content,
+                      }}
+                    ></div>
+                  </div>
+                </Col>
+                <Col xl={12}>
+                  <div className="question-reading">
+                    <Form form={readingForm}>
+                      <Row gutter={[20, 20]}>
+                        {/* listening task first */}
+                        {taskReading.question?.map((item, index) => {
+                          let html = "";
+                          if (item.questionType === "INPUT") {
+                            html = replaceSpecialChars(item.title, index);
+                            return (
+                              // <Col xl={24}>
+                              //   <div className="wp-input-choice">
+                              //     <div className="index-question">
+                              //       Question {index + 1}
+                              //     </div>
+                              //     <div
+                              //       // className={styles.titleCourse}
+                              //       dangerouslySetInnerHTML={{
+                              //         __html: html,
+                              //       }}
+                              //     ></div>
+                              //   </div>
+                              // </Col>
+                              <Col xl={24}>
+                                <div className="wp-input-choice">
+                                  <div className="index-question">
+                                    Question {index + 1}
+                                  </div>
+                                  <div>
+                                    <form id="input-form">
+                                      <div
+                                        // className={styles.titleCourse}
+                                        dangerouslySetInnerHTML={{
+                                          __html: html,
+                                        }}
+                                      ></div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </Col>
+                            );
+                          } else if (item.questionType === "SIMPLE_CHOICE") {
+                            return (
+                              <Col xl={24}>
+                                <div className="wp-simple-choice">
+                                  <div className="index-question">
+                                    Question {index + 1}
+                                  </div>
+                                  <div className="title">{item.title}</div>
+                                  <Form.Item name={[`Question${index}`]}>
+                                    <Radio.Group
+                                    // size="large"
+                                    // className="simple-choice-radio"
+                                    // onChange={(e) => setPaymentMethod(e.target.value)}
+                                    >
+                                      <Space direction="vertical">
+                                        {item.answer?.map((itemAws) => {
+                                          return (
+                                            <Radio value={itemAws.content}>
+                                              {itemAws.content}
+                                            </Radio>
+                                          );
+                                        })}
+                                      </Space>
+                                    </Radio.Group>
+                                  </Form.Item>
+                                </div>
+                              </Col>
+                            );
+                          } else if (item.questionType === "MULTIPLE_CHOICE") {
+                            return (
+                              <Col xl={24}>
+                                <div className="wp-multiple-choice">
+                                  <div className="index-question">
+                                    Question {index + 1}
+                                  </div>
+                                  <div className="title">{item.title}</div>
+                                  <Form.Item name={[`Question${index}`]}>
+                                    <Checkbox.Group
+                                      style={{
+                                        width: "100%",
+                                      }}
+                                      // onChange={onChange}
+                                    >
+                                      <Space direction="vertical">
+                                        {item.answer?.map((itemAws) => {
+                                          return (
+                                            <Checkbox value={itemAws.content}>
+                                              {itemAws.content}
+                                            </Checkbox>
+                                          );
+                                        })}
+                                      </Space>
+                                    </Checkbox.Group>
+                                  </Form.Item>
+                                </div>
+                              </Col>
+                            );
+                          }
+                        })}
+                      </Row>
+                    </Form>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          )}
+
           {/* <div className="wp-content">
             <div className="wp-header-content">
               <div className="back-button">

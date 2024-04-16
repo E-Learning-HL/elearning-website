@@ -27,62 +27,61 @@ const Frequentlyquest = () => (
                 padding: "8px",
               }}
             >
-              <Image src={iconArrow} width={24} height={24} alt="icon"/>
+              <Image src={iconArrow} width={24} height={24} alt="icon" />
             </div>
           )}
         >
-          <Panel header={<h3>NhaKhoaHub là gì?</h3>} key="1">
+          <Panel
+            header={<h3>Tôi phải làm gì để bắt đầu học tại HL eLearning?</h3>}
+            key="1"
+          >
             <p>
-              NhaKhoaHub là nền tảng review và tìm kiếm cơ sở nha khoa phù hợp
-              theo loại dịch vụ và khu vực.
+              Để bắt đầu học tại HL eLearning, bạn cần tạo một tài khoản mới
+              hoặc đăng nhập vào tài khoản hiện có của mình. Sau đó, bạn có thể
+              duyệt qua các khóa học và tài nguyên học tập, chọn khóa học phù
+              hợp và đăng ký để bắt đầu học.
             </p>
           </Panel>
           <Panel
-            header={<h3>NhaKhoaHub có phải phòng khám nha khoa không?</h3>}
+            header={<h3>Thời gian học mỗi khóa trong bao lâu?</h3>}
             key="2"
           >
             <p>
-              NhaKhoaHub không phải là phòng khám nha khoa, chúng tôi kết nối
-              khách hàng với cơ sở nha khoa trên toàn quốc.
+              Mỗi khóa học của Edmicro có thời gian sử dụng là 1 năm. Bạn mua
+              cùng lúc 2 khóa sẽ được nhận ưu đãi gấp đôi thời hạn sử dụng cho
+              cả 2 khóa lên thành 2 năm, 3 khóa là 3 năm và tương tự… <br />
+              Nếu mỗi tuần bạn dành từ 8-10h cho việc học, trong khoảng 3-4
+              tháng bạn sẽ hoàn thành 1 khóa học, tăng 1 band điểm.
             </p>
           </Panel>
           <Panel
             header={
-              <h3>NhaKhoaHub cung cấp dịch vụ gì? Tại sao nên sử dụng?</h3>
+              <h3>Tôi có thể truy cập các tài nguyên học tập như thế nào?</h3>
             }
             key="3"
           >
             <p>
-              NhaKhoaHub được xây dựng để giúp người dùng tìm kiếm, so sánh và
-              lựa chọn các cơ sở nha khoa uy tín, chất lượng. Với hệ thống hàng
-              hơn 10.000 cơ sở nha khoa uy tín, khách hàng có thể đưa ra lựa
-              chọn phù hợp nhất về dịch vụ, chi phí, thời gian và địa điểm thăm
-              khám.
-            </p>
-          </Panel>
-          <Panel header={<h3>Sử dụng NhaKhoaHub có mất phí không?</h3>} key="4">
-            <p>
-              Không, NhaKhoaHub miễn phí hoàn toàn cho tất cả đối tượng người
-              dùng.
+              Sau khi đăng ký vào một khóa học, bạn có thể truy cập vào các tài
+              liệu học tập và tài nguyên qua trang khóa học của mình. Tùy thuộc
+              vào nội dung của từng khóa học, các tài nguyên có thể bao gồm bài
+              giảng, bài tập, video, bài kiểm tra, và các tài liệu tham khảo.
             </p>
           </Panel>
           <Panel
             header={
               <h3>
-                Liên hệ với phòng khám để nhận tư vấn và đặt lịch trên
-                NhaKhoaHub như thế nào?
+                Tôi muốn cải thiện kỹ năng nghe và giao tiếp tiếng Anh của mình.
+                HL eLearning có khóa học nào phù hợp không?
               </h3>
             }
-            key="5"
+            key="4"
           >
             <p>
-              Bạn thực hiện các bước sau đây: <br />
-              Bước 1: Tại trang chủ, tìm kiếm phòng khám nha khoa theo dịch vụ
-              hoặc khu vực.
-              <br />
-              Bước 2: Lựa chọn cơ sở mà bạn mong muốn thăm khám. <br />
-              Bước 3: Kết nối trực tiếp với phòng khám để nhận tư vấn hoặc đặt
-              lịch tại khung chat của trang chi tiết phòng khám.
+              Có chắc chắn! HL eLearning cung cấp một loạt các khóa học tập
+              trung vào phát triển kỹ năng nghe và giao tiếp tiếng Anh. Những
+              khóa học này bao gồm các bài giảng, bài tập, và hoạt động thực
+              hành để giúp bạn cải thiện kỹ năng ngôn ngữ của mình một cách hiệu
+              quả.
             </p>
           </Panel>
         </Collapse>

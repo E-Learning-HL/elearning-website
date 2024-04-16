@@ -29,8 +29,7 @@ import Image from "next/image";
 import logo from "@/public/image/elearning-logo.png";
 import iconLearn from "@/public/icon/icon-learn.png";
 import iconExam from "@/public/icon/icon-exam.png";
-import iconExamLesson from "@/public/icon/icon-lesson-exam.png";
-import iconVideoLesson from "@/public/icon/icon-lesson-video.png";
+import iconReturnHome from "@/public/icon/icon-return-home.png";
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import ImageCommon from "@/src/component/image/image";
@@ -47,19 +46,34 @@ export default function LayoutStudy(props) {
     {
       key: 1,
       label: (
-        <div className="wp-label">
-          <Image src={iconLearn} alt="icon" className="iconSlider"></Image>
-          <div className="lable">Learn</div>
-        </div>
+        <Link href={`/learn/${props.params}`}>
+          <div className="wp-label">
+            <Image src={iconLearn} alt="icon" className="iconSlider"></Image>
+            <div className="lable">Learn</div>
+          </div>
+        </Link>
       ),
     },
     {
       key: 2,
       label: (
+        <Link href={`/exam/${props.params}`}>
+          <div className="wp-label">
+            <Image src={iconExam} alt="icon" className="iconSlider"></Image>
+            <div className="lable">Exam</div>
+          </div>
+        </Link>
+      ),
+    },
+    {
+      key: 3,
+      label: (
+        <Link href={'/'}>
         <div className="wp-label">
-          <Image src={iconExam} alt="icon" className="iconSlider"></Image>
-          <div className="lable">Exam</div>
+          <Image src={iconReturnHome} alt="icon" className="iconSlider"></Image>
+          <div className="lable">Home</div>
         </div>
+        </Link>
       ),
     },
   ];
@@ -323,7 +337,7 @@ export default function LayoutStudy(props) {
                                   </div>
                                 </Link>
                                 <Link
-                                  href={`/exam/${props?.dataAllTest?.course.id}/start/${item.id}`}
+                                  href={`/exam/${props?.dataAllTest?.course.id}/result/${item.id}`}
                                 >
                                   <div className="button-result button-white">
                                     Result

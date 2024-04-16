@@ -31,8 +31,19 @@ const nextConfig = {
       value: process.env.NEXT_PUBLIC_APP_URL,
     },
   ],
+  webpack(config, options) {
+    // Thêm cấu hình cho loader của file MP3 vào đây
+    config.module.rules.push({
+      test: /\.mp3$/,
+      use: {
+        loader: "url-loader",
+      },
+    });
+
+    return config;
+  },
 };
-// module.exports = nextConfig;
+module.exports = nextConfig;
 
 // Injected content via Sentry wizard below
 
