@@ -79,7 +79,7 @@ export default function StartExamPage({ dataTests, session }) {
   }, [showModal]);
 
   useEffect(() => {
-    console.log("currentSection", dataTests);
+    console.log("currentSection", currentSection);
   }, [currentSection]);
 
   const onSubmit = async () => {
@@ -139,6 +139,7 @@ export default function StartExamPage({ dataTests, session }) {
       console.log("inputValue2", bodyListening);
       console.log("====result", result)
       // setCurrentSection("READING");
+
     } 
     // else if (currentSection === "READING") {
     //   const fieldsValue = await readingForm.validateFields();
