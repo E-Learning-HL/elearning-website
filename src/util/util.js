@@ -1,13 +1,13 @@
 import * as NProgress from "nprogress";
 
-export const strVNForSearch = (str) => {
-  return str
-    ? str
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-    : str;
-};
+// export const strVNForSearch = (str) => {
+//   return str
+//     ? str
+//         .normalize("NFD")
+//         .replace(/[\u0300-\u036f]/g, "")
+//         .toLowerCase()
+//     : str;
+// };
 
 export const removeUndefined = (obj) => {
   for (var prop in obj) {
@@ -88,20 +88,20 @@ export const ratingPointToText = (point) => {
   }
 };
 
-export const toSlug = (input) => {
-  return (
-    input
-      .toLowerCase()
-      .replace(/-/g, " ")
-      .replace(/\s+/g, "-") // Thay thế khoảng trắng bằng dấu gạch ngang
-      .normalize("NFD") // Chuyển chuỗi về dạng Unicode Normalization Form D
-      .replace(/[\u0300-\u036f]/g, "") // Loại bỏ các ký tự dấu thanh và dấu mũ
-      // .replace(/[^a-z0-9-]/g, "") // Loại bỏ các ký tự không phải là chữ cái, số, hoặc dấu gạch ngang
-      .replace(/đ/g, "d")
-      .replace(/Đ/g, "D")
-      .replace(/[^a-z0-9-]/g, "")
-  );
-};
+// export const toSlug = (input) => {
+//   return (
+//     input
+//       .toLowerCase()
+//       .replace(/-/g, " ")
+//       .replace(/\s+/g, "-") // Thay thế khoảng trắng bằng dấu gạch ngang
+//       .normalize("NFD") // Chuyển chuỗi về dạng Unicode Normalization Form D
+//       .replace(/[\u0300-\u036f]/g, "") // Loại bỏ các ký tự dấu thanh và dấu mũ
+//       // .replace(/[^a-z0-9-]/g, "") // Loại bỏ các ký tự không phải là chữ cái, số, hoặc dấu gạch ngang
+//       .replace(/đ/g, "d")
+//       .replace(/Đ/g, "D")
+//       .replace(/[^a-z0-9-]/g, "")
+//   );
+// };
 
 export const capitalizeFirstLetters = (str) => {
   // Tách chuỗi thành mảng các từ

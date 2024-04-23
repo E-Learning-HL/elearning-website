@@ -4,9 +4,8 @@ import { URL_BLOG, REVALIDATE } from "@/src/const/const";
 
 // import { cache } from "react";
 
-
-
 export async function getAllMyCourse(access_token) {
+  console.log("getallcourse", access_token);
   const result = await wpAxios().get(`${BASE_URL}/api/enrolments`, {
     headers: {
       "Content-Type": "application/json",
@@ -41,37 +40,14 @@ export async function getAllWeekDay() {
 
   return result.data;
 }
-export async function getBlog(current, categorySlug, pageSize) {
-  const result = await wpAxios().get(
-    `${URL_BLOG}/wp-admin/admin-ajax.php?action=get_all_posts`,
-    {
-      params: {
-        current: current ? current : null,
-        categorySlug: categorySlug ? categorySlug : null,
-        pageSize: pageSize ? pageSize : 12,
-      },
-    }
-  );
+export async function getAllPublicCourse() {
+  const result = await wpAxios().get(`${BASE_URL}/api/courses/course-level`, {
+    params: {
+      startPoint: 0,
+      endPoint: 1000,
+    },
+  });
   return result.data;
-  // console.log(
-  //   "fetch ",
-  //   `${URL_BLOG}/wp-admin/admin-ajax.php?action=get_all_posts&current=${
-  //     current ? current : null
-  //   }&pageSize=${pageSize ? pageSize : 12}`
-  // );
-  // const result = await fetch(
-  //   `${URL_BLOG}/wp-admin/admin-ajax.php?action=get_all_posts&current=${
-  //     current ? current : null
-  //   }&categorySlug=${categorySlug ? categorySlug : null}
-  //   &pageSize=${pageSize ? pageSize : 12}`,
-  //   {
-  //     method: "GET", // *GET, POST, PUT, DELETE, etc.
-  //     cache: "force-cache",
-  //   }
-  // );
-  // const res = await result.json();
-  // console.log("res", res)
-  // return res;
 }
 
 export async function getAllCategoryBlog() {

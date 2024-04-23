@@ -88,6 +88,7 @@ const Header = ({ sessionServer }) => {
     // console.log("result", session)
     const fetch = async () => {
       if (session?.user) {
+        console.log("123123123", session?.user)
         const result = await getAllMyCourse(session?.user?.access_token);
         setDataMyCourse(result);
       }

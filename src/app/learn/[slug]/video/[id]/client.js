@@ -157,9 +157,11 @@ export default function VideoLearningPage({ dataLesson, dataCourse }) {
           <Content>
             <div className="wp-content">
               <div className="wp-header-content">
-                <div className="back-button">
-                  <CaretLeftOutlined /> Quay lại
-                </div>
+                <Link href={`/learn/${dataCourse.course.id}`}>
+                  <div className="back-button">
+                    <CaretLeftOutlined /> Quay lại
+                  </div>
+                </Link>
               </div>
               <div className="video-learn">
                 <video
@@ -215,7 +217,9 @@ export default function VideoLearningPage({ dataLesson, dataCourse }) {
                           className="image-section"
                         ></Image>
                         <div className="right-panel">
-                          <div className="title">{`Section ${index+1}: ${item.nameSection}`}</div>
+                          <div className="title">{`Section ${index + 1}: ${
+                            item.nameSection
+                          }`}</div>
                           <div className="section-progess">
                             <Progress
                               strokeColor={{
@@ -258,7 +262,8 @@ export default function VideoLearningPage({ dataLesson, dataCourse }) {
                                     className="icon-type"
                                   ></Image> */}
                                   <div className="text-type">
-                                    <VideoCameraOutlined />&nbsp;&nbsp;Video
+                                    <VideoCameraOutlined />
+                                    &nbsp;&nbsp;Video
                                   </div>
                                 </div>
                               </div>

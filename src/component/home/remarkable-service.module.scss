@@ -1,64 +1,110 @@
 @import "../../const/settings.scss";
 .wpRemarkableService{
-    background: linear-gradient(0deg, rgba(219, 239, 250, 0.50) 0%, rgba(219, 239, 250, 0.50) 100%), #FFF;
+    background: #FFF;
     display: flex;
     justify-content: center;
     .wpRemarkableServiceContent{
         max-width: 1200px;
         margin: 64px auto;
+        width: 100%;
         .wpTitle {
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             display: flex;
-            flex-direction: column;
+            // flex-direction: column;
             h2 {
               font-size: 30px;
               font-style: normal;
               font-weight: 600;
               line-height: 130%; /* 52px */
-              text-transform: capitalize;
-              color: #2a3467;
+            //   text-transform: capitalize;
+              color: #013533;
               margin-bottom: 24px;
               text-align: center;
             }
-            .line {
-              height: 6px;
-              width: 120px;
-              border-radius: 3px;
-              background-color: #00c5d7;
-              margin-bottom: 48px;
+            .seeMore{
+                color: #789594;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
             }
+            
           }
         .listRemarkableService{
             justify-content: center;
             .itemService{
+                box-shadow: 0 0 30px #0000000c;
+                transition: box-shadow 0.3s ease;
                 cursor: pointer;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
                 background-color: #FFF;
                 border-radius: 16px;
-                padding: 32px 24px;
+                // padding: 32px 24px;
+                padding: 16px;
                 height: 100%;
+                width: 100%;
                 .itemImage{
                     justify-content: center;
                     margin-bottom: 24px;
+                    width: 100%;
                     .serviceImage{
-                        width: 100px;
-                        height: 100px;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 8px;
+                        height: 150px !important;
+                        position: relative !important;
                     }
                 }
                 .itemTitle{
-                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
                     h3{
                         font-size: 20px;
                         font-weight: 600;
                         line-height: 150%; 
                         text-transform: capitalize;
-                        color: #2A3467;
+                        color: #013533;
+                        margin-bottom: 12px;
+                    }
+                    .level{
+                        display: flex;
+                        justify-content: flex-start;
+                        color: #789594;
+                        font-size: 14px;
+                        font-weight: 500;
+                        align-items: center;
+                        span{
+                            font-weight: 600;
+                        }
+                        margin-bottom: 6px;
+                    }
+                    .statistic{
+                        display: flex;
+                        justify-content: space-between;
+                        .wpLesson{
+                            display: flex;
+                            color: #789594;
+                            font-size: 14px;
+                            font-weight: 500;
+                            display: flex;
+                            align-items: center;
+                        }
+                        margin-bottom: 16px;
+                    }
+                    .detail{
+                        background-color: #5ab069;
+                        height: 40px;
+                        border-radius: 8px;
                         text-align: center;
-                        margin-bottom: 0;
+                        padding: 0 24px;
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #FFF;
+                        line-height: 250%;
                     }
                 }
             }

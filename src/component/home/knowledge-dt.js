@@ -16,36 +16,14 @@ export default function KnowledgeDentistry({ knowledgeDentistryData }) {
       </div>
       <div className="line"></div>
       <div className="wp-content">
-        <Row gutter={[30, 48]}>
-          {knowledgeDentistryData?.map((item) => (
-            <Col xs={12} sm={12} md={8} xl={8}>
-              <Link href={"/blog/" + item.slug} className="wp-contentItem">
-                <div className="wp-contentImage">
-                  <ImageAntd
-                    className="contentImage"
-                    src={item.thumb ? item.thumb.toString() : "false"}
-                    width="100%"
-                    height="100%"
-                    preview={false}
-                    fallback={FALLBACK}
-                  ></ImageAntd>
-                </div>
-                <div className="itemBlog">Kiến Thức Nha Khoa</div>
-                <h3 className="itemTitle" dangerouslySetInnerHTML={{ __html: item.title }}></h3>
-                <div className="itemContent" dangerouslySetInnerHTML={{ __html: item.desc }}></div>
-              </Link>
-            </Col>
-          ))}
-        </Row>
-      </div>
-      <div>
-        <Link
-          href="/blog/kien-thuc-nha-khoa"
-          className="moreButton button-white"
-        >
-          <p>XEM THÊM</p>
-          <Image src={righticon} alt="icon"></Image>
-        </Link>
+      <div class="slider">
+            <div class="item">
+                <h1>Slide 1</h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum hic iure enim, rem accusamus odit nemo aspernatur consequuntur vero in veniam fugiat, consectetur officiis voluptatum quidem libero. Sed, dignissimos exercitationem, animi a repellendus tempora recusandae qui consequatur, itaque deleniti nobis.
+            </div>
+            <button id="next">&lt;</button>
+            <button id="prev">&gt;</button>
+        </div>
       </div>
     </div>
   );

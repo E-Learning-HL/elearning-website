@@ -14,7 +14,7 @@ import KnowledgeDentistry from "../component/home/knowledge-dt";
 import RegistrationClinic from "../component/home/registration-clinic";
 import Feature from "../component/home/feature";
 import { searchTopDentistry } from "@/src/component/home/search-province-dt.js";
-import { getBlog } from "@/src/app/service.js";
+import { getAllPublicCourse } from "@/src/app/service.js";
 import imgabove from "@/public/image/footerimg1.svg";
 import { BASE_URL } from "@/src/const/const";
 
@@ -30,21 +30,18 @@ import { BASE_URL } from "@/src/const/const";
 
 export const revalidate = 5;
 export default async function Home() {
-  // let reviewDentistryData = null;
+  let topCourse = null;
   // let knowledgeDentistryData = null;
   // let reputableData = null;
-  // try {
-  //   const res = await Promise.all([
-  //     getBlog(1, "kien-thuc-nha-khoa", 6),
-  //     getBlog(1, "review-nha-khoa", 4),
-  //     searchTopDentistry(1),
-  //   ]);
-  //   knowledgeDentistryData = res.length == 3 ? res[0] : null;
-  //   reviewDentistryData = res.length == 3 ? res[1] : null;
-  //   reputableData = res.length == 3 ? res[2] : null;
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    const res = await Promise.all([
+      getAllPublicCourse()
+    ]);
+    topCourse = res[0]
+    console.log("=====",topCourse)
+  } catch (error) {
+    console.log(error);
+  }
 
   return (
     <>
@@ -88,7 +85,9 @@ export default async function Home() {
             knowledgeDentistryData={knowledgeDentistryData?.data?.result}
           />
         )}*/}
+        
         <Feature />
+        <RemarkableService topCourse={topCourse}/>
         <Frequentlyquest /> 
         <RegistrationClinic />
       </main>

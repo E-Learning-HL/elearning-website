@@ -41,10 +41,12 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Form } from "antd";
 import audioTest from "@/public/audio/example_voice.mp3";
+import axios from "axios";
+import { BASE_URL } from "@/src/const/const";
 
 const { Panel } = Collapse;
 
-export default function VideoLearningPage({ dataTests, session }) {
+export default function StartExamPage({ dataTests, session }) {
   const { Countdown } = Statistic;
   const [listeningForm] = Form.useForm();
   const [readingForm] = Form.useForm();
@@ -77,17 +79,117 @@ export default function VideoLearningPage({ dataTests, session }) {
   }, [showModal]);
 
   useEffect(() => {
-    console.log("currentSection", currentSection);
+    console.log("currentSection", dataTests);
   }, [currentSection]);
-  useEffect(() => {
-    console.log("currentSection12312312");
-  }, []);
 
-  const onSubmit = () => {
-    // const inputForm = document?.getElementById("input-form");
-    // const inputValue = inputForm.elements["inputName"].value;
-    // console.log("input", inputValue);
-    setCurrentSection("READING");
+  const onSubmit = async () => {
+    if (currentSection === "LISTENING") {
+      const fieldsValue = await listeningForm.validateFields();
+      const questionInput = taskListening?.question?.find(
+        (item) => item.questionType === "INPUT"
+      );
+      const countInput = (questionInput?.title.match(/{@@}/g) || [])?.length;
+
+      const questionInputListening = {
+        questionId: questionInput?.id,
+        questionType: questionInput?.questionType,
+        answer: [],
+      };
+      for (let i = 1; i <= countInput; i++) {
+        const inputForm = document?.getElementById("input-form");
+        const inputValue =
+          inputForm?.elements[`question${questionInput?.id}-${i}`]?.value;
+        const elementAws = {
+          answerText: inputValue,
+        };
+        questionInputListening.answer.push(elementAws);
+      }
+
+      // console.log("input", inputValue);
+      const bodyListening = {
+        ...fieldsValue.TaskListening,
+        question: [
+          ...Object.values(fieldsValue.TaskListening.question).map((item) => {
+            if (item.questionType === "SIMPLE_CHOICE") {
+              return {
+                questionId: item.questionId,
+                questionType: item.questionType,
+                answer: [{ answerText: item.answer }],
+              };
+            }
+            return {
+              questionId: item.questionId,
+              questionType: item.questionType,
+              answer: item.answer?.map((itemAws) => {
+                return {
+                  answerText: itemAws,
+                };
+              }),
+            };
+          }),
+        ],
+      };
+      bodyListening.question.push(questionInputListening);
+      const result = await axios.post(`${BASE_URL}/api/user-answers`,{...bodyListening}, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.user?.access_token}`,
+        },
+      })
+      console.log("inputValue2", bodyListening);
+      console.log("====result", result)
+      // setCurrentSection("READING");
+    } 
+    // else if (currentSection === "READING") {
+    //   const fieldsValue = await readingForm.validateFields();
+    //   const questionInput = taskReading?.question?.find(
+    //     (item) => item.questionType === "INPUT"
+    //   );
+    //   const countInput = (questionInput?.title.match(/{@@}/g) || [])?.length;
+
+    //   const questionInputReading = {
+    //     questionId: questionInput?.id,
+    //     questionType: questionInput?.questionType,
+    //     answer: [],
+    //   };
+    //   for (let i = 1; i <= countInput; i++) {
+    //     const inputForm = document?.getElementById("input-form");
+    //     const inputValue =
+    //       inputForm?.elements[`question${questionInput?.id}-${i}`]?.value;
+    //     const elementAws = {
+    //       answerText: inputValue,
+    //     };
+    //     questionInputReading.answer.push(elementAws);
+    //   }
+
+    //   // console.log("input", inputValue);
+    //   const bodyReading = {
+    //     ...fieldsValue?.TaskReading,
+    //     question: [
+    //       ...Object.values(fieldsValue?.TaskReading.question).map((item) => {
+    //         if (item.questionType === "SIMPLE_CHOICE") {
+    //           return {
+    //             questionId: item.questionId,
+    //             questionType: item.questionType,
+    //             answer: [{ answerText: item.answer }],
+    //           };
+    //         }
+    //         return {
+    //           questionId: item.questionId,
+    //           questionType: item.questionType,
+    //           answer: item.answer?.map((itemAws) => {
+    //             return {
+    //               answerText: itemAws,
+    //             };
+    //           }),
+    //         };
+    //       }),
+    //     ],
+    //   };
+    //   bodyReading.question.push(questionInputReading);
+    //   setCurrentSection("READING");
+    //   console.log("inputValue2", bodyReading);
+    // }
   };
 
   return (
@@ -110,7 +212,7 @@ export default function VideoLearningPage({ dataTests, session }) {
             </div>
           </div>
           <div className="wp-continue">
-          If the headphones are working correctly, press "Next" to continue.
+            If the headphones are working correctly, press "Next" to continue.
             <div
               className="button-test-sound button-blue"
               onClick={() => {
@@ -203,26 +305,19 @@ export default function VideoLearningPage({ dataTests, session }) {
           {currentSection === "LISTENING" ? (
             <div className="content-listening">
               <Form form={listeningForm}>
+                <Form.Item
+                  name={["TaskListening", "taskId"]}
+                  initialValue={taskListening.id}
+                  style={{ display: "none" }}
+                ></Form.Item>
                 <Row gutter={[20, 30]}>
                   {/* listening task first */}
                   {taskListening.question?.map((item, index) => {
+                    console.log("-----", item);
                     let html = "";
                     if (item.questionType === "INPUT") {
-                      html = replaceSpecialChars(item.title, index);
+                      html = replaceSpecialChars(item.title, item.id);
                       return (
-                        // <Col xl={24}>
-                        //   <div className="wp-input-choice">
-                        //     <div className="index-question">
-                        //       Question {index + 1}
-                        //     </div>
-                        //     <div
-                        //       // className={styles.titleCourse}
-                        //       dangerouslySetInnerHTML={{
-                        //         __html: html,
-                        //       }}
-                        //     ></div>
-                        //   </div>
-                        // </Col>
                         <Col xl={24}>
                           <div className="wp-input-choice">
                             <div className="index-question">
@@ -249,7 +344,34 @@ export default function VideoLearningPage({ dataTests, session }) {
                               Question {index + 1}
                             </div>
                             <div className="title">{item.title}</div>
-                            <Form.Item name={[`Question${index}`]}>
+                            <Form.Item
+                              name={[
+                                "TaskListening",
+                                "question",
+                                `Question${item.id}`,
+                                "questionId",
+                              ]}
+                              initialValue={item.id}
+                              style={{ display: "none" }}
+                            ></Form.Item>
+                            <Form.Item
+                              name={[
+                                "TaskListening",
+                                "question",
+                                `Question${item.id}`,
+                                "questionType",
+                              ]}
+                              initialValue={item.questionType}
+                              style={{ display: "none" }}
+                            ></Form.Item>
+                            <Form.Item
+                              name={[
+                                "TaskListening",
+                                "question",
+                                `Question${item.id}`,
+                                "answer",
+                              ]}
+                            >
                               <Radio.Group
                               // size="large"
                               // className="simple-choice-radio"
@@ -277,7 +399,34 @@ export default function VideoLearningPage({ dataTests, session }) {
                               Question {index + 1}
                             </div>
                             <div className="title">{item.title}</div>
-                            <Form.Item name={[`Question${index}`]}>
+                            <Form.Item
+                              name={[
+                                "TaskListening",
+                                "question",
+                                `Question${item.id}`,
+                                "questionId",
+                              ]}
+                              initialValue={item.id}
+                              style={{ display: "none" }}
+                            ></Form.Item>
+                            <Form.Item
+                              name={[
+                                "TaskListening",
+                                "question",
+                                `Question${item.id}`,
+                                "questionType",
+                              ]}
+                              initialValue={item.questionType}
+                              style={{ display: "none" }}
+                            ></Form.Item>
+                            <Form.Item
+                              name={[
+                                "TaskListening",
+                                "question",
+                                `Question${item.id}`,
+                                "answer",
+                              ]}
+                            >
                               <Checkbox.Group
                                 style={{
                                   width: "100%",
@@ -319,26 +468,18 @@ export default function VideoLearningPage({ dataTests, session }) {
                 <Col xl={12}>
                   <div className="question-reading">
                     <Form form={readingForm}>
+                      <Form.Item
+                        name={["TaskReading", "taskId"]}
+                        initialValue={taskReading.id}
+                        style={{ display: "none" }}
+                      ></Form.Item>
                       <Row gutter={[20, 20]}>
                         {/* listening task first */}
                         {taskReading.question?.map((item, index) => {
                           let html = "";
                           if (item.questionType === "INPUT") {
-                            html = replaceSpecialChars(item.title, index);
+                            html = replaceSpecialChars(item.title, item.id);
                             return (
-                              // <Col xl={24}>
-                              //   <div className="wp-input-choice">
-                              //     <div className="index-question">
-                              //       Question {index + 1}
-                              //     </div>
-                              //     <div
-                              //       // className={styles.titleCourse}
-                              //       dangerouslySetInnerHTML={{
-                              //         __html: html,
-                              //       }}
-                              //     ></div>
-                              //   </div>
-                              // </Col>
                               <Col xl={24}>
                                 <div className="wp-input-choice">
                                   <div className="index-question">
@@ -365,7 +506,34 @@ export default function VideoLearningPage({ dataTests, session }) {
                                     Question {index + 1}
                                   </div>
                                   <div className="title">{item.title}</div>
-                                  <Form.Item name={[`Question${index}`]}>
+                                  <Form.Item
+                                    name={[
+                                      "TaskReading",
+                                      "question",
+                                      `Question${item.id}`,
+                                      "questionId",
+                                    ]}
+                                    initialValue={item.id}
+                                    style={{ display: "none" }}
+                                  ></Form.Item>
+                                  <Form.Item
+                                    name={[
+                                      "TaskReading",
+                                      "question",
+                                      `Question${item.id}`,
+                                      "questionType",
+                                    ]}
+                                    initialValue={item.questionType}
+                                    style={{ display: "none" }}
+                                  ></Form.Item>
+                                  <Form.Item
+                                    name={[
+                                      "TaskReading",
+                                      "question",
+                                      `Question${item.id}`,
+                                      "answer",
+                                    ]}
+                                  >
                                     <Radio.Group
                                     // size="large"
                                     // className="simple-choice-radio"
@@ -393,7 +561,34 @@ export default function VideoLearningPage({ dataTests, session }) {
                                     Question {index + 1}
                                   </div>
                                   <div className="title">{item.title}</div>
-                                  <Form.Item name={[`Question${index}`]}>
+                                  <Form.Item
+                                    name={[
+                                      "TaskReading",
+                                      "question",
+                                      `Question${item.id}`,
+                                      "questionId",
+                                    ]}
+                                    initialValue={item.id}
+                                    style={{ display: "none" }}
+                                  ></Form.Item>
+                                  <Form.Item
+                                    name={[
+                                      "TaskReading",
+                                      "question",
+                                      `Question${item.id}`,
+                                      "questionType",
+                                    ]}
+                                    initialValue={item.questionType}
+                                    style={{ display: "none" }}
+                                  ></Form.Item>
+                                  <Form.Item
+                                    name={[
+                                      "TaskReading",
+                                      "question",
+                                      `Question${item.id}`,
+                                      "answer",
+                                    ]}
+                                  >
                                     <Checkbox.Group
                                       style={{
                                         width: "100%",

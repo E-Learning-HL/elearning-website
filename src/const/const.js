@@ -13,41 +13,37 @@ export const START_POINT = [
   {
     value: 0,
     lable: "Junior",
-    link: require("@/public/image/abc_low.png")
+    link: require("@/public/image/abc_low.png"),
   },
   {
     value: 100,
     lable: "0",
-    link: require("@/public/image/student_1.png")
+    link: require("@/public/image/student_1.png"),
   },
   {
     value: 300,
     lable: "3.0",
-    link: require("@/public/image/student_2.png")
-
+    link: require("@/public/image/student_2.png"),
   },
   {
     value: 450,
     lable: "4.5",
-    link: require("@/public/image/student_3.png")
-
+    link: require("@/public/image/student_3.png"),
   },
   {
     value: 550,
     lable: "5.5",
-    link: require("@/public/image/student_4.png")
-
+    link: require("@/public/image/student_4.png"),
   },
   {
     value: 650,
     lable: "6.5",
-    link: require("@/public/image/student_5.png")
-
+    link: require("@/public/image/student_5.png"),
   },
   {
     value: 750,
     lable: "7.5",
-    link: require("@/public/image/student_6.png")
+    link: require("@/public/image/student_6.png"),
   },
 ];
 export const TARGET_POINT = [
@@ -87,15 +83,61 @@ export const HIDE_FOOTER = [
   "/forgot-password",
   "/register",
 ];
-export const HIDE_FOOTER_DYNAMIC = [
-  "/learn/",
-  "/exam/"
-];
+export const HIDE_FOOTER_DYNAMIC = ["/learn/", "/exam/"];
 export const HIDE_HEADER = [];
-export const HIDE_HEADER_DYNAMIC = [
-  "/learn/",
-  "/exam/"
-];
+export const HIDE_HEADER_DYNAMIC = ["/learn/", "/exam/"];
+
+// export const SAY_ABOUT_US = [
+//   {
+//     image: require(""),
+//     name: "Tuấn Hưng",
+//     address: "Bắc Ninh",
+//     content:
+//       "Theo em, học HL tiện hơn về mặt thời gian giúp em tự chủ được việc học của em bởi việc di chuyển đến trung tâm cùng với việc phụ thuộc lịch học không phù hợp với bản thân em. Em cũng là người thích tự học nên việc học HL eLearning giúp em tự mình khai quật kiến thức, nó rất vui í ạ. Ngoài ra HL chữa bài kĩ bài bản với giá cả hợp lí nên em khá yên tâm",
+//   },
+//   {
+//     image: require(""),
+//     name: "Duy Linh",
+//     address: "Thái Bình",
+//     content:
+//       "Độ dài mỗi video: đây là điều mình rất thích ở HL eLearning. HL eLearning biết chia thời lượng video rất chuẩn, bài giảng dài nhất mình từng học còn chưa đến 20 phút, rất ngắn gọn, súc tích mà vẫn dễ hiểu, có ví dụ đầy đủ, rõ ràng, cộng thêm biết nhiều từ mới hay có thể áp dụng cho nhiều kĩ năng. Học HL eLearning chưa bao giờ khiến mình cảm thấy bị overload, có khi còn ngóng chờ để được học tiếp í. Có một điều mình mãi vẫn chưa bỏ được là học HL eLearning rồi thì mình học liền tù tì hết cả tối luôn, khiến thời gian cho các môn khác bị lỡ nên mấy lần phải thức khuya làm bài",
+//   },
+//   {
+//     image: require(""),
+//     name: "Hiền Thương",
+//     address: "Quảng Ninh",
+//     content:
+//       "HL eLearning đã cung cấp cho tôi một trải nghiệm học IELTS đáng nhớ. Tài nguyên giáo trình chất lượng và môi trường học trực tuyến linh hoạt đã giúp tôi nắm vững kỹ năng cần thiết để vượt qua kỳ thi. Bài giảng video và bài tập thực hành đa dạng đã nâng cao khả năng từ vựng và ngữ pháp của tôi. Sự hỗ trợ tận tình từ giáo viên giúp giải đáp mọi thắc mắc và tiến bộ một cách đáng kể. Tôi rất hài lòng với quá trình học tại HL eLearning và sẽ khuyến khích mọi người tham gia.",
+//   },
+//   {
+//     image: require(""),
+//     name: "Bá Đạt",
+//     address: "Nghệ An",
+//     content:
+//       "HL eLearning không chỉ giúp tôi chuẩn bị tốt cho kỳ thi IELTS mà còn phát triển kỹ năng giao tiếp tiếng Anh toàn diện. Tôi cảm thấy tự tin hơn trong việc sử dụng tiếng Anh trong cuộc sống hàng ngày và trong môi trường làm việc. Quy trình học linh hoạt và tiện lợi tại HL eLearning thực sự là một trải nghiệm học tập đáng giá và đáng nhớ. Tôi rất hạnh phúc khi có cơ hội học tập tại đây và chắc chắn sẽ giới thiệu cho mọi người.",
+//   },
+//   {
+//     image: require(""),
+//     name: "Bình Vũ",
+//     address: "Cà Mau",
+//     content:
+//       "Tôi đã có một hành trình học IELTS đáng nhớ tại HL eLearning. Tôi cảm thấy tự tin hơn với khả năng giao tiếp tiếng Anh sau khoá học. Đội ngũ giáo viên chuyên nghiệp và môi trường học trực tuyến linh hoạt đã giúp tôi nắm vững kiến thức và kỹ năng thi cần thiết. Sự hỗ trợ tận tình và quy trình học hiệu quả đã mang lại cho tôi sự chuẩn bị tốt nhất cho kỳ thi IELTS. Tôi rất biết ơn và hài lòng với trải nghiệm học tập này.",
+//   },
+//   {
+//     image: require(""),
+//     name: "Trung Quân",
+//     address: "TP.HCM",
+//     content:
+//       "HL eLearning đã giúp tôi xây dựng một nền tảng vững chắc cho sự thành công trong kỳ thi IELTS và cả trong sự nghiệp và học tập sau này. Tôi rất biết ơn sự hỗ trợ tận tình và chuyên nghiệp từ đội ngũ giáo viên tại đây, cũng như sự linh hoạt và tiện lợi của môi trường học trực tuyến. Không gì có thể so sánh với cảm giác tự tin khi bước vào kỳ thi với sự chuẩn bị kỹ lưỡng từ HL eLearning.",
+//   },
+//   {
+//     image: require(""),
+//     name: "Hà Hồ",
+//     address: "Bắc Ninh",
+//     content:
+//       "Trải qua quá trình học tại HL eLearning, tôi đã có cơ hội tiếp cận với những tài nguyên giáo trình chất lượng và môi trường học trực tuyến linh hoạt. Nhờ đó, tôi không chỉ nắm vững kiến thức mà còn phát triển kỹ năng làm việc độc lập và quản lý thời gian hiệu quả. Sự hỗ trợ tận tình từ giáo viên và môi trường học tích cực đã làm cho quá trình chuẩn bị cho kỳ thi IELTS trở nên thú vị và đầy hứng khởi. Tôi chắc chắn sẽ giới thiệu HL eLearning cho mọi người muốn nâng cao trình độ tiếng Anh của mình.",
+//   },
+// ];
 
 //nhakhoahub
 

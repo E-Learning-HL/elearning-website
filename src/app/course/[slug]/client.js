@@ -477,6 +477,7 @@ export default function DetailClinicClient({
                     {listCourse?.map((item) => {
                       console.log("123123", item);
                       return (
+                        <Link href={`/course/${item.course_id}`}>
                         <div className={styles.item}>
                           <ImageCommon
                             data={item?.url}
@@ -486,6 +487,8 @@ export default function DetailClinicClient({
                             {item?.course_name_course}
                           </div>
                         </div>
+                        </Link>
+                        
                       );
                     })}
                   </div>
