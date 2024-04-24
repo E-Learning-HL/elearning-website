@@ -138,59 +138,59 @@ export default function StartExamPage({ dataTests, session }) {
       })
       console.log("inputValue2", bodyListening);
       console.log("====result", result)
-      // setCurrentSection("READING");
+      setCurrentSection("READING");
 
     } 
-    // else if (currentSection === "READING") {
-    //   const fieldsValue = await readingForm.validateFields();
-    //   const questionInput = taskReading?.question?.find(
-    //     (item) => item.questionType === "INPUT"
-    //   );
-    //   const countInput = (questionInput?.title.match(/{@@}/g) || [])?.length;
+    else if (currentSection === "READING") {
+      const fieldsValue = await readingForm.validateFields();
+      const questionInput = taskReading?.question?.find(
+        (item) => item.questionType === "INPUT"
+      );
+      const countInput = (questionInput?.title.match(/{@@}/g) || [])?.length;
 
-    //   const questionInputReading = {
-    //     questionId: questionInput?.id,
-    //     questionType: questionInput?.questionType,
-    //     answer: [],
-    //   };
-    //   for (let i = 1; i <= countInput; i++) {
-    //     const inputForm = document?.getElementById("input-form");
-    //     const inputValue =
-    //       inputForm?.elements[`question${questionInput?.id}-${i}`]?.value;
-    //     const elementAws = {
-    //       answerText: inputValue,
-    //     };
-    //     questionInputReading.answer.push(elementAws);
-    //   }
+      const questionInputReading = {
+        questionId: questionInput?.id,
+        questionType: questionInput?.questionType,
+        answer: [],
+      };
+      for (let i = 1; i <= countInput; i++) {
+        const inputForm = document?.getElementById("input-form");
+        const inputValue =
+          inputForm?.elements[`question${questionInput?.id}-${i}`]?.value;
+        const elementAws = {
+          answerText: inputValue,
+        };
+        questionInputReading.answer.push(elementAws);
+      }
 
-    //   // console.log("input", inputValue);
-    //   const bodyReading = {
-    //     ...fieldsValue?.TaskReading,
-    //     question: [
-    //       ...Object.values(fieldsValue?.TaskReading.question).map((item) => {
-    //         if (item.questionType === "SIMPLE_CHOICE") {
-    //           return {
-    //             questionId: item.questionId,
-    //             questionType: item.questionType,
-    //             answer: [{ answerText: item.answer }],
-    //           };
-    //         }
-    //         return {
-    //           questionId: item.questionId,
-    //           questionType: item.questionType,
-    //           answer: item.answer?.map((itemAws) => {
-    //             return {
-    //               answerText: itemAws,
-    //             };
-    //           }),
-    //         };
-    //       }),
-    //     ],
-    //   };
-    //   bodyReading.question.push(questionInputReading);
-    //   setCurrentSection("READING");
-    //   console.log("inputValue2", bodyReading);
-    // }
+      // console.log("input", inputValue);
+      const bodyReading = {
+        ...fieldsValue?.TaskReading,
+        question: [
+          ...Object.values(fieldsValue?.TaskReading.question).map((item) => {
+            if (item.questionType === "SIMPLE_CHOICE") {
+              return {
+                questionId: item.questionId,
+                questionType: item.questionType,
+                answer: [{ answerText: item.answer }],
+              };
+            }
+            return {
+              questionId: item.questionId,
+              questionType: item.questionType,
+              answer: item.answer?.map((itemAws) => {
+                return {
+                  answerText: itemAws,
+                };
+              }),
+            };
+          }),
+        ],
+      };
+      bodyReading.question.push(questionInputReading);
+      setCurrentSection("READING");
+      console.log("inputValue2", bodyReading);
+    }
   };
 
   return (
@@ -265,7 +265,7 @@ export default function StartExamPage({ dataTests, session }) {
               value={Date.now() + 1000 * 60 * 15}
               format="mm"
               className="count-down-number"
-              // onFinish={onFinish}
+              onFinish={onSubmit}
             />
             &nbsp;&nbsp;
             {"minute(s) left"}
