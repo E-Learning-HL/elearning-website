@@ -172,7 +172,7 @@ export default function StartExamPage({ dataTests, session }) {
               return {
                 questionId: item.questionId,
                 questionType: item.questionType,
-                answer: [{ answerText: item.answer }],
+                answer: [{ answerId: item.answer }],
               };
             }
             return {
@@ -180,7 +180,7 @@ export default function StartExamPage({ dataTests, session }) {
               questionType: item.questionType,
               answer: item.answer?.map((itemAws) => {
                 return {
-                  answerText: itemAws,
+                  answerId: itemAws,
                 };
               }),
             };
@@ -549,7 +549,7 @@ export default function StartExamPage({ dataTests, session }) {
                                       <Space direction="vertical">
                                         {item.answer?.map((itemAws) => {
                                           return (
-                                            <Radio value={itemAws.content}>
+                                            <Radio value={itemAws.id}>
                                               {itemAws.content}
                                             </Radio>
                                           );
@@ -605,7 +605,7 @@ export default function StartExamPage({ dataTests, session }) {
                                       <Space direction="vertical">
                                         {item.answer?.map((itemAws) => {
                                           return (
-                                            <Checkbox value={itemAws.content}>
+                                            <Checkbox value={itemAws.id}>
                                               {itemAws.content}
                                             </Checkbox>
                                           );
