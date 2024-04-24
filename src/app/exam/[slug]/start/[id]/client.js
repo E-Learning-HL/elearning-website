@@ -188,7 +188,13 @@ export default function StartExamPage({ dataTests, session }) {
         ],
       };
       bodyReading.question.push(questionInputReading);
-      setCurrentSection("READING");
+      const result = await axios.post(`${BASE_URL}/api/user-answers`,{...bodyReading}, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.user?.access_token}`,
+        },
+      })
+      console.log("====result", result)
       console.log("inputValue2", bodyReading);
     }
   };
