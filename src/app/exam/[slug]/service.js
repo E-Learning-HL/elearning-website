@@ -29,3 +29,14 @@ export async function getOwnedCourse(access_token) {
   });
   return result.data;
 }
+
+export async function getResultTest(id ,access_token) {
+  const result = await wpAxios().get(`${BASE_URL}/api/assignments/get-score/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+  return result.data;
+}
+

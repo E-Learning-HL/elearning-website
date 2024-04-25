@@ -4,6 +4,14 @@ import { getOwnedCourse, getCourse } from "../../service";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+
+export async function generateMetadata({ params, searchParams }) {
+  return {
+    title: "Learn | HL eLearning",
+  };
+}
+
+
 export default async function VideoLearning({ params, searchParams }) {
   const session = await getServerSession(authOptions);
   let dataLesson = null;

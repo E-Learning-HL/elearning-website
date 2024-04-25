@@ -78,12 +78,16 @@
 
 
 #user-dropdown {
+  a{
+    color: #013533 !important;
+  }
   .ant-dropdown-menu {
     margin-top: 25px;
   }
   .labelSignOut {
     border: none;
     background: none;
+    color: #013533 !important;
   }
 }
 

@@ -56,12 +56,16 @@
   font-size: 24px;
   font-weight: 600;
 }
+.wp-layout .right-layout .wp-header #user-dropdown-inside a {
+  color: #013533 !important;
+}
 .wp-layout .right-layout .wp-header #user-dropdown-inside .ant-dropdown-menu {
   margin-top: 25px;
 }
 .wp-layout .right-layout .wp-header #user-dropdown-inside .labelSignOut {
   border: none;
   background: none;
+  color: #013533 !important;
 }
 .wp-layout .right-layout .wp-header #user-dropdown-inside .ant-dropdown-trigger {
   display: flex;

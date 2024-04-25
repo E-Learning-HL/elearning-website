@@ -72,12 +72,16 @@
   padding: 0 12px;
 }
 
+#user-dropdown a {
+  color: #013533 !important;
+}
 #user-dropdown .ant-dropdown-menu {
   margin-top: 25px;
 }
 #user-dropdown .labelSignOut {
   border: none;
   background: none;
+  color: #013533 !important;
 }
 
 #my-courses .wp-my-course {

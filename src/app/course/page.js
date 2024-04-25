@@ -4,6 +4,12 @@ import Image from "next/image";
 import AllCoursePage from "./client";
 import { getListCourse } from "./service";
 
+export async function generateMetadata({ params, searchParams }) {
+  return {
+    title: "Khóa học | HL eLearning",
+  };
+}
+
 export default async function AllCourses() {
 let listCourse = null;
 try {

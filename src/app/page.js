@@ -18,16 +18,11 @@ import { getAllPublicCourse } from "@/src/app/service.js";
 import imgabove from "@/public/image/footerimg1.svg";
 import { BASE_URL } from "@/src/const/const";
 
-// export async function generateMetadata({ params, searchParams }) {
-//   return {
-//     openGraph: {
-//       description:
-//         "Giúp tìm kiếm và lựa chọn cơ sở nha khoa uy tín, chất lượng tốt nhất. Review hơn 10.000 nha khoa trên toàn quốc từ trải nghiệm thực tế của khách hàng.",
-//       images: ["@/public/image/cover-meta.png"],
-//     },
-//   };
-// }
-
+export async function generateMetadata({ params, searchParams }) {
+  return {
+    title: "HL eLearning",
+  };
+}
 export const revalidate = 5;
 export default async function Home() {
   let topCourse = null;

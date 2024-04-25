@@ -1,0 +1,57 @@
+.wp-result-page {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+.wp-result-page .back-button {
+  color: #013533;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+.wp-result-page .title-assignments {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 60px;
+  color: #013533;
+}
+.wp-result-page .result-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wp-result-page .result-col .wp-left {
+  margin-right: 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.wp-result-page .result-col .wp-left .task-title {
+  font-size: 18px;
+  color: #013533;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-transform: capitalize;
+}
+.wp-result-page .result-col .wp-left .amount-correct {
+  display: flex;
+  align-items: center;
+  color: #013533;
+}
+.wp-result-page .result-col .wp-left .amount-correct .square {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: #5ab069;
+  margin-right: 16px;
+}
+.wp-result-page .result-col .wp-left .amount-correct .amount {
+  font-size: 16px;
+  font-weight: 500;
+}

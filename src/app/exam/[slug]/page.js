@@ -4,6 +4,14 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
 import { getAllTest, getOwnedCourse } from "./service";
 
+
+export async function generateMetadata({ params, searchParams }) {
+  return {
+    title: "Exam start | HL eLearning",
+  };
+}
+
+
 export default async function Exam({ params, searchParams }) {
   const session = await getServerSession(authOptions);
 

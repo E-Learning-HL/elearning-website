@@ -68,11 +68,15 @@ export default function LayoutStudy(props) {
     {
       key: 3,
       label: (
-        <Link href={'/'}>
-        <div className="wp-label">
-          <Image src={iconReturnHome} alt="icon" className="iconSlider"></Image>
-          <div className="lable">Home</div>
-        </div>
+        <Link href={"/"}>
+          <div className="wp-label">
+            <Image
+              src={iconReturnHome}
+              alt="icon"
+              className="iconSlider"
+            ></Image>
+            <div className="lable">Home</div>
+          </div>
         </Link>
       ),
     },
@@ -319,6 +323,7 @@ export default function LayoutStudy(props) {
                   ) : (
                     <div className="list-tests">
                       {props?.dataAllTest?.listAssignment?.map((item) => {
+                        console.log("====", item);
                         return (
                           <div className="item-tests button-gray">
                             <Image
@@ -336,13 +341,15 @@ export default function LayoutStudy(props) {
                                     Start
                                   </div>
                                 </Link>
-                                <Link
-                                  href={`/exam/${props?.dataAllTest?.course.id}/result/${item.id}`}
-                                >
-                                  <div className="button-result button-white">
-                                    Result
-                                  </div>
-                                </Link>
+                                {item.isChecked && (
+                                  <Link
+                                    href={`/exam/${props?.dataAllTest?.course.id}/result/${item.id}`}
+                                  >
+                                    <div className="button-result button-white">
+                                      Result
+                                    </div>
+                                  </Link>
+                                )}
                               </div>
                             </div>
                           </div>

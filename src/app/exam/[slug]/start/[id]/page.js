@@ -4,6 +4,13 @@ import { getOwnedCourse, getAllTest } from "../../service";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+
+export async function generateMetadata({ params, searchParams }) {
+  return {
+    title: "Exam | HL eLearning",
+  };
+}
+
 export default async function StartExam({ params, searchParams }) {
   const session = await getServerSession(authOptions);
   let dataTests = null;
