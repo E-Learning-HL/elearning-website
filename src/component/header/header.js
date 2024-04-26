@@ -298,7 +298,7 @@ const Header = ({ sessionServer }) => {
                 </Link>
                 {session?.user && (
                   <Dropdown
-                    menu={{ items: myCourseItems }}
+                    menu={{ items: myCourseItems? myCourseItems : [] }}
                     getPopupContainer={() =>
                       document.getElementById("my-courses")
                     }
