@@ -248,3 +248,9 @@
   background-color: #5ab069;
   border-radius: 8px;
 }
+
+@media only screen and (max-width: 767px) {
+  .user_dropdown_none {
+    display: none;
+  }
+}

@@ -193,7 +193,7 @@ export default function LayoutStudy(props) {
                 </div>
               </Dropdown>
             </Col>
-            <Col xl={8} xs={24} sm={24} md={8}>
+            <Col xl={8} xs={24} sm={24} md={8} className="user_dropdown_none">
               <div id="user-dropdown-inside">
                 <Dropdown
                   menu={{ items: userItems }}

@@ -403,6 +403,21 @@
   .row-wp-search-result .ant-collapse .ant-collapse-header {
     padding: 14px 21px;
   }
+  .start-point:before {
+    content: none !important;
+  }
+  .wp-radio-select {
+    flex-wrap: wrap;
+  }
+  .wp-radio-select:before {
+    content: none !important;
+  }
+  .wp-radio-select .wp-item-select {
+    width: auto !important;
+  }
+  .wp-radio-select .wp-item-select .item-image {
+    display: none;
+  }
 }
 .wpModalChatBox {
   position: relative;

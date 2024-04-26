@@ -45,7 +45,7 @@ export default async function StartExam({ params, searchParams }) {
   return (
     <div className={styles.wpVideoLearning}>
       {/* <StartExamPage dataLesson={dataLesson} dataCourse={dataCourse}/> */}
-      <StartExamPage dataTests={dataTests} session={session}/>
+      <StartExamPage dataTests={dataTests} session={session} params={params}/>
     </div>
   );
 }

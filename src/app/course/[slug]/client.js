@@ -463,9 +463,9 @@ export default function DetailClinicClient({
                     </Collapse>
                   </div>
                 </div>
-                <div className={styles.facebook_plugin}>
+                {/* <div className={styles.facebook_plugin}>
                   <Comment dataHref={params?.slug} />
-                </div>
+                </div> */}
               </div>
             </Col>
             <Col xl={8} xs={24} sm={24} md={10}>

@@ -1,3 +1,4 @@
+@import "../../../../../const/settings.scss";
 .wp-video-page {
   width: 100%;
   height: 100%;
@@ -222,5 +223,52 @@
         }
       }
     }
+  }
+}
+
+
+#article {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 650px;
+}
+
+.speech-bubble {
+  position: relative;
+  background: #d7f8d9;
+  border-radius: .4em;
+  color: white;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.share-inside {
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px 19px;
+  color: #013533;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.image-highlight{
+  width: 30px;
+  height: 30px;
+}
+
+mark {background-color: #ffaae5;}
+
+
+
+@include media(md) {
+  .wp-header{
+    padding: 0 15px !important;
+    justify-content: space-between !important;
+  }
+  .control-countdown{
+    margin: 0 !important;
+  }
+  .user-info{
+    display: none !important;
   }
 }

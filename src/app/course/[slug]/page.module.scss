@@ -460,9 +460,33 @@
       }
     }
   }
+  
+  .wpCardInfo{
+    .courseTitle{
+      font-size: 24px !important;
+    }
+    .wpbuttonPrice, .wpbuttonGetAdvise{
+      font-size: 14px !important;
+    }
+  }
+  .wpItemCourse{
+    .titleCourse{
+      font-size: 16px !important;
+    }
+  }
+  .wpLineCard{
+    margin-bottom: 16px;
+  }
+  .wpContentCourses, .wpColFilter{
+    padding: 0 15px;
+  }
+  .wpColFilter{
+    margin-bottom: 24px;
+  }
+
 }
 
-@include media(ssm_430) {
+@include media(md) {
   .wpPageDetailClinic {
     .wpDetailClinicDetail {
       .floatButton {

@@ -91,12 +91,14 @@
   }
 }
 
-@include media(ssm_430) {
+@include media(md) {
   .wrapperHeader {
+    padding: 0 15px;
     z-index: 9999;
     position: relative;
     .contentHeader {
       height: 68px;
+      justify-content: space-between;
     }
     .wpLogo {
       cursor: pointer;

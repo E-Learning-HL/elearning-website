@@ -442,6 +442,24 @@
       }
     }
   }
+  .start-point{
+    &:before{
+      content: none !important;
+    }
+  }
+  .wp-radio-select{
+    flex-wrap: wrap;
+    // justify-content: center;
+    &:before{
+      content: none !important;
+    }
+    .wp-item-select{
+      width: auto !important;
+      .item-image{
+        display: none;
+      }
+    }
+  }
 }
 
 .wpModalChatBox {

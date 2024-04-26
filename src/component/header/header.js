@@ -88,7 +88,7 @@ const Header = ({ sessionServer }) => {
     // console.log("result", session)
     const fetch = async () => {
       if (session?.user) {
-        console.log("123123123", session?.user)
+        console.log("123123123", session?.user);
         const result = await getAllMyCourse(session?.user?.access_token);
         setDataMyCourse(result);
       }
@@ -160,73 +160,88 @@ const Header = ({ sessionServer }) => {
         <div className={styles.dataHeader}>
           <div className={styles.wrapperHeader}>
             <div className={styles.contentHeader}>
-              <div className={styles.menuHeader}>
-                <div>
-                  {openMenu ? (
-                    <CloseOutlined
-                      onClick={() => {
-                        setOpenMenu(false);
-                      }}
-                    />
-                  ) : (
-                    <MenuOutlined
-                      onClick={() => {
-                        setOpenMenu(true);
-                      }}
-                    />
-                  )}
-                </div>
-                <Drawer
-                  placement={"left"}
-                  open={openMenu}
-                  onClose={() => {
-                    setOpenMenu(false);
-                  }}
-                >
-                  <div className={"dropdownHeaderMobile"}>
-                    <div
-                      className={`dropdownHeaderMobileItem ${
-                        !(openBlogMenu || openServiceMenu) ? "opened" : ""
-                      }`}
-                    >
-                      <Link href="/" onClick={() => setOpenMenu(false)}>
-                        Trang Chủ
-                      </Link>
-                    </div>
-                    <div
-                      className={`dropdownHeaderMobileItem ${
-                        openServiceMenu ? "opened" : ""
-                      }`}
-                      onClick={() => {
-                        // handleOpenMenu("service");
-                        router.push("/");
-                      }}
-                    >
-                      <span>Khóa học</span>
-                      <Image
-                        src={openServiceMenu ? arrowUpLine : arrowDownLine}
+              <div style={{display: "flex", alignItems:'center'}}>
+                <div className={styles.menuHeader}>
+                  <div>
+                    {openMenu ? (
+                      <CloseOutlined
+                        onClick={() => {
+                          setOpenMenu(false);
+                        }}
                       />
-                    </div>
-                    {<Menu mode={"inline"} items={serviceItems}></Menu>}
-                    <div
-                      className={`dropdownHeaderMobileItem ${
-                        openBlogMenu ? "opened" : ""
-                      }`}
-                      onClick={() => {
-                        handleOpenMenu("blog");
-                      }}
-                    >
-                      <span>Blog</span>
-                      <Image src={openBlogMenu ? arrowUpLine : arrowDownLine} />
-                    </div>
-                    {<Menu mode={"inline"} items={myCourseItems}></Menu>}
+                    ) : (
+                      <MenuOutlined
+                        onClick={() => {
+                          setOpenMenu(true);
+                        }}
+                      />
+                    )}
                   </div>
-                </Drawer>
+                  <Drawer
+                    placement={"left"}
+                    open={openMenu}
+                    onClose={() => {
+                      setOpenMenu(false);
+                    }}
+                  >
+                    <div className={"dropdownHeaderMobile"}>
+                      <div
+                        className={`dropdownHeaderMobileItem ${
+                          !(openBlogMenu || openServiceMenu) ? "opened" : ""
+                        }`}
+                      >
+                        <Link href="/" onClick={() => setOpenMenu(false)}>
+                          Trang Chủ
+                        </Link>
+                      </div>
+                      <div
+                        className={`dropdownHeaderMobileItem ${
+                          openServiceMenu ? "opened" : ""
+                        }`}
+                        onClick={() => {
+                          // handleOpenMenu("service");
+                          setOpenMenu(false);
+                          router.push("/course");
+                        }}
+                      >
+                        <span>Khóa học</span>
+                      </div>
+                      <div
+                        className={`dropdownHeaderMobileItem ${
+                          openServiceMenu ? "opened" : ""
+                        }`}
+                        onClick={() => {
+                          // handleOpenMenu("service");
+                          setOpenMenu(false);
+                          router.push("/build-roadmap");
+                        }}
+                      >
+                        <span>Xây dựng lộ trình</span>
+                      </div>
+                      {<Menu mode={"inline"} items={serviceItems}></Menu>}
+                      <div
+                        className={`dropdownHeaderMobileItem ${
+                          openBlogMenu ? "opened" : ""
+                        }`}
+                        onClick={() => {
+                          handleOpenMenu("blog");
+                        }}
+                      >
+                        <span>Khóa học của tôi</span>
+                        <Image
+                          src={openBlogMenu ? arrowUpLine : arrowDownLine}
+                        />
+                      </div>
+                      {<Menu mode={"inline"} items={myCourseItems}></Menu>}
+                    </div>
+                  </Drawer>
+                </div>
+                <Link href="/" className={styles.wpLogo}>
+                  <Image className={styles.logo} src={logo} />
+                  <Image className={styles.logoMobile} src={logo} />
+                </Link>
               </div>
-              <Link href="/" className={styles.wpLogo}>
-                <Image className={styles.logo} src={logo} />
-                <Image className={styles.logoMobile} src={logoMobile} />
-              </Link>
+
               <div className={styles.dropdownHeader}>
                 <Link href={"/course"}>
                   <span className={styles.dropdownLink}>
@@ -288,7 +303,7 @@ const Header = ({ sessionServer }) => {
                       document.getElementById("my-courses")
                     }
                   >
-                    <Link href={"/my-learning"}>
+                    {/* <Link href={"/my-learning"}> */}
                       <span className={styles.myCourse} id="my-courses">
                         <Space
                           className={styles.itemHover}
@@ -297,7 +312,7 @@ const Header = ({ sessionServer }) => {
                           Khóa học của tôi
                         </Space>
                       </span>
-                    </Link>
+                    {/* </Link> */}
                   </Dropdown>
                 )}
               </div>
@@ -334,7 +349,7 @@ const Header = ({ sessionServer }) => {
                   >
                     <a onClick={(e) => e.preventDefault()}>
                       <Avatar
-                        size={50}
+                        size={{ xl: 50, md : 50, sm: 35, xs: 35 }}
                         icon={<UserOutlined />}
                         style={{ backgroundColor: "#5ab069" }}
                       />

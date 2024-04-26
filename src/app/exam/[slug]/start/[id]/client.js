@@ -46,7 +46,7 @@ import { BASE_URL } from "@/src/const/const";
 
 const { Panel } = Collapse;
 
-export default function StartExamPage({ dataTests, session }) {
+export default function StartExamPage({ dataTests, session, params }) {
   const { Countdown } = Statistic;
   const [listeningForm] = Form.useForm();
   const [readingForm] = Form.useForm();
@@ -64,7 +64,6 @@ export default function StartExamPage({ dataTests, session }) {
     (item) => item.taskType === "READING"
   );
   // console.log("taskListening", taskListening);
-  console.log("taskListening", taskListening);
 
   function replaceSpecialChars(html, index) {
     let subIndex = 0;
@@ -80,6 +79,69 @@ export default function StartExamPage({ dataTests, session }) {
 
   useEffect(() => {
     console.log("currentSection", currentSection);
+  }, [currentSection]);
+
+  useEffect(() => {
+    const article = document.getElementById("reading-content");
+
+    let selectedRange; // Biến để lưu trữ vùng được chọn
+
+    // Sự kiện mouseup
+    article?.addEventListener(
+      "mouseup",
+      function (event) {
+        selectedRange = window.getSelection().getRangeAt(0); // Lưu trữ vùng được chọn
+        handlerFunction(event);
+      },
+      false
+    );
+
+    // Sự kiện click cho phần "share-snippet"
+    document.addEventListener("click", function (event) {
+      const shareSnippet = document.getElementById("share-snippet");
+      if (shareSnippet && event.target.closest("#share-snippet")) {
+        // Tạo thẻ <mark> và bao quanh nội dung được chọn
+        var markElement = document.createElement("mark");
+        selectedRange.surroundContents(markElement);
+        // Loại bỏ phần "share-snippet"
+        shareSnippet.remove();
+      }
+    });
+
+    // Hàm xử lý sự kiện mouseup
+    function handlerFunction(event) {
+      console.log(window.getSelection().getRangeAt(0).toString());
+
+      // Loại bỏ phần "share-snippet" nếu đã tồn tại
+      const shareSnippet = document.getElementById("share-snippet");
+      if (shareSnippet) {
+        shareSnippet.remove();
+      }
+
+      // Kiểm tra xem có văn bản nào được chọn không
+      if (window.getSelection().toString().length > 0) {
+        // Tính toán vị trí cho phần "share-snippet"
+        var scrollTop =
+          window?.pageYOffset !== undefined
+            ? window?.pageYOffset
+            : (
+                document.documentElement ||
+                document.body.parentNode ||
+                document.body
+              ).scrollTop;
+        const posX = event.clientX - 110;
+        const posY = event.clientY + 20 + scrollTop;
+        // Thêm phần "share-snippet" vào DOM
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          '<div id="share-snippet" style="position: absolute; top: ' +
+            posY +
+            "px; left: " +
+            posX +
+            'px;"><div class="speech-bubble"><div class="share-inside"><img class="image-highlight" src="/icon/icon-highlight.png" alt="Your Image"> Mark</div></div></div>'
+        );
+      }
+    }
   }, [currentSection]);
 
   const onSubmit = async () => {
@@ -130,18 +192,24 @@ export default function StartExamPage({ dataTests, session }) {
         ],
       };
       bodyListening.question.push(questionInputListening);
-      const result = await axios.post(`${BASE_URL}/api/user-answers`,{...bodyListening}, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.user?.access_token}`,
-        },
+      axios.post(
+        `${BASE_URL}/api/user-answers`,
+        { ...bodyListening },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session?.user?.access_token}`,
+          },
+        }
+      ).then((res) => {
+        setCurrentSection("READING");
+      })
+      .catch(error => {
+
       })
       console.log("inputValue2", bodyListening);
-      console.log("====result", result)
-      setCurrentSection("READING");
-
-    } 
-    else if (currentSection === "READING") {
+      console.log("====result", result);
+    } else if (currentSection === "READING") {
       const fieldsValue = await readingForm.validateFields();
       const questionInput = taskReading?.question?.find(
         (item) => item.questionType === "INPUT"
@@ -188,14 +256,27 @@ export default function StartExamPage({ dataTests, session }) {
         ],
       };
       bodyReading.question.push(questionInputReading);
-      const result = await axios.post(`${BASE_URL}/api/user-answers`,{...bodyReading}, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.user?.access_token}`,
-        },
+      axios.post(
+        `${BASE_URL}/api/user-answers`,
+        { ...bodyReading },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session?.user?.access_token}`,
+          },
+        }
+      )
+      .then((res) => {
+        router.push(`/exam/${params.slug}/result/${params.id}`)
       })
-      console.log("====result", result)
-      console.log("inputValue2", bodyReading);
+      .catch(error => {
+
+      })
+      // if (result.data.score){
+      //   router.push(`/exam/${params.slug}/result/${params.id}`)
+      // };
+      // console.log("====result", result);
+      // console.log("inputValue2", bodyReading);
     }
   };
 
@@ -462,8 +543,8 @@ export default function StartExamPage({ dataTests, session }) {
           ) : (
             <div className="content-reading">
               <Row gutter={[30, 30]}>
-                <Col xl={12}>
-                  <div className="content">
+                <Col xl={12} md={12} xs={24} sm={24}>
+                  <div className="content" id="reading-content">
                     <div
                       // className={styles.titleCourse}
                       dangerouslySetInnerHTML={{
@@ -472,7 +553,7 @@ export default function StartExamPage({ dataTests, session }) {
                     ></div>
                   </div>
                 </Col>
-                <Col xl={12}>
+                <Col xl={12} md={12} xs={24} sm={24}>
                   <div className="question-reading">
                     <Form form={readingForm}>
                       <Form.Item

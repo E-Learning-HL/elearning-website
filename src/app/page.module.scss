@@ -71,13 +71,17 @@
   .wpMain {
     .wpSectionSearch {
       height: 725px;
-      background: url("../../public/image/cover-home-mobile.png") no-repeat;
       background-size: cover;
       background-position: bottom;
       display: flex;
       flex-direction: column;
+      padding-bottom: 150px !important;
+      h2{
+        font-size: 42px !important;
+      }
       .coverHome {
-        display: none;
+        // display: none;
+        width: 350px !important;
       }
       .wpContentSearch {
         margin: 0;

@@ -1,3 +1,4 @@
+@import "../../const/settings.scss";
 .dropdownHeaderMobile {
   .dropdownHeaderMobileItem {
     padding: 14px 20px;
@@ -5,7 +6,7 @@
     line-height: 27px;
     display: flex;
     justify-content: space-between;
-    color: #2a3467;
+    color: #013533;
     &:nth-child(1) {
       margin-top: 49px;
     }
@@ -42,9 +43,9 @@
   transition: max-height 0.2s ease-out;
   a{
     font-size: 14px;
-    color: #2a3467;
+    color: #013533;
     :hover{
-      color: #2a3467;
+      color: #013533;
     }
   }
 }
@@ -57,7 +58,7 @@
   margin-top: 5px;
   border-radius: 8px;
   .ant-dropdown-menu-title-content{
-    color: #2a3467;
+    color: #013533;
     font-size: 16px !important;
   }
 }
@@ -70,7 +71,7 @@
   margin-top: 5px;
   padding: 6px 0;
   a{
-    color: #2a3467;
+    color: #013533;
     font-size: 16px !important;
     padding: 0 12px;
   }
@@ -90,24 +91,24 @@
     color: #013533 !important;
   }
 }
-
-#my-courses{
-  .wp-my-course{
-    display: flex;
-    align-items: center;
-    .img-course{
-      width: 50px !important;
-      height: 30px !important;
-      object-fit: cover;
-      margin-right: 8px;
-      position: relative !important;
-    }
-    .title-orther-course{
-      font-size: 16px;
-      font-weight: 600;
-      color: #013533;
-      line-height: 186%;
-    }
+.wp-my-course{
+  display: flex;
+  align-items: center;
+  .img-course{
+    width: 50px !important;
+    height: 30px !important;
+    object-fit: cover;
+    margin-right: 8px;
+    position: relative !important;
+  }
+  .title-orther-course{
+    font-size: 16px;
+    font-weight: 600;
+    color: #013533;
+    line-height: 186%;
   }
 }
 
+#my-courses{
+  
+}
