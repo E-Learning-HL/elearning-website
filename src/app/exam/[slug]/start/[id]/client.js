@@ -57,6 +57,7 @@ export default function StartExamPage({ dataTests, session, params }) {
   // const { data: session } = useSession();
   const [showModal, setShowModal] = useState(true);
   const [currentSection, setCurrentSection] = useState("LISTENING");
+  const [remainingTime, setRemainingTime] = useState(null);
   const taskListening = dataTests?.task?.find(
     (item) => item.taskType === "LISTENING"
   );
@@ -74,19 +75,10 @@ export default function StartExamPage({ dataTests, session, params }) {
     });
     return replacedHTML;
   }
-  useEffect(() => {
-    console.log(showModal);
-  }, [showModal]);
-
-  useEffect(() => {
-    console.log("currentSection", currentSection);
-  }, [currentSection]);
 
   useEffect(() => {
     const article = document.getElementById("reading-content");
-
     let selectedRange; // Biến để lưu trữ vùng được chọn
-
     // Sự kiện mouseup
     article?.addEventListener(
       "mouseup",
@@ -204,6 +196,7 @@ export default function StartExamPage({ dataTests, session, params }) {
         }
       ).then((res) => {
         setCurrentSection("READING");
+        setRemainingTime(Date.now() + 1000 * 60 * taskReading?.time)
       })
       .catch(error => {
 
@@ -310,6 +303,7 @@ export default function StartExamPage({ dataTests, session, params }) {
                   audioElement.play();
                 }
                 setShowModal(false);
+                setRemainingTime(Date.now() + 1000 * 60 * taskListening?.time)
               }}
             >
               Next
@@ -350,7 +344,7 @@ export default function StartExamPage({ dataTests, session, params }) {
             <ClockCircleOutlined />
             &nbsp;&nbsp;
             <Countdown
-              value={Date.now() + 1000 * 60 * 15}
+              value={remainingTime}
               format="mm"
               className="count-down-number"
               onFinish={onSubmit}
