@@ -63,7 +63,8 @@ export default function StartExamPage({ dataTests, session, params }) {
   const taskReading = dataTests?.task?.find(
     (item) => item.taskType === "READING"
   );
-  // console.log("taskListening", taskListening);
+  console.log("taskListening", taskListening);
+  console.log("taskReading", taskReading);
 
   function replaceSpecialChars(html, index) {
     let subIndex = 0;

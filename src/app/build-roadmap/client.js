@@ -90,7 +90,7 @@ function SearchResultClientChild({
   const [selectedID, setSelectedID] = useState();
   const { data: session } = useSession();
   const [modalOpen, setModalOpen] = useState(false);
-  const [currentIdPay, setCurrenIdPay] = useState(null)
+  const [currentIdPay, setCurrenIdPay] = useState(null);
   const defaultActiveKey =
     typeof window !== "undefined" && window.innerWidth < 768 ? [] : ["1"];
   // const selectedID = useIdServiceStore((value) => value.idService);
@@ -361,11 +361,12 @@ function SearchResultClientChild({
             })
             .then((res) => {
               console.log("====resss", res);
-              setModalOpen(true)
-              setCurrenIdPay(res.data.paymentId)
+              setModalOpen(true);
+              setCurrenIdPay(res.data.paymentId);
             })
             .catch((error) => {
-              // openNotificationWithIcon("error", "Error", "Có lỗi xảy ra.");
+              if (error.response.data.message.includes("purchased"))
+                openNotificationWithIcon("error", "Error", "Bạn đã sở hữu khóa học này");
             });
         } else {
           openNotificationWithIcon("error", "Error", "Có lỗi xảy ra.");
@@ -506,26 +507,31 @@ function SearchResultClientChild({
   }, []);
 
   const handlePay = (status) => {
-    axios.patch(`${BASE_URL}/api/payments/update-payment/${currentIdPay}`,{
-      status: status
-    },{
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${session?.user?.access_token}`,
-      },
-    })
-    .then(() => {
-      openNotificationWithIcon(
-        "success",
-        "Success",
-        "Mua khóa học thành công."
-      );
-      setModalOpen(false)
-    })
-    .catch(() => {
-      openNotificationWithIcon("error", "Error", "Có lỗi xảy ra.");
-    })
-  }
+    axios
+      .patch(
+        `${BASE_URL}/api/payments/update-payment/${currentIdPay}`,
+        {
+          status: status,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session?.user?.access_token}`,
+          },
+        }
+      )
+      .then(() => {
+        openNotificationWithIcon(
+          "success",
+          "Success",
+          "Mua khóa học thành công."
+        );
+        setModalOpen(false);
+      })
+      .catch(() => {
+        openNotificationWithIcon("error", "Error", "Có lỗi xảy ra.");
+      });
+  };
 
   useEffect(() => {
     const recall = async () => {
@@ -549,8 +555,18 @@ function SearchResultClientChild({
   return (
     <div className="row-wp-search-result">
       {/* <BlockTopFilter searchParams={searchParams} /> */}
-      <Modal title="Xác nhận thanh toán" open={modalOpen} onOk={() => {handlePay('SUCCESS')}} onCancel={() => {handlePay('FAILED')}} okText="Đã thanh toán" cancelText="Hủy">
-      </Modal>
+      <Modal
+        title="Xác nhận thanh toán"
+        open={modalOpen}
+        onOk={() => {
+          handlePay("SUCCESS");
+        }}
+        onCancel={() => {
+          handlePay("FAILED");
+        }}
+        okText="Đã thanh toán"
+        cancelText="Hủy"
+      ></Modal>
       <Form form={form} className="wrapper-form-search-top">
         <div id="pin-search"></div>
         <Row className={styles.wpBlockTopFilter} gutter={[14, 14]}>
