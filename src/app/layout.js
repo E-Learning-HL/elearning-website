@@ -28,6 +28,7 @@ import {
   getAllProvince,
   getAllWeekDay,
   getAllCategoryBlog,
+  getAllMyCourse
 } from "./service";
 import Providers from "./providers";
 import {
@@ -42,13 +43,13 @@ export const viewport = {
   maximumScale: 1,
   userScalable: false,
 };
-async function getData() {
+async function getData(access_token) {
   const res = await Promise.all([
-    getAllService(),
-    getAllProvince(),
-    getAllCategoryBlog(),
+    // getAllService(),
+    // getAllProvince(),
+    // getAllCategoryBlog(),
+    getAllMyCourse(access_token),
   ]);
-  // useStore.setState({ data: res[6] })
   return res;
 }
 
@@ -60,26 +61,28 @@ export default async function RootLayout({ children }) {
     queryKey: ["api-common"],
     queryFn: async () => {
       try {
-        const dataSearch = await getData();
+        const dataSearch = await getData(session?.user?.access_token);
         const mapData = {
-          listService: dataSearch[0],
-          listProvince: dataSearch[1],
-          popularAdress1: POPULAR_ADRESS_1,
-          popularAdress2: POPULAR_ADRESS_2,
-          popularAdress3: POPULAR_ADRESS_3,
-          listWeekday: LIST_WEEKDAY,
-          listCategoryBlog: dataSearch[2],
+          // listService: dataSearch[0],
+          // listProvince: dataSearch[1],
+          // popularAdress1: POPULAR_ADRESS_1,
+          // popularAdress2: POPULAR_ADRESS_2,
+          // popularAdress3: POPULAR_ADRESS_3,
+          // listWeekday: LIST_WEEKDAY,
+          // listCategoryBlog: dataSearch[2],
+          allMyCourse: dataSearch[0],
         };
         return mapData;
       } catch (error) {
         return {
-          listService: [],
-          listProvince: [],
-          popularAdress1: [],
-          popularAdress2: [],
-          popularAdress3: [],
-          listWeekday: [],
-          listCategoryBlog: [],
+          // listService: [],
+          // listProvince: [],
+          // popularAdress1: [],
+          // popularAdress2: [],
+          // popularAdress3: [],
+          // listWeekday: [],
+          // listCategoryBlog: [],
+          allMyCourse : []
         };
       }
     },

@@ -98,6 +98,7 @@ export default function LayoutStudy(props) {
                 description: "",
                 placement: "top",
               });
+              router.push('/')
           }}
         >
           Đăng xuất

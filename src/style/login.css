@@ -23,7 +23,7 @@
   width: 186px;
   height: 186px;
   background-color: #7cf244;
-  filter: blur(108px);
+  filter: blur(118px);
   z-index: -1;
 }
 .wp-login-page .wp-cover-login .cover-left .backgr-blur-or {
@@ -121,7 +121,7 @@
   line-height: 150%;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .email-input input::placeholder {
-  color: #90a594;
+  color: #789594;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -145,7 +145,7 @@
   font-size: 16px;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .pass-input input::placeholder {
-  color: #90a594;
+  color: #789594;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -170,7 +170,7 @@
   font-size: 16px;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .pass-input-cf input::placeholder {
-  color: #90a594;
+  color: #789594;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -189,7 +189,7 @@
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
-  color: #90a594;
+  color: #789594;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -201,7 +201,7 @@
 }
 .wp-login-page .wp-login-form .wp-form .login-form .submit-button .ant-btn {
   width: 100%;
-  height: 56px;
+  height: 52px;
   border-radius: 8px;
   font-size: 16px;
   font-style: normal;
@@ -227,10 +227,10 @@
   max-width: 120px;
   height: 1px;
   margin-bottom: 0;
-  background: #90a594;
+  background: #789594;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .other-way .wp-text .text {
-  color: #90a594;
+  color: #789594;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -244,12 +244,13 @@
 }
 .wp-login-page .wp-login-form .wp-form .login-form .other-way .wp-ways .wp-icon {
   width: 100%;
-  height: 56px;
+  height: 52px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #dddfdd;
+  cursor: pointer;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .other-way .wp-ways .wp-icon .icon {
   width: 30px;
@@ -282,24 +283,21 @@
   margin-bottom: 16px;
   cursor: pointer;
 }
-.wp-login-page .wp-login-form .wp-form .sign-up {
+.wp-login-page .wp-login-form .wp-form .login-form .noti-success {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 36px;
+}
+.wp-login-page .wp-login-form .wp-form .login-form .noti-success .image-success {
+  width: 120px !important;
+  height: 120px !important;
+}
+.wp-login-page .wp-login-form .wp-form .login-form .noti-success .title-succes {
+  font-size: 20px;
   color: #013533;
   text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
-}
-.wp-login-page .wp-login-form .wp-form .sign-up a {
-  color: #5ab069;
-  font-size: 16px;
-}
-.wp-login-page .wp-login-form .wp-form .return-login {
-  color: #5ab069;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: underline;
-  cursor: pointer;
+  font-weight: 600;
 }
 .wp-login-page .wp-login-form .wp-form .sign-up {
   color: #013533;

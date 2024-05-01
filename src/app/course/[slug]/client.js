@@ -22,6 +22,7 @@ import iconArrow from "@/public/icon/arrow-float-button.svg";
 import chatAlert from "@/public/icon/chat-alert.svg";
 import Comment from "../../../component/facebook-plugin/comment";
 import { useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 import {
   Link as LinkScroll,
   DirectLink,
@@ -72,7 +73,7 @@ const dataMenuSection = [
 ];
 export default function DetailClinicClient({
   detailCourse,
-  params,
+  searchParams,
   listCourse,
   // dataParseSlug,
 }) {
@@ -81,7 +82,14 @@ export default function DetailClinicClient({
   }
   const router = useRouter();
   const { Panel } = Collapse;
-  console.log("detailCourse", listCourse);
+
+  const { data } = useQuery({
+    queryKey: ["api-common"],
+  });
+  const listMyCourse = data.allMyCourse.map(item => {
+    return item?.course?.id
+  })
+  const hasThisCourse = listMyCourse.includes(detailCourse.id)
   // console.log("detailClinic", detailClinic);
   // const cover = detailClinic?.image?.find(
   //   (item) => item.image_type === IMAGE_TYPE.banner
@@ -278,14 +286,14 @@ export default function DetailClinicClient({
             <div
               className={`${styles.wpbuttonGetAdvise} button-blue`}
               onClick={() => {
-                router.push(
-                  `/build-roadmap?start_point=${detailCourse?.start}&target_point=${detailCourse?.target}`
+                router.push( hasThisCourse ? `/learn/${detailCourse.id}` : `/build-roadmap?start_point=${detailCourse?.start}&target_point=${detailCourse?.target}`
+                  
                 );
               }}
               style={{ cursor:'pointer' }}
             >
               <Image src={iconBuy} className={styles.iconAdvise} />
-              ĐĂNG KÝ NGAY
+              {hasThisCourse? 'HỌC NGAY' : 'ĐĂNG KÝ NGAY'}
             </div>
           </div>
         </div>
@@ -475,7 +483,6 @@ export default function DetailClinicClient({
                   <div className={styles.listItem}>
                     {/* map here */}
                     {listCourse?.map((item) => {
-                      console.log("123123", item);
                       return (
                         <Link href={`/course/${item.course_id}`}>
                         <div className={styles.item}>
