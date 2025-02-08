@@ -32,11 +32,11 @@ const Frequentlyquest = () => (
           )}
         >
           <Panel
-            header={<h3>Tôi phải làm gì để bắt đầu học tại HL eLearning?</h3>}
+            header={<h3>Tôi phải làm gì để bắt đầu học tại S eLearning?</h3>}
             key="1"
           >
             <p>
-              Để bắt đầu học tại HL eLearning, bạn cần tạo một tài khoản mới
+              Để bắt đầu học tại S eLearning, bạn cần tạo một tài khoản mới
               hoặc đăng nhập vào tài khoản hiện có của mình. Sau đó, bạn có thể
               duyệt qua các khóa học và tài nguyên học tập, chọn khóa học phù
               hợp và đăng ký để bắt đầu học.
@@ -71,13 +71,13 @@ const Frequentlyquest = () => (
             header={
               <h3>
                 Tôi muốn cải thiện kỹ năng nghe và giao tiếp tiếng Anh của mình.
-                HL eLearning có khóa học nào phù hợp không?
+                S eLearning có khóa học nào phù hợp không?
               </h3>
             }
             key="4"
           >
             <p>
-              Có chắc chắn! HL eLearning cung cấp một loạt các khóa học tập
+              Có chắc chắn! S eLearning cung cấp một loạt các khóa học tập
               trung vào phát triển kỹ năng nghe và giao tiếp tiếng Anh. Những
               khóa học này bao gồm các bài giảng, bài tập, và hoạt động thực
               hành để giúp bạn cải thiện kỹ năng ngôn ngữ của mình một cách hiệu

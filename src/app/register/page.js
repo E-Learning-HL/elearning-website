@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 
 export async function generateMetadata({ params, searchParams }) {
     return {
-      title: "Đăng ký | HL eLearning",
+      title: "Đăng ký | S eLearning",
     };
   }
 

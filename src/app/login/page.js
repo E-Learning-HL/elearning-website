@@ -7,7 +7,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export async function generateMetadata({ params, searchParams }) {
   return {
-    title: "Đăng nhập | HL eLearning",
+    title: "Đăng nhập | S eLearning",
   };
 }
 

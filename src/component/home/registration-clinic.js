@@ -59,7 +59,7 @@ const RegistrationClinic = ({ isStaticPage }) => {
       <div className="wpRegistrationClinic">
         <div className="title">
           <h2>Đăng Ký Nhận Tư Vấn Lộ Trình</h2>
-          <p>Bạn hãy để lại thông tin, HL eLearning sẽ liên hệ tư vấn cho mình sớm nha!</p>
+          <p>Bạn hãy để lại thông tin, S eLearning sẽ liên hệ tư vấn cho mình sớm nha!</p>
           {/* <div className="line"></div> */}
         </div>
         <div className="registration-clinic-container">
@@ -127,7 +127,7 @@ const RegistrationClinic = ({ isStaticPage }) => {
                     <TextArea
                       rows={4}
                       className="textarea-registration-clinic"
-                      placeholder="Hãy cho HL eLearning biết Trình độ hiện tại của bạn và Mục tiêu của bạn để HL elearning có thể tư vấn cho bạn chi tiết nha!"
+                      placeholder="Hãy cho S eLearning biết Trình độ hiện tại của bạn và Mục tiêu của bạn để S elearning có thể tư vấn cho bạn chi tiết nha!"
                     ></TextArea>
                   </FormItem>
                   <Button

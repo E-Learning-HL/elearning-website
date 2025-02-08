@@ -95,27 +95,42 @@ const Header = ({ sessionServer }) => {
     fetch();
   }, [session]);
 
-  const myCourseItems = dataMyCourse?.map((item) => {
-    return {
-      key: item.id,
-      label: (
-        <Link
-          href={`/learn/${item.course.id}`}
-          onClick={() => setOpenMenu(false)}
-        >
-          <div className="wp-my-course">
-            <ImageCommon
-              data={item?.course?.file[0]?.url}
-              style={"img-course"}
-            ></ImageCommon>
-            <div className="title-orther-course">
-              {item?.course?.nameCourse}
-            </div>
-          </div>
-        </Link>
-      ),
-    };
-  });
+  const myCourseItems =
+    // dataMyCourse?.length > 0
+    //   ? 
+      dataMyCourse?.map((item) => {
+          return {
+            key: item.id,
+            label: (
+              <Link
+                href={`/learn/${item.course.id}`}
+                onClick={() => setOpenMenu(false)}
+              >
+                <div className="wp-my-course">
+                  <ImageCommon
+                    data={item?.course?.file[0]?.url}
+                    style={"img-course"}
+                  ></ImageCommon>
+                  <div className="title-orther-course">
+                    {item?.course?.nameCourse}
+                  </div>
+                </div>
+              </Link>
+            ),
+          };
+        })
+      // : 
+      // {
+      //     key: 0,
+      //     label: (
+      //       <div
+      //         className="wp-my-course-nothing"
+      //         style={{ display: "flex", justifyContent: "center", color:'#013533', fontSize:'16px', fontWeight:'600' }}
+      //       >
+      //         Bạn chưa sở hữu khóa học nào
+      //       </div>
+      //     ),
+      //   };
 
   const items = [
     {
@@ -159,7 +174,7 @@ const Header = ({ sessionServer }) => {
         <div className={styles.dataHeader}>
           <div className={styles.wrapperHeader}>
             <div className={styles.contentHeader}>
-              <div style={{display: "flex", alignItems:'center'}}>
+              <div style={{ display: "flex", alignItems: "center" }}>
                 <div className={styles.menuHeader}>
                   <div>
                     {openMenu ? (
@@ -284,8 +299,8 @@ const Header = ({ sessionServer }) => {
                     <Space className={styles.itemHover}>Khóa học</Space>
                   </span>
                 </Dropdown> */}
-
-                <Link href={"/build-roadmap"}>
+                {/* thuc tap */}
+                {/* <Link href={"/build-roadmap"}>
                   <span className={styles.buildRoadmap}>
                     <Space
                       className={styles.itemHover}
@@ -294,28 +309,29 @@ const Header = ({ sessionServer }) => {
                       Xây dựng lộ trình
                     </Space>
                   </span>
-                </Link>
+                </Link> */}
                 {session?.user && (
                   <Dropdown
-                    menu={{ items: myCourseItems? myCourseItems : [] }}
+                    menu={{ items: myCourseItems ? myCourseItems : [] }}
                     getPopupContainer={() =>
                       document.getElementById("my-courses")
                     }
                   >
                     {/* <Link href={"/my-learning"}> */}
-                      <span className={styles.myCourse} id="my-courses">
-                        <Space
-                          className={styles.itemHover}
-                          style={{ cursor: "pointer" }}
-                        >
-                          Khóa học của tôi
-                        </Space>
-                      </span>
+                    <span className={styles.myCourse} id="my-courses">
+                      <Space
+                        className={styles.itemHover}
+                        style={{ cursor: "pointer" }}
+                      >
+                        Khóa học của tôi
+                      </Space>
+                    </span>
                     {/* </Link> */}
                   </Dropdown>
                 )}
               </div>
-              {!session?.user ? (
+              {/* thuc tap */}
+              {/* {!session?.user ? (
                 <>
                   <Button
                     href="/login"
@@ -348,14 +364,14 @@ const Header = ({ sessionServer }) => {
                   >
                     <a onClick={(e) => e.preventDefault()}>
                       <Avatar
-                        size={{ xl: 50, md : 50, sm: 35, xs: 35 }}
+                        size={{ xl: 50, md: 50, sm: 35, xs: 35 }}
                         icon={<UserOutlined />}
                         style={{ backgroundColor: "#5ab069" }}
                       />
                     </a>
                   </Dropdown>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>

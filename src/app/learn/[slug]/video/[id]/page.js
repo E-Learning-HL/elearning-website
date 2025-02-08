@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 export async function generateMetadata({ params, searchParams }) {
   return {
-    title: "Learn | HL eLearning",
+    title: "Learn | S eLearning",
   };
 }
 

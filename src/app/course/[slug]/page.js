@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 
 export async function generateMetadata({ params, searchParams }) {
   return {
-    title: "Khóa học | HL eLearning",
+    title: "Khóa học | S eLearning",
   };
 }
 

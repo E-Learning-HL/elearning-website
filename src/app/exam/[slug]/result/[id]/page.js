@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 
 export async function generateMetadata({ params, searchParams }) {
     return {
-      title: "Exam result | HL eLearning",
+      title: "Exam result | S eLearning",
     };
   }
   

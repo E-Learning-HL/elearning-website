@@ -7,7 +7,7 @@ import { getAllTest, getOwnedCourse } from "./service";
 
 export async function generateMetadata({ params, searchParams }) {
   return {
-    title: "Exam start | HL eLearning",
+    title: "Exam start | S eLearning",
   };
 }
 

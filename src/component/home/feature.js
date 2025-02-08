@@ -10,7 +10,9 @@ export default function Feature() {
       name: "ROADMAP",
       subText: "Lộ trình học hiệu quả",
       image: require("@/public/icon/graduation.svg"),
-      link: "/build-roadmap",
+      link: "",
+      // thuc tap
+      // link: "/build-roadmap",
     },
     {
       name: "IELTS",

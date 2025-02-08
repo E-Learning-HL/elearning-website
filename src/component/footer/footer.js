@@ -51,7 +51,7 @@ const Footer = (props) => {
                   <div>
                     <div className={styles.footerIntroduce}>
                       <p>
-                        HL eLearning - Nền tảng luyện thi IELTS tích hợp AI Tiên
+                        S eLearning - Nền tảng luyện thi IELTS tích hợp AI Tiên
                         phong công nghệ, dẫn đầu hiệu quả
                       </p>
                     </div>
@@ -75,7 +75,7 @@ const Footer = (props) => {
                   <Row gutter={[14, 0]}>
                     <Col xs={12} sm={12} md={24} xl={24}>
                       <div className={styles.footerLink}>
-                        <Link href="/gioi-thieu">Giới thiệu</Link>
+                        <Link href="/">Giới thiệu</Link>
                       </div>
                       <div className={styles.footerLink}>
                         <Link href="">Liên hệ hợp tác</Link>
@@ -127,7 +127,7 @@ const Footer = (props) => {
                 </div>
               </Col> */}
               <Col xs={24} sm={24} md={12} xl={6}>
-                <p className={styles.footerHead}>KẾT NỐI VỚI HL ELEARNING</p>
+                <p className={styles.footerHead}>KẾT NỐI VỚI LEARNING</p>
                 <div className={styles.socialLink}>
                   <button onClick={() => triggerButton("phone")}>
                     <Image

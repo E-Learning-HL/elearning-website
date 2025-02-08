@@ -65,7 +65,7 @@ const SearchBanner = ({ searchParams }) => {
         <div className={styles.mainBanner}>
           <h2>Lộ trình chuyên biệt</h2>
           <p>
-            Không còn những giờ học nặng nề, khó hiểu. Với HL eLearing, bạn được
+            Không còn những giờ học nặng nề, khó hiểu. Với S eLearing, bạn được
             học đúng trình độ và mục tiêu. Đảm bảo học tới đâu, hiểu tới đó –
             Hiểu sâu nhớ lâu, vận dụng nhuần nhuyễn, ứng dụng dễ dàng!
           </p>

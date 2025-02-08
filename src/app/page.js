@@ -20,7 +20,7 @@ import { BASE_URL } from "@/src/const/const";
 
 export async function generateMetadata({ params, searchParams }) {
   return {
-    title: "HL eLearning",
+    title: "S eLearning",
   };
 }
 export const revalidate = 5;

@@ -521,11 +521,19 @@ function SearchResultClientChild({
         }
       )
       .then(() => {
-        openNotificationWithIcon(
+        if(status == "SUCCESS")
+          openNotificationWithIcon(
           "success",
           "Success",
           "Mua khóa học thành công."
         );
+        else{
+          openNotificationWithIcon(
+            "error",
+            "Error",
+            "Thanh toán thất bại."
+          );
+        }
         setModalOpen(false);
       })
       .catch(() => {

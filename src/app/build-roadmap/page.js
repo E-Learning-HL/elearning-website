@@ -10,7 +10,7 @@ import { BASE_URL } from "@/src/const/const";
 
 export async function generateMetadata({ params, searchParams }) {
   return {
-    title: "Xây dựng lộ trình phù hợp nhất với bạn | HL eLearning",
+    title: "Xây dựng lộ trình phù hợp nhất với bạn | S eLearning",
     // description:
     //   "Sử dụng NhaKhoaHub để tìm kiếm các phòng khám nha khoa phù hợp theo dịch vụ và khu vực. Giúp bạn lựa chọn được cơ sở nha khoa uy tín, được đánh giá tốt nhất",
   };
