@@ -97,40 +97,40 @@ const Header = ({ sessionServer }) => {
 
   const myCourseItems =
     // dataMyCourse?.length > 0
-    //   ? 
-      dataMyCourse?.map((item) => {
-          return {
-            key: item.id,
-            label: (
-              <Link
-                href={`/learn/${item.course.id}`}
-                onClick={() => setOpenMenu(false)}
-              >
-                <div className="wp-my-course">
-                  <ImageCommon
-                    data={item?.course?.file[0]?.url}
-                    style={"img-course"}
-                  ></ImageCommon>
-                  <div className="title-orther-course">
-                    {item?.course?.nameCourse}
-                  </div>
-                </div>
-              </Link>
-            ),
-          };
-        })
-      // : 
-      // {
-      //     key: 0,
-      //     label: (
-      //       <div
-      //         className="wp-my-course-nothing"
-      //         style={{ display: "flex", justifyContent: "center", color:'#013533', fontSize:'16px', fontWeight:'600' }}
-      //       >
-      //         Bạn chưa sở hữu khóa học nào
-      //       </div>
-      //     ),
-      //   };
+    //   ?
+    dataMyCourse?.map((item) => {
+      return {
+        key: item.id,
+        label: (
+          <Link
+            href={`/learn/${item.course.id}`}
+            onClick={() => setOpenMenu(false)}
+          >
+            <div className="wp-my-course">
+              <ImageCommon
+                data={item?.course?.file[0]?.url}
+                style={"img-course"}
+              ></ImageCommon>
+              <div className="title-orther-course">
+                {item?.course?.nameCourse}
+              </div>
+            </div>
+          </Link>
+        ),
+      };
+    });
+  // :
+  // {
+  //     key: 0,
+  //     label: (
+  //       <div
+  //         className="wp-my-course-nothing"
+  //         style={{ display: "flex", justifyContent: "center", color:'#013533', fontSize:'16px', fontWeight:'600' }}
+  //       >
+  //         Bạn chưa sở hữu khóa học nào
+  //       </div>
+  //     ),
+  //   };
 
   const items = [
     {
@@ -300,7 +300,7 @@ const Header = ({ sessionServer }) => {
                   </span>
                 </Dropdown> */}
                 {/* thuc tap */}
-                {/* <Link href={"/build-roadmap"}>
+                <Link href={"/build-roadmap"}>
                   <span className={styles.buildRoadmap}>
                     <Space
                       className={styles.itemHover}
@@ -309,7 +309,7 @@ const Header = ({ sessionServer }) => {
                       Xây dựng lộ trình
                     </Space>
                   </span>
-                </Link> */}
+                </Link>
                 {session?.user && (
                   <Dropdown
                     menu={{ items: myCourseItems ? myCourseItems : [] }}
@@ -331,7 +331,7 @@ const Header = ({ sessionServer }) => {
                 )}
               </div>
               {/* thuc tap */}
-              {/* {!session?.user ? (
+              {!session?.user ? (
                 <>
                   <Button
                     href="/login"
@@ -371,7 +371,7 @@ const Header = ({ sessionServer }) => {
                     </a>
                   </Dropdown>
                 </div>
-              )} */}
+              )}
             </div>
           </div>
         </div>
