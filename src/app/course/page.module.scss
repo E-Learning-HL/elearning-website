@@ -10,6 +10,7 @@
           width: 100%;
           object-fit: cover;
           object-position: top;
+          filter: saturate(0.5);
         }
         .wpContentSearch {
           position: absolute;

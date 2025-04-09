@@ -36,8 +36,8 @@ const Footer = (props) => {
     <>
       {showFooter && showFooterDynamic && (
         <div className={styles.wrapperFooter}>
-          <Image className={styles.imgAbove} src={imgabove} alt="image" />
-          <Image className={styles.imgBelow} src={imgbelow} alt="image" />
+          {/* <Image className={styles.imgAbove} src={imgabove} alt="image" />
+          <Image className={styles.imgBelow} src={imgbelow} alt="image" /> */}
           <Link href="/" className={styles.wpLogo}>
             <Image className={styles.logo} src={logo} />
           </Link>

@@ -1,6 +1,6 @@
 @import "../../const/settings.scss";
 .wrapperFooter {
-  background-color: #f6f7ea;
+  background-color: #eaf1f7;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,6 +46,7 @@
         .iconFooter{
           width: 16px;
           height: 16px;
+          filter: brightness(0);
         }
       }
       button + button {

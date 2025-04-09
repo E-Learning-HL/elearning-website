@@ -335,14 +335,14 @@ const Header = ({ sessionServer }) => {
                 <>
                   <Button
                     href="/login"
-                    className={`${styles.buttonClinic} button-white`}
+                    className={`${styles.buttonClinic}`}
                     // onClick={() => router.push(`/login`)}
                   >
                     Login
                   </Button>
                   <Button
                     href="/register"
-                    className={`${styles.buttonRegister} button-blue`}
+                    className={`${styles.buttonRegister}`}
                     // onClick={scrollTo}
                   >
                     Register

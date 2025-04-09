@@ -134,7 +134,7 @@ const RegistrationClinic = ({ isStaticPage }) => {
                     size="large"
                     type="primary"
                     htmlType="submit"
-                    className="submit-registration-clinic button-blue"
+                    className="submit-registration-clinic"
                   >
                     ĐĂNG KÝ NGAY
                   </Button>

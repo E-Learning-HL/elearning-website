@@ -18,11 +18,11 @@ export default function Feature() {
       image: require("@/public/icon/school.svg"),
       link: "/course",
     },
-    {
-      name: "TOEIC",
-      subText: "Sự chuẩn bị toàn diện cho kỳ thi TOEIC",
-      link: "",
-    },
+    // {
+    //   name: "TOEIC",
+    //   subText: "Sự chuẩn bị toàn diện cho kỳ thi TOEIC",
+    //   link: "",
+    // },
   ];
 
   return (
@@ -35,7 +35,7 @@ export default function Feature() {
         className={"listFeature"}
       >
         {MARKER_FEATURE.map((item) => (
-          <Col xs={24} sm={24} md={8} xl={8}>
+          <Col xs={24} sm={24} md={12} xl={12}>
             <Link href={item?.link}>
               <div className="itemFeature">
                 <div className="itemImage">

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
-import coverHome from "@/public/image/cover-home-page.png";
+import coverHome from "@/public/image/cover-home-page.webp";
 import FormSearch from "@/src/component/home/form-search";
 import PopularTag from "@/src/component/home/popular-tag";
 import Header from "@/src/component/header/header";

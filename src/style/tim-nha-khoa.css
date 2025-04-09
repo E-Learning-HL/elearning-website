@@ -198,7 +198,7 @@
 .wrapper-form-search-top .start-point .wp-radio-select .wp-item-select .item-select .icon-location {
   width: 32px;
   height: auto;
-  filter: hue-rotate(132deg) saturate(18%) brightness(192%);
+  filter: hue-rotate(180deg) saturate(18%) brightness(192%);
 }
 .wrapper-form-search-top .start-point .wp-radio-select .wp-item-select .item-select .icon-location:hover {
   filter: none;
@@ -244,7 +244,7 @@
 .wrapper-form-search-top .target-point .wp-radio-select .wp-item-select .item-select .icon-location {
   width: 32px;
   height: auto;
-  filter: hue-rotate(132deg) saturate(18%) brightness(192%);
+  filter: hue-rotate(180deg) saturate(18%) brightness(192%);
 }
 .wrapper-form-search-top .target-point .wp-radio-select .wp-item-select .item-select .icon-location:hover {
   filter: none;

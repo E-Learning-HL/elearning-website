@@ -2,9 +2,9 @@
 .wpMain {
   overflow: hidden;
   background: #fff;
-  .wpTop{
+  .wpTop {
     width: 100%;
-    background: #f6f7ea;
+    background: #eaf1f7;
     .wpSectionSearch {
       // z-index: 1;
       padding-bottom: 100px;
@@ -29,7 +29,7 @@
           height: auto;
         }
       }
-  
+
       .wpContentSearch {
         // position: absolute;
         // z-index: 1;
@@ -39,9 +39,9 @@
         flex: 1;
         display: flex;
         justify-content: center;
-  
+
         .title {
-          color: var(--color-primary,#013533 );
+          color: var(--color-primary, #013533);
           text-align: center;
           /* H1 */
           // font-family: Roboto Flex;
@@ -50,8 +50,8 @@
           font-weight: 600;
           line-height: 130%; /* 72.8px */
           text-transform: capitalize;
-          span{
-            color: #5ab069;
+          span {
+            color: #5a68b0;
           }
         }
       }
@@ -76,7 +76,7 @@
       display: flex;
       flex-direction: column;
       padding-bottom: 150px !important;
-      h2{
+      h2 {
         font-size: 42px !important;
       }
       .coverHome {
