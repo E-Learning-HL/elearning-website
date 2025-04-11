@@ -366,7 +366,7 @@ const Header = ({ sessionServer }) => {
                       <Avatar
                         size={{ xl: 50, md: 50, sm: 35, xs: 35 }}
                         icon={<UserOutlined />}
-                        style={{ backgroundColor: "#5ab069" }}
+                        style={{ backgroundColor: "#5a96b0" }}
                       />
                     </a>
                   </Dropdown>

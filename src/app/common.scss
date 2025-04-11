@@ -148,11 +148,11 @@ a.ant-btn {
   background-position: center;
   &:hover {
     transition: background 0.5s;
-    background: darken(#5ab069, 5%) radial-gradient(circle, transparent 1%, darken(#5ab069, 5%) 1%) center/15000% !important;
+    background: darken(#5a96b0, 5%) radial-gradient(circle, transparent 1%, darken(#5a96b0, 5%) 1%) center/15000% !important;
   }
   
   &:active {
-    background-color: darken(#5ab069, 10%) !important;
+    background-color: darken(#5a96b0, 10%) !important;
     background-size: 100% !important;
     transition: background 0s !important;
   }

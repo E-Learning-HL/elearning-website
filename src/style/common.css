@@ -128,10 +128,10 @@ a.ant-btn {
 }
 .button-blue:hover {
   transition: background 0.5s;
-  background: #4ea35d radial-gradient(circle, transparent 1%, #4ea35d 1%) center/15000% !important;
+  background: #5a96b0 radial-gradient(circle, transparent 1%, #5a96b0 1%) center/15000% !important;
 }
 .button-blue:active {
-  background-color: #469153 !important;
+  background-color: #5a96b0 !important;
   background-size: 100% !important;
   transition: background 0s !important;
 }

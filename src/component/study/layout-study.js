@@ -212,7 +212,7 @@ export default function LayoutStudy(props) {
                     <Avatar
                       size={50}
                       icon={<UserOutlined />}
-                      style={{ backgroundColor: "#5ab069" }}
+                      style={{ backgroundColor: "#5a96b0" }}
                     />
                   </a>
                 </Dropdown>

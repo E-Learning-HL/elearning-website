@@ -164,7 +164,7 @@ export default function StartExamPage({ dataTests, session, params }) {
       const bodyListening = {
         ...fieldsValue.TaskListening,
         question: [
-          ...Object.values(fieldsValue.TaskListening.question).map((item) => {
+          ...Object?.values(fieldsValue.TaskListening.question).map((item) => {
             if (item.questionType === "SIMPLE_CHOICE") {
               return {
                 questionId: item.questionId,
@@ -201,8 +201,6 @@ export default function StartExamPage({ dataTests, session, params }) {
       .catch(error => {
 
       })
-      console.log("inputValue2", bodyListening);
-      console.log("====result", result);
     } else if (currentSection === "READING") {
       const fieldsValue = await readingForm.validateFields();
       const questionInput = taskReading?.question?.find(
@@ -226,10 +224,11 @@ export default function StartExamPage({ dataTests, session, params }) {
       }
 
       // console.log("input", inputValue);
+      console.log("fieldsValue", fieldsValue?.TaskReading);
       const bodyReading = {
         ...fieldsValue?.TaskReading,
         question: [
-          ...Object.values(fieldsValue?.TaskReading.question).map((item) => {
+          ...Object?.values(fieldsValue?.TaskReading?.question)?.map((item) => {
             if (item.questionType === "SIMPLE_CHOICE") {
               return {
                 questionId: item.questionId,
@@ -325,7 +324,7 @@ export default function StartExamPage({ dataTests, session, params }) {
             <Avatar
               size={50}
               icon={<UserOutlined />}
-              style={{ backgroundColor: "#5ab069" }}
+              style={{ backgroundColor: "#5a96b0" }}
             />
           </div>
           {currentSection === "LISTENING" && (

@@ -136,7 +136,7 @@
   text-align: center;
   border-radius: 8px;
   padding: 0 20px;
-  color: #5ab069;
+  color: #5a96b0;
   /* P2/Bold */
   font-size: 16px !important;
   font-style: normal;
@@ -151,7 +151,7 @@
   align-items: center;
   border-radius: 8px;
   text-align: center;
-  background: var(--color-brand-color, #5ab069);
+  background: var(--color-brand-color, #5a96b0);
   height: 40px;
   padding: 0 20px;
   color: #fff;

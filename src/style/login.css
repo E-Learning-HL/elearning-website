@@ -51,7 +51,7 @@
   font-weight: 500;
 }
 .wp-login-page .wp-cover-login .cover-left .register a {
-  color: #5ab069;
+  color: #5a96b0;
   font-weight: bold;
 }
 .wp-login-page .wp-cover-login .cover-login {
@@ -93,7 +93,7 @@
   height: 4px;
   width: 120px;
   border-radius: 2px;
-  background-color: #5ab069;
+  background-color: #5a96b0;
   margin-bottom: 30px;
 }
 .wp-login-page .wp-login-form .wp-form .descript {
@@ -197,7 +197,7 @@
   margin-bottom: 45px;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .forgot-pass:hover {
-  color: #5ab069;
+  color: #5a96b0;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .submit-button .ant-btn {
   width: 100%;
@@ -207,7 +207,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 27px */
-  background-color: #5ab069;
+  background-color: #5a96b0;
   color: white;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .submit-button .ant-btn :hover {
@@ -276,7 +276,7 @@
   color: #f00;
 }
 .wp-login-page .wp-login-form .wp-form .login-form .re-send {
-  color: #5ab069;
+  color: #5a96b0;
   font-size: 16px;
   text-align: center;
   text-decoration: underline;
@@ -308,11 +308,11 @@
   line-height: 150%; /* 24px */
 }
 .wp-login-page .wp-login-form .wp-form .sign-up a {
-  color: #5ab069;
+  color: #5a96b0;
   font-size: 16px;
 }
 .wp-login-page .wp-login-form .wp-form .return-login {
-  color: #5ab069;
+  color: #5a96b0;
   font-size: 16px;
   text-align: center;
   text-decoration: underline;

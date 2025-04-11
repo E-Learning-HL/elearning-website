@@ -50,7 +50,7 @@ export default function RemarkableService(props) {
                 100+ tests
               </div>
             </div>
-            <div className={`${styles.detail} button-blue`}>Xem chi tiết</div>
+            <div className={`${styles.detail}`}>Xem chi tiết</div>
           </div>
         </Link>
       </Col>
